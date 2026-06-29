@@ -1,15 +1,16 @@
 :root {
-  --ink: #171615;
-  --muted: #655f58;
-  --paper: #f4efe6;
-  --paper-deep: #e6ddd0;
-  --paper-soft: #fbf7ef;
-  --line: rgba(23, 22, 21, 0.14);
-  --fine-line: rgba(23, 22, 21, 0.08);
-  --accent: #a64033;
-  --accent-dark: #6f251f;
-  --graphite: #2f3432;
-  --white: #fffaf2;
+  --ink: #141817;
+  --muted: #5e6866;
+  --paper: #eef2ef;
+  --paper-deep: #dfe7e4;
+  --paper-soft: #f8faf7;
+  --line: rgba(20, 24, 23, 0.14);
+  --fine-line: rgba(20, 24, 23, 0.08);
+  --accent: #4f7774;
+  --accent-dark: #294947;
+  --graphite: #303838;
+  --wood: #9a6a42;
+  --white: #fbfcf7;
   --header-height: 72px;
   color: var(--ink);
   background: var(--paper);
@@ -68,7 +69,7 @@ img {
 
 .site-header.is-scrolled {
   color: var(--ink);
-  background: rgba(244, 239, 230, 0.9);
+  background: rgba(238, 242, 239, 0.9);
   border-color: var(--line);
 }
 
@@ -176,14 +177,14 @@ img {
 
 .hero-image {
   object-fit: cover;
-  object-position: 66% center;
-  filter: saturate(0.86) contrast(1.08);
+  object-position: 68% center;
+  filter: saturate(0.82) contrast(1.06) brightness(0.94);
 }
 
 .hero-shade {
   background:
-    linear-gradient(90deg, rgba(12, 11, 10, 0.94) 0%, rgba(12, 11, 10, 0.72) 40%, rgba(12, 11, 10, 0.18) 78%),
-    linear-gradient(0deg, rgba(12, 11, 10, 0.72) 0%, transparent 42%);
+    linear-gradient(90deg, rgba(9, 13, 13, 0.94) 0%, rgba(9, 13, 13, 0.72) 42%, rgba(9, 13, 13, 0.12) 80%),
+    linear-gradient(0deg, rgba(9, 13, 13, 0.68) 0%, transparent 42%);
 }
 
 .score-field {
@@ -233,7 +234,7 @@ img {
 }
 
 .hero .eyebrow {
-  color: #d99a8e;
+  color: #a6c7c2;
 }
 
 h1,
@@ -325,7 +326,7 @@ h3 {
   width: 44px;
   height: 44px;
   content: "";
-  border: 1px solid rgba(166, 64, 51, 0.35);
+  border: 1px solid rgba(79, 119, 116, 0.38);
   border-radius: 50%;
   transform: scaleX(1.55);
 }
@@ -392,7 +393,7 @@ h3 {
 
 .listen {
   background:
-    repeating-linear-gradient(90deg, transparent 0, transparent 118px, rgba(166, 64, 51, 0.08) 119px, transparent 120px),
+    repeating-linear-gradient(90deg, transparent 0, transparent 118px, rgba(79, 119, 116, 0.1) 119px, transparent 120px),
     var(--paper-soft);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -521,7 +522,7 @@ h3 {
 
 .contact {
   background:
-    radial-gradient(circle at 82% 24%, rgba(166, 64, 51, 0.12), transparent 28%),
+    radial-gradient(circle at 82% 24%, rgba(79, 119, 116, 0.14), transparent 28%),
     var(--paper-deep);
 }
 
@@ -609,13 +610,13 @@ h3 {
   }
 
   .hero-image {
-    object-position: 66% center;
+    object-position: 62% center;
   }
 
   .hero-shade {
     background:
-      linear-gradient(90deg, rgba(12, 11, 10, 0.9) 0%, rgba(12, 11, 10, 0.58) 72%, rgba(12, 11, 10, 0.26) 100%),
-      linear-gradient(0deg, rgba(12, 11, 10, 0.75) 0%, transparent 46%);
+      linear-gradient(90deg, rgba(9, 13, 13, 0.9) 0%, rgba(9, 13, 13, 0.62) 72%, rgba(9, 13, 13, 0.28) 100%),
+      linear-gradient(0deg, rgba(9, 13, 13, 0.76) 0%, transparent 46%);
   }
 
   .score-field {
