@@ -60,7 +60,7 @@ img {
   display: grid;
   place-items: center;
   pointer-events: none;
-  animation: intro-hide 180ms ease 4050ms forwards;
+  animation: intro-hide 180ms ease 4420ms forwards;
 }
 
 .intro-panel {
@@ -75,12 +75,12 @@ img {
 
 .intro-panel-left {
   left: 0;
-  animation: panel-left-open 1180ms cubic-bezier(0.77, 0, 0.18, 1) 2840ms forwards;
+  animation: panel-left-open 1450ms cubic-bezier(0.77, 0, 0.18, 1) 2840ms forwards;
 }
 
 .intro-panel-right {
   right: 0;
-  animation: panel-right-open 1180ms cubic-bezier(0.77, 0, 0.18, 1) 2840ms forwards;
+  animation: panel-right-open 1450ms cubic-bezier(0.77, 0, 0.18, 1) 2840ms forwards;
 }
 
 .intro-mark {
@@ -151,7 +151,7 @@ img {
   transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
   opacity: 0;
   transform: translateY(-14px);
-  animation: header-enter 760ms ease 3780ms forwards;
+  animation: header-enter 820ms ease 4120ms forwards;
 }
 
 .site-header.is-scrolled {
@@ -287,7 +287,7 @@ img {
   object-position: 68% center;
   filter: saturate(0.82) contrast(1.06) brightness(0.94);
   transform: scale(1.08);
-  animation: image-settle 1800ms cubic-bezier(0.22, 1, 0.36, 1) 2940ms forwards;
+  animation: image-settle 2100ms cubic-bezier(0.22, 1, 0.36, 1) 3140ms forwards;
 }
 
 .hero-shade {
@@ -315,22 +315,22 @@ img {
 }
 
 .score-field span:nth-child(1) {
-  animation-delay: 3720ms;
+  animation-delay: 4080ms;
 }
 
 .score-field span:nth-child(2) {
   width: 64%;
-  animation-delay: 3810ms;
+  animation-delay: 4170ms;
 }
 
 .score-field span:nth-child(3) {
   width: 82%;
-  animation-delay: 3900ms;
+  animation-delay: 4260ms;
 }
 
 .score-field span:nth-child(4) {
   width: 42%;
-  animation-delay: 3990ms;
+  animation-delay: 4350ms;
 }
 
 .hero-content {
@@ -348,19 +348,19 @@ img {
 }
 
 .hero-content > :nth-child(1) {
-  animation-delay: 3660ms;
+  animation-delay: 4020ms;
 }
 
 .hero-content > :nth-child(2) {
-  animation-delay: 3770ms;
+  animation-delay: 4130ms;
 }
 
 .hero-content > :nth-child(3) {
-  animation-delay: 3880ms;
+  animation-delay: 4240ms;
 }
 
 .hero-content > :nth-child(4) {
-  animation-delay: 3990ms;
+  animation-delay: 4350ms;
 }
 
 .eyebrow,
