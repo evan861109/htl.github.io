@@ -60,7 +60,7 @@ img {
   display: grid;
   place-items: center;
   pointer-events: none;
-  animation: intro-hide 180ms ease 2600ms forwards;
+  animation: intro-hide 180ms ease 3300ms forwards;
 }
 
 .intro-panel {
@@ -75,12 +75,12 @@ img {
 
 .intro-panel-left {
   left: 0;
-  animation: panel-left-open 980ms cubic-bezier(0.77, 0, 0.18, 1) 1680ms forwards;
+  animation: panel-left-open 1120ms cubic-bezier(0.77, 0, 0.18, 1) 2140ms forwards;
 }
 
 .intro-panel-right {
   right: 0;
-  animation: panel-right-open 980ms cubic-bezier(0.77, 0, 0.18, 1) 1680ms forwards;
+  animation: panel-right-open 1120ms cubic-bezier(0.77, 0, 0.18, 1) 2140ms forwards;
 }
 
 .intro-mark {
@@ -91,7 +91,7 @@ img {
   justify-items: center;
   color: var(--white);
   text-align: center;
-  animation: mark-exit 440ms ease 1540ms forwards;
+  animation: mark-exit 520ms ease 1920ms forwards;
 }
 
 .intro-name {
@@ -101,7 +101,7 @@ img {
   line-height: 0.9;
   opacity: 0;
   transform: translateY(14px);
-  animation: mark-enter 620ms cubic-bezier(0.22, 1, 0.36, 1) 120ms forwards;
+  animation: mark-enter 780ms cubic-bezier(0.22, 1, 0.36, 1) 160ms forwards;
 }
 
 .intro-role {
@@ -117,7 +117,7 @@ img {
   text-transform: uppercase;
   opacity: 0;
   transform: translateY(10px);
-  animation: mark-enter 520ms cubic-bezier(0.22, 1, 0.36, 1) 760ms forwards;
+  animation: mark-enter 680ms cubic-bezier(0.22, 1, 0.36, 1) 1000ms forwards;
 }
 
 .intro-role::before,
@@ -126,7 +126,7 @@ img {
   content: "";
   background: linear-gradient(90deg, transparent, currentColor);
   transform: scaleX(0);
-  animation: line-draw 620ms cubic-bezier(0.77, 0, 0.18, 1) 920ms forwards;
+  animation: line-draw 760ms cubic-bezier(0.77, 0, 0.18, 1) 1180ms forwards;
 }
 
 .intro-role::after {
@@ -151,7 +151,7 @@ img {
   transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
   opacity: 0;
   transform: translateY(-14px);
-  animation: header-enter 700ms ease 2320ms forwards;
+  animation: header-enter 760ms ease 3040ms forwards;
 }
 
 .site-header.is-scrolled {
@@ -287,7 +287,7 @@ img {
   object-position: 68% center;
   filter: saturate(0.82) contrast(1.06) brightness(0.94);
   transform: scale(1.08);
-  animation: image-settle 1600ms cubic-bezier(0.22, 1, 0.36, 1) 1720ms forwards;
+  animation: image-settle 1800ms cubic-bezier(0.22, 1, 0.36, 1) 2240ms forwards;
 }
 
 .hero-shade {
@@ -315,22 +315,22 @@ img {
 }
 
 .score-field span:nth-child(1) {
-  animation-delay: 2280ms;
+  animation-delay: 2980ms;
 }
 
 .score-field span:nth-child(2) {
   width: 64%;
-  animation-delay: 2370ms;
+  animation-delay: 3070ms;
 }
 
 .score-field span:nth-child(3) {
   width: 82%;
-  animation-delay: 2460ms;
+  animation-delay: 3160ms;
 }
 
 .score-field span:nth-child(4) {
   width: 42%;
-  animation-delay: 2550ms;
+  animation-delay: 3250ms;
 }
 
 .hero-content {
@@ -348,19 +348,19 @@ img {
 }
 
 .hero-content > :nth-child(1) {
-  animation-delay: 2220ms;
+  animation-delay: 2920ms;
 }
 
 .hero-content > :nth-child(2) {
-  animation-delay: 2330ms;
+  animation-delay: 3030ms;
 }
 
 .hero-content > :nth-child(3) {
-  animation-delay: 2440ms;
+  animation-delay: 3140ms;
 }
 
 .hero-content > :nth-child(4) {
-  animation-delay: 2550ms;
+  animation-delay: 3250ms;
 }
 
 .eyebrow,
