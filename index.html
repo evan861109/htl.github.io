@@ -15,8 +15,32 @@
       rel="stylesheet"
     >
     <link rel="stylesheet" href="styles.css">
+    <noscript>
+      <style>
+        .page-intro { display: none; }
+        .site-header,
+        .hero-image,
+        .score-field span,
+        .hero-content > *,
+        [data-reveal],
+        .reveal-group > div {
+          opacity: 1;
+          transform: none;
+        }
+      </style>
+    </noscript>
   </head>
   <body>
+    <div class="page-intro" aria-hidden="true">
+      <div class="intro-panel intro-panel-left"></div>
+      <div class="intro-panel intro-panel-right"></div>
+      <div class="intro-mark">
+        <span class="intro-mark-line"></span>
+        <span class="intro-mark-text">HTL</span>
+        <span class="intro-mark-line"></span>
+      </div>
+    </div>
+
     <header class="site-header" data-header>
       <a class="brand" href="#home" aria-label="Helena Tan Li home">
         <span class="brand-mark">HTL</span>
@@ -38,7 +62,7 @@
     </header>
 
     <main>
-      <section class="hero" id="home" aria-labelledby="hero-title">
+      <section class="hero" id="home" aria-labelledby="hero-title" data-pointer-field>
         <img class="hero-image" src="assets/hero-sound-art.png" alt="Abstract sound-art materials with water, stones, glass bowls, and xylophone wood">
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="score-field" aria-hidden="true">
@@ -60,7 +84,7 @@
         </div>
       </section>
 
-      <section class="intro-band" aria-label="Highlights">
+      <section class="intro-band reveal-group" aria-label="Highlights" data-reveal>
         <div>
           <span>01</span>
           <p>Stone, glass, water, and struck wood</p>
@@ -75,7 +99,7 @@
         </div>
       </section>
 
-      <section class="section about" id="about">
+      <section class="section about" id="about" data-reveal>
         <div class="section-kicker">About</div>
         <div class="about-grid">
           <h2>Elemental percussion for rooms, surfaces, and listening bodies.</h2>
@@ -92,7 +116,7 @@
         </div>
       </section>
 
-      <section class="section listen" id="listen">
+      <section class="section listen" id="listen" data-reveal>
         <div class="section-header">
           <div>
             <div class="section-kicker">Listen</div>
@@ -129,7 +153,7 @@
         </div>
       </section>
 
-      <section class="section calendar" id="calendar">
+      <section class="section calendar" id="calendar" data-reveal>
         <div class="section-header">
           <div>
             <div class="section-kicker">Calendar</div>
@@ -162,7 +186,7 @@
         </div>
       </section>
 
-      <section class="section press" id="press">
+      <section class="section press" id="press" data-reveal>
         <div class="quote-block">
           <p>
             "The work feels less like a recital than a landscape being quietly activated."
@@ -176,7 +200,7 @@
         </div>
       </section>
 
-      <section class="section contact" id="contact">
+      <section class="section contact" id="contact" data-reveal>
         <div>
           <div class="section-kicker">Contact</div>
           <h2>Bookings, installations, collaborations, and teaching inquiries.</h2>

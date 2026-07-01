@@ -35,6 +35,10 @@ body {
     var(--paper);
 }
 
+body.is-intro-running {
+  overflow: hidden;
+}
+
 body.nav-open {
   overflow: hidden;
 }
@@ -47,6 +51,64 @@ a {
 img {
   display: block;
   max-width: 100%;
+}
+
+.page-intro {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  animation: intro-hide 180ms ease 1900ms forwards;
+}
+
+.intro-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background:
+    repeating-linear-gradient(0deg, transparent 0, transparent 18px, rgba(251, 252, 247, 0.045) 19px),
+    #0d1111;
+}
+
+.intro-panel-left {
+  left: 0;
+  animation: panel-left-open 900ms cubic-bezier(0.77, 0, 0.18, 1) 1050ms forwards;
+}
+
+.intro-panel-right {
+  right: 0;
+  animation: panel-right-open 900ms cubic-bezier(0.77, 0, 0.18, 1) 1050ms forwards;
+}
+
+.intro-mark {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(340px, calc(100vw - 60px));
+  grid-template-columns: minmax(30px, 1fr) auto minmax(30px, 1fr);
+  gap: 18px;
+  align-items: center;
+  color: var(--white);
+  opacity: 0;
+  animation:
+    mark-enter 420ms ease 120ms forwards,
+    mark-exit 420ms ease 980ms forwards;
+}
+
+.intro-mark-text {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2.4rem, 9vw, 5.8rem);
+  line-height: 0.9;
+}
+
+.intro-mark-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(251, 252, 247, 0.72), transparent);
+  transform: scaleX(0);
+  animation: line-draw 720ms cubic-bezier(0.77, 0, 0.18, 1) 260ms forwards;
 }
 
 .site-header {
@@ -65,6 +127,9 @@ img {
   border-bottom: 1px solid rgba(255, 250, 243, 0.16);
   backdrop-filter: blur(18px);
   transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+  opacity: 0;
+  transform: translateY(-14px);
+  animation: header-enter 700ms ease 1660ms forwards;
 }
 
 .site-header.is-scrolled {
@@ -165,6 +230,26 @@ img {
   overflow: hidden;
   color: var(--white);
   background: #11100f;
+  --pointer-x: 72%;
+  --pointer-y: 38%;
+}
+
+.hero::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(184, 219, 214, 0.2), transparent 18%),
+    radial-gradient(circle at calc(var(--pointer-x) + 9%) calc(var(--pointer-y) + 14%), rgba(251, 252, 247, 0.12), transparent 14%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.hero.is-pointer-active::after {
+  opacity: 1;
 }
 
 .hero-image,
@@ -179,6 +264,8 @@ img {
   object-fit: cover;
   object-position: 68% center;
   filter: saturate(0.82) contrast(1.06) brightness(0.94);
+  transform: scale(1.08);
+  animation: image-settle 1600ms cubic-bezier(0.22, 1, 0.36, 1) 960ms forwards;
 }
 
 .hero-shade {
@@ -200,26 +287,58 @@ img {
   display: block;
   height: 1px;
   background: linear-gradient(90deg, rgba(255, 250, 242, 0.5), rgba(255, 250, 242, 0.08) 58%, transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: score-draw 900ms cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.score-field span:nth-child(1) {
+  animation-delay: 1620ms;
 }
 
 .score-field span:nth-child(2) {
   width: 64%;
+  animation-delay: 1710ms;
 }
 
 .score-field span:nth-child(3) {
   width: 82%;
+  animation-delay: 1800ms;
 }
 
 .score-field span:nth-child(4) {
   width: 42%;
+  animation-delay: 1890ms;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: min(690px, calc(100% - 36px));
   margin-left: clamp(18px, 7vw, 104px);
   padding-top: var(--header-height);
+}
+
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(22px);
+  animation: content-rise 780ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-content > :nth-child(1) {
+  animation-delay: 1460ms;
+}
+
+.hero-content > :nth-child(2) {
+  animation-delay: 1570ms;
+}
+
+.hero-content > :nth-child(3) {
+  animation-delay: 1680ms;
+}
+
+.hero-content > :nth-child(4) {
+  animation-delay: 1790ms;
 }
 
 .eyebrow,
@@ -353,6 +472,36 @@ h3 {
 .section {
   padding: clamp(70px, 10vw, 136px) clamp(18px, 6vw, 88px);
   scroll-margin-top: var(--header-height);
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 760ms ease, transform 760ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-group > div {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 620ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-group.is-visible > div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-group.is-visible > div:nth-child(2) {
+  transition-delay: 90ms;
+}
+
+.reveal-group.is-visible > div:nth-child(3) {
+  transition-delay: 180ms;
 }
 
 .about {
@@ -573,6 +722,75 @@ h3 {
   margin: 0;
 }
 
+@keyframes intro-hide {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes panel-left-open {
+  to {
+    transform: translateX(-101%);
+  }
+}
+
+@keyframes panel-right-open {
+  to {
+    transform: translateX(101%);
+  }
+}
+
+@keyframes mark-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mark-exit {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes line-draw {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes header-enter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes image-settle {
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes score-draw {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes content-rise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 860px) {
   .nav-toggle {
     display: block;
@@ -681,5 +899,38 @@ h3 {
 
   .site-footer {
     display: grid;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body.is-intro-running {
+    overflow: auto;
+  }
+
+  .page-intro {
+    display: none;
+  }
+
+  .site-header,
+  .hero-image,
+  .score-field span,
+  .hero-content > *,
+  [data-reveal],
+  .reveal-group > div {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero::after {
+    display: none;
   }
 }
