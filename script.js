@@ -12,7 +12,7 @@ const sections = navLinks
 
 if (!prefersReducedMotion) {
   body.classList.add("is-intro-running");
-  window.setTimeout(() => body.classList.remove("is-intro-running"), 2100);
+  window.setTimeout(() => body.classList.remove("is-intro-running"), 2800);
 }
 
 const updateHeader = () => {

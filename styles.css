@@ -60,7 +60,7 @@ img {
   display: grid;
   place-items: center;
   pointer-events: none;
-  animation: intro-hide 180ms ease 1900ms forwards;
+  animation: intro-hide 180ms ease 2600ms forwards;
 }
 
 .intro-panel {
@@ -75,40 +75,62 @@ img {
 
 .intro-panel-left {
   left: 0;
-  animation: panel-left-open 900ms cubic-bezier(0.77, 0, 0.18, 1) 1050ms forwards;
+  animation: panel-left-open 980ms cubic-bezier(0.77, 0, 0.18, 1) 1680ms forwards;
 }
 
 .intro-panel-right {
   right: 0;
-  animation: panel-right-open 900ms cubic-bezier(0.77, 0, 0.18, 1) 1050ms forwards;
+  animation: panel-right-open 980ms cubic-bezier(0.77, 0, 0.18, 1) 1680ms forwards;
 }
 
 .intro-mark {
   position: relative;
   z-index: 1;
   display: grid;
-  width: min(340px, calc(100vw - 60px));
-  grid-template-columns: minmax(30px, 1fr) auto minmax(30px, 1fr);
-  gap: 18px;
-  align-items: center;
+  gap: 16px;
+  justify-items: center;
   color: var(--white);
-  opacity: 0;
-  animation:
-    mark-enter 420ms ease 120ms forwards,
-    mark-exit 420ms ease 980ms forwards;
+  text-align: center;
+  animation: mark-exit 440ms ease 1540ms forwards;
 }
 
-.intro-mark-text {
+.intro-name {
+  display: block;
   font-family: "Instrument Serif", Georgia, serif;
-  font-size: clamp(2.4rem, 9vw, 5.8rem);
+  font-size: clamp(3.2rem, 11vw, 9rem);
   line-height: 0.9;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: mark-enter 620ms cubic-bezier(0.22, 1, 0.36, 1) 120ms forwards;
 }
 
-.intro-mark-line {
+.intro-role {
+  display: inline-grid;
+  grid-template-columns: minmax(34px, 72px) auto minmax(34px, 72px);
+  gap: 16px;
+  align-items: center;
+  color: #a6c7c2;
+  font-size: clamp(0.78rem, 2.5vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: mark-enter 520ms cubic-bezier(0.22, 1, 0.36, 1) 760ms forwards;
+}
+
+.intro-role::before,
+.intro-role::after {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(251, 252, 247, 0.72), transparent);
+  content: "";
+  background: linear-gradient(90deg, transparent, currentColor);
   transform: scaleX(0);
-  animation: line-draw 720ms cubic-bezier(0.77, 0, 0.18, 1) 260ms forwards;
+  animation: line-draw 620ms cubic-bezier(0.77, 0, 0.18, 1) 920ms forwards;
+}
+
+.intro-role::after {
+  background: linear-gradient(90deg, currentColor, transparent);
 }
 
 .site-header {
@@ -129,7 +151,7 @@ img {
   transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
   opacity: 0;
   transform: translateY(-14px);
-  animation: header-enter 700ms ease 1660ms forwards;
+  animation: header-enter 700ms ease 2320ms forwards;
 }
 
 .site-header.is-scrolled {
@@ -265,7 +287,7 @@ img {
   object-position: 68% center;
   filter: saturate(0.82) contrast(1.06) brightness(0.94);
   transform: scale(1.08);
-  animation: image-settle 1600ms cubic-bezier(0.22, 1, 0.36, 1) 960ms forwards;
+  animation: image-settle 1600ms cubic-bezier(0.22, 1, 0.36, 1) 1720ms forwards;
 }
 
 .hero-shade {
@@ -293,22 +315,22 @@ img {
 }
 
 .score-field span:nth-child(1) {
-  animation-delay: 1620ms;
+  animation-delay: 2280ms;
 }
 
 .score-field span:nth-child(2) {
   width: 64%;
-  animation-delay: 1710ms;
+  animation-delay: 2370ms;
 }
 
 .score-field span:nth-child(3) {
   width: 82%;
-  animation-delay: 1800ms;
+  animation-delay: 2460ms;
 }
 
 .score-field span:nth-child(4) {
   width: 42%;
-  animation-delay: 1890ms;
+  animation-delay: 2550ms;
 }
 
 .hero-content {
@@ -326,19 +348,19 @@ img {
 }
 
 .hero-content > :nth-child(1) {
-  animation-delay: 1460ms;
+  animation-delay: 2220ms;
 }
 
 .hero-content > :nth-child(2) {
-  animation-delay: 1570ms;
+  animation-delay: 2330ms;
 }
 
 .hero-content > :nth-child(3) {
-  animation-delay: 1680ms;
+  animation-delay: 2440ms;
 }
 
 .hero-content > :nth-child(4) {
-  animation-delay: 1790ms;
+  animation-delay: 2550ms;
 }
 
 .eyebrow,
