@@ -21,12 +21,14 @@
     },
     "ui": {
       "nav-about": "About",
+      "nav-bio": "Bio",
       "nav-listen": "Listen",
       "nav-media": "Media",
       "nav-projects": "Projects",
       "nav-materials": "Materials",
       "nav-contact": "Contact",
       "about-kicker": "About",
+      "full-bio-link": "Read full biography",
       "listen-kicker": "Listen",
       "listen-heading": "Selected work",
       "media-library-link": "View full media library",
@@ -51,6 +53,15 @@
         "As a soloist, Hung won first prize in the 2024 American Soloist International Music Competition and was a semi-finalist in the International Marimba Competition at Chapman University and the International Percussion Competition at Northwestern University. With the UNT Percussion Ensemble, she won the 2025 PAS International Percussion Ensemble Competition.",
         "Hung is completing a Doctor of Musical Arts at the University of North Texas, where she is a Teaching Fellow. She holds a Master of Music and Performer Diploma from the Indiana University Jacobs School of Music, and a Bachelor of Fine Arts from the University of Taipei."
       ]
+    },
+    "bio": {
+      "seo": {
+        "title": "Biography | Tzu-Ling Hung",
+        "description": "Biography of percussionist, chamber musician, and composer Tzu-Ling Hung."
+      },
+      "kicker": "Biography",
+      "title": "Tzu-Ling Hung",
+      "intro": "Percussionist, chamber musician, and composer working across contemporary music, new work, and cross-disciplinary performance."
     },
     "tracks": [
       {
@@ -127,12 +138,14 @@
     },
     "ui": {
       "nav-about": "關於",
+      "nav-bio": "簡介",
       "nav-listen": "聆聽",
       "nav-media": "媒體",
       "nav-projects": "計畫",
       "nav-materials": "資料",
       "nav-contact": "聯絡",
       "about-kicker": "關於",
+      "full-bio-link": "閱讀完整簡介",
       "listen-kicker": "聆聽",
       "listen-heading": "精選演出",
       "media-library-link": "瀏覽完整媒體庫",
@@ -157,6 +170,15 @@
         "作為獨奏家，洪梓菱獲得 2024 American Soloist International Music Competition 首獎，並入圍 Chapman University 國際馬林巴木琴大賽與 Northwestern University 國際打擊樂大賽準決賽。她亦隨北德州大學打擊樂團贏得 2025 PAS 國際打擊樂團大賽優勝。",
         "洪梓菱現為北德州大學打擊樂演奏博士候選人，並兼任該校 Teaching Fellow。她於台北市立大學取得打擊樂演奏學士學位，並於印第安那大學積可斯音樂學院取得打擊樂演奏碩士學位與演奏家文憑。"
       ]
+    },
+    "bio": {
+      "seo": {
+        "title": "藝術家簡介 | 洪梓菱",
+        "description": "打擊樂演奏家、室內樂演奏家與作曲家洪梓菱的完整簡介。"
+      },
+      "kicker": "藝術家簡介 / 洪梓菱",
+      "title": "Tzu-Ling Hung",
+      "intro": "打擊樂演奏家、室內樂演奏家與作曲家，活躍於當代音樂、新作與跨域演出。"
     },
     "tracks": [
       {

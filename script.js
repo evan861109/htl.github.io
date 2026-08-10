@@ -9,6 +9,7 @@ const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)
 const languageButtons = Array.from(document.querySelectorAll("[data-language]"));
 const languageStorageKey = "tzuling-language";
 const isMediaPage = body.classList.contains("media-page");
+const isBioPage = body.classList.contains("bio-page");
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
@@ -43,7 +44,7 @@ const updateLanguageLinks = (language) => {
   document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute('href');
 
-    if (!href || !/^(?:index|media)\.html(?:[?#]|$)/.test(href)) {
+    if (!href || !/^(?:index|media|bio)\.html(?:[?#]|$)/.test(href)) {
       return;
     }
 
@@ -107,6 +108,49 @@ const renderParagraphs = (paragraphs) => {
   if (fragment.childNodes.length) {
     container.replaceChildren(fragment);
   }
+};
+
+const renderBioParagraphs = (paragraphs) => {
+  const container = document.querySelector("[data-bio-copy]");
+
+  if (!container || !Array.isArray(paragraphs) || !paragraphs.length) {
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  paragraphs.forEach((paragraph) => {
+    if (typeof paragraph === "string" && paragraph.trim()) {
+      fragment.append(makeElement("p", "", paragraph));
+    }
+  });
+
+  if (fragment.childNodes.length) {
+    container.replaceChildren(fragment);
+  }
+};
+
+const hydrateBioContent = (site) => {
+  if (!isBioPage || !site.bio) {
+    return;
+  }
+
+  if (site.bio.seo?.title) {
+    document.title = site.bio.seo.title;
+  }
+
+  const description = document.querySelector("[data-bio-seo-description]");
+  if (description && site.bio.seo?.description) {
+    description.content = site.bio.seo.description;
+  }
+
+  document.querySelectorAll("[data-bio-content]").forEach((element) => {
+    const value = site.bio[element.dataset.bioContent];
+    if (typeof value === "string") {
+      element.textContent = value;
+    }
+  });
+
+  renderBioParagraphs(site.about?.paragraphs);
 };
 
 const renderTracks = (tracks, actionLabel = "Watch") => {
@@ -229,11 +273,11 @@ const hydrateSiteContent = (site, language) => {
 
   document.documentElement.lang = language === "zh_hant" ? "zh-Hant" : "en";
 
-  if (!isMediaPage && site.seo?.title) {
+  if (!isMediaPage && !isBioPage && site.seo?.title) {
     document.title = site.seo.title;
   }
   const description = document.querySelector("[data-seo-description]");
-  if (!isMediaPage && description && site.seo?.description) {
+  if (!isMediaPage && !isBioPage && description && site.seo?.description) {
     description.content = site.seo.description;
   }
 
@@ -280,7 +324,8 @@ const hydrateSiteContent = (site, language) => {
     heroImage.alt = site.hero.image_alt || "Artist performance image";
   }
 
-  renderParagraphs(site.about?.paragraphs);
+  renderParagraphs(site.about?.paragraphs?.slice(0, 2));
+  hydrateBioContent(site);
   renderTracks(site.tracks, site.ui?.watch || "Watch");
   renderProjects(site.projects);
   renderContact(site.contact);

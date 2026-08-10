@@ -68,6 +68,9 @@ components:
           - name: nav-about
             label: About navigation label
             type: string
+          - name: nav-bio
+            label: Bio navigation label
+            type: string
           - name: nav-listen
             label: Listen navigation label
             type: string
@@ -85,6 +88,9 @@ components:
             type: string
           - name: about-kicker
             label: About section label
+            type: string
+          - name: full-bio-link
+            label: Full biography link label
             type: string
           - name: listen-kicker
             label: Listen section label
@@ -142,6 +148,29 @@ components:
             list:
               min: 1
               max: 6
+      - name: bio
+        label: Biography page
+        type: object
+        fields:
+          - name: seo
+            label: Search appearance
+            type: object
+            fields:
+              - name: title
+                label: Browser title
+                type: string
+              - name: description
+                label: Search description
+                type: text
+          - name: kicker
+            label: Section label
+            type: string
+          - name: title
+            label: Page title
+            type: string
+          - name: intro
+            label: Introduction
+            type: text
       - name: tracks
         label: Featured videos
         type: object

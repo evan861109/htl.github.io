@@ -636,6 +636,18 @@ html[lang="zh-Hant"] .practice-bridge-statement {
   line-height: 1.75;
 }
 
+.about-link {
+  display: inline-block;
+  margin-top: 28px;
+  padding-bottom: 6px;
+  color: var(--accent-dark);
+  border-bottom: 1px solid currentColor;
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .section-header {
   display: flex;
   align-items: end;
@@ -840,6 +852,65 @@ html[lang="zh-Hant"] .practice-bridge-statement {
   opacity: 1;
   transform: none;
   animation: none;
+}
+
+.bio-main {
+  min-height: 100vh;
+  padding-top: var(--header-height);
+}
+
+.bio-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+  gap: clamp(32px, 8vw, 148px);
+  align-items: end;
+  padding: clamp(88px, 13vw, 184px) clamp(18px, 7vw, 104px) clamp(62px, 9vw, 122px);
+  border-bottom: 1px solid var(--line);
+  background:
+    repeating-linear-gradient(90deg, transparent 0, transparent 118px, rgba(79, 119, 116, 0.1) 119px, transparent 120px),
+    var(--paper-deep);
+}
+
+.bio-intro h1 {
+  max-width: 8ch;
+  margin-bottom: 0;
+  font-size: clamp(4rem, 10vw, 9rem);
+}
+
+.bio-intro-copy {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.1rem, 1.8vw, 1.42rem);
+  line-height: 1.6;
+}
+
+.bio-copy-section {
+  padding: clamp(72px, 10vw, 142px) clamp(18px, 7vw, 104px) clamp(92px, 13vw, 180px);
+  background: var(--paper);
+}
+
+.bio-copy {
+  max-width: 760px;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: clamp(1.12rem, 1.7vw, 1.3rem);
+  line-height: 1.82;
+}
+
+.bio-copy p {
+  margin: 0;
+  padding: clamp(28px, 4vw, 46px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.bio-copy p:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+html[lang="zh-Hant"] .about-link {
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 
 .media-main {
@@ -1195,6 +1266,7 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
   .practice-bridge,
   .about-grid,
   .contact,
+  .bio-intro,
   .events,
   .press {
     grid-template-columns: 1fr;
@@ -1220,6 +1292,10 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
 
   .media-feature-copy {
     min-height: 0;
+  }
+
+  .bio-copy {
+    margin-left: 0;
   }
 }
 
@@ -1276,6 +1352,14 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
 
   .media-feature {
     padding-top: 72px;
+  }
+
+  .bio-intro {
+    padding-top: 84px;
+  }
+
+  .bio-intro h1 {
+    font-size: clamp(3.8rem, 19vw, 6.4rem);
   }
 
   .media-feature-copy h3 {
