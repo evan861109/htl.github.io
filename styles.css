@@ -87,7 +87,7 @@ img {
   position: relative;
   z-index: 1;
   display: grid;
-  gap: 16px;
+  gap: clamp(24px, 2.4vw, 36px);
   justify-items: center;
   color: var(--white);
   text-align: center;
