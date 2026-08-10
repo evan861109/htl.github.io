@@ -467,6 +467,10 @@ html[lang="zh-Hant"] .hero-actions {
   margin-bottom: clamp(24px, 4svh, 42px);
 }
 
+html[lang="zh-Hant"] .hero-content {
+  padding-top: calc(var(--header-height) + clamp(16px, 2.5svh, 28px));
+}
+
 h1,
 h2,
 h3,
