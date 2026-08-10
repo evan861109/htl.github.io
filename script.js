@@ -39,6 +39,20 @@ const updateLanguageControls = (language) => {
   });
 };
 
+const updateLanguageLinks = (language) => {
+  document.querySelectorAll('a[href]').forEach((link) => {
+    const href = link.getAttribute('href');
+
+    if (!href || !/^(?:index|media)\.html(?:[?#]|$)/.test(href)) {
+      return;
+    }
+
+    const url = new URL(href, window.location.href);
+    url.searchParams.set('lang', language);
+    link.href = url.href;
+  });
+};
+
 const setContent = (key, value) => {
   if (typeof value !== "string") {
     return;
@@ -284,6 +298,7 @@ const activateLanguage = (language, shouldPersist = true) => {
   }
 
   updateLanguageControls(selectedLanguage);
+  updateLanguageLinks(selectedLanguage);
   window.siteLanguage = selectedLanguage;
 
   try {
