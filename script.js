@@ -15,6 +15,11 @@ const sections = navLinks
 let siteContent;
 
 const getPreferredLanguage = () => {
+  const languageFromUrl = new URLSearchParams(window.location.search).get("lang");
+  if (languageFromUrl === "zh_hant" || languageFromUrl === "en") {
+    return languageFromUrl;
+  }
+
   try {
     return localStorage.getItem(languageStorageKey) === "zh_hant" ? "zh_hant" : "en";
   } catch {
@@ -26,7 +31,11 @@ const updateLanguageControls = (language) => {
   languageButtons.forEach((button) => {
     const isActive = button.dataset.language === language;
     button.classList.toggle("is-active", isActive);
-    button.setAttribute("aria-pressed", String(isActive));
+    if (isActive) {
+      button.setAttribute("aria-current", "true");
+    } else {
+      button.removeAttribute("aria-current");
+    }
   });
 };
 
@@ -298,6 +307,10 @@ const activateLanguage = (language, shouldPersist = true) => {
   updateLanguageControls(selectedLanguage);
   window.siteLanguage = selectedLanguage;
 
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", selectedLanguage);
+  window.history.replaceState({}, "", url);
+
   if (siteContent) {
     hydrateSiteContent(siteContent[selectedLanguage] || siteContent.en, selectedLanguage);
   }
@@ -306,7 +319,10 @@ const activateLanguage = (language, shouldPersist = true) => {
 };
 
 languageButtons.forEach((button) => {
-  button.addEventListener("click", () => activateLanguage(button.dataset.language));
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    activateLanguage(button.dataset.language);
+  });
 });
 
 fetch("content/site.json", { cache: "no-store" })
