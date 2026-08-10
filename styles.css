@@ -463,6 +463,10 @@ html[lang="zh-Hant"] .hero-local-name {
   letter-spacing: 0.08em;
 }
 
+html[lang="zh-Hant"] .hero-actions {
+  margin-bottom: clamp(24px, 4svh, 42px);
+}
+
 h1,
 h2,
 h3,
