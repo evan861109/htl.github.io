@@ -2,7 +2,7 @@ media:
   - name: images
     label: Site images
     input: assets
-    output: /assets
+    output: assets
     extensions: [png, jpg, jpeg, webp]
     rename: safe
 

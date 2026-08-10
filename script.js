@@ -250,7 +250,7 @@ const hydrateSiteContent = (site) => {
 
   const heroImage = document.querySelector("[data-hero-image]");
   if (heroImage && site.hero?.image) {
-    heroImage.src = safeUrl(site.hero.image);
+    heroImage.src = site.hero.image;
     heroImage.alt = site.hero.image_alt || "Artist performance image";
   }
 
