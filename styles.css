@@ -234,6 +234,10 @@ html[lang="zh-Hant"] .hero h1 {
   font-weight: 400;
 }
 
+html[lang="zh-Hant"] .score-field {
+  display: none;
+}
+
 html[lang="zh-Hant"] .brand-text,
 html[lang="zh-Hant"] .site-nav a,
 html[lang="zh-Hant"] .button,
