@@ -110,12 +110,19 @@ components:
           - name: watch
             label: Watch button label
             type: string
-      - name: highlights
-        label: Highlights
-        type: string
-        list:
-          min: 3
-          max: 3
+      - name: practice
+        label: Practice interlude
+        type: object
+        fields:
+          - name: kicker
+            label: Section label
+            type: string
+          - name: statement
+            label: Main statement
+            type: text
+          - name: detail
+            label: Supporting detail
+            type: text
       - name: about
         label: Biography
         type: object

@@ -500,51 +500,51 @@ h3 {
   background: rgba(255, 250, 242, 0.05);
 }
 
-.intro-band {
+.practice-bridge {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(130px, 0.7fr) minmax(0, 2.4fr) minmax(220px, 1fr);
+  gap: clamp(24px, 4vw, 72px);
+  align-items: start;
+  padding: clamp(52px, 8vw, 104px) clamp(18px, 6vw, 88px);
   border-bottom: 1px solid var(--line);
   background:
     repeating-linear-gradient(0deg, transparent 0, transparent 15px, var(--fine-line) 16px),
     var(--paper-deep);
 }
 
-.intro-band div {
-  position: relative;
-  min-height: 150px;
-  padding: clamp(22px, 3vw, 42px);
-  border-right: 1px solid var(--line);
-}
-
-.intro-band div::after {
-  position: absolute;
-  right: clamp(18px, 3vw, 34px);
-  bottom: clamp(18px, 3vw, 34px);
-  width: 44px;
-  height: 44px;
-  content: "";
-  border: 1px solid rgba(79, 119, 116, 0.38);
-  border-radius: 50%;
-  transform: scaleX(1.55);
-}
-
-.intro-band div:last-child {
-  border-right: 0;
-}
-
-.intro-band span {
-  display: block;
-  margin-bottom: 32px;
-  color: var(--accent);
-  font-size: 0.8rem;
+.practice-bridge-label {
+  padding-top: 9px;
+  color: var(--accent-dark);
+  font-size: 0.78rem;
   font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.intro-band p {
-  max-width: 22ch;
-  margin-bottom: 0;
-  font-size: clamp(1.2rem, 2vw, 1.75rem);
-  line-height: 1.15;
+.practice-bridge-statement {
+  max-width: 28ch;
+  margin: 0;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.7rem);
+  line-height: 1.04;
+}
+
+.practice-bridge-detail {
+  max-width: 30ch;
+  margin: 0;
+  padding-top: 10px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+html[lang="zh-Hant"] .practice-bridge-label {
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+html[lang="zh-Hant"] .practice-bridge-statement {
+  font-family: "Noto Serif TC", "Noto Sans TC", serif;
+  font-weight: 500;
 }
 
 .section {
@@ -1089,22 +1089,12 @@ h3 {
     bottom: 7vh;
   }
 
-  .intro-band,
+  .practice-bridge,
   .about-grid,
   .contact,
   .events,
   .press {
     grid-template-columns: 1fr;
-  }
-
-  .intro-band div {
-    min-height: auto;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .intro-band div:last-child {
-    border-bottom: 0;
   }
 
   .section-header {

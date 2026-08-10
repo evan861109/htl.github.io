@@ -36,11 +36,11 @@
       "back-to-home": "Back to home",
       "watch": "Watch"
     },
-    "highlights": [
-      "Classical, contemporary, and global percussion traditions",
-      "New music, theatrical performance, and cross-disciplinary exchange",
-      "Daily sounds and close observation translated into music"
-    ],
+    "practice": {
+      "kicker": "Current practice",
+      "statement": "From solo percussion to staged multimedia work, Tzu-Ling treats performance as a place for curiosity, precision, and exchange.",
+      "detail": "Recent work includes HSS and tREeAL, a new vibraphone commission, and ongoing doctoral research at the University of North Texas."
+    },
     "about": {
       "heading": "Expanding percussion through new music, collaboration, and performance.",
       "paragraphs": [
@@ -140,11 +140,11 @@
       "back-to-home": "回到首頁",
       "watch": "觀看"
     },
-    "highlights": [
-      "古典、當代與世界打擊樂傳統",
-      "新音樂、劇場性表演與跨域合作",
-      "將日常聲響與細緻觀察轉化為音樂"
-    ],
+    "practice": {
+      "kicker": "當前實踐",
+      "statement": "從獨奏打擊樂到多媒體舞台作品，洪梓菱將表演視為好奇、精準與交流的場域。",
+      "detail": "近期工作涵蓋 HSS、tREeAL、鐵琴獨奏新作委託，以及於北德州大學持續進行的博士研究。"
+    },
     "about": {
       "heading": "以新音樂、跨域合作與舞台實踐拓展打擊樂的可能。",
       "paragraphs": [

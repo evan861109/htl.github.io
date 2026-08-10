@@ -76,31 +76,6 @@ const makeElement = (tagName, className, text) => {
   return element;
 };
 
-const renderHighlights = (highlights) => {
-  const container = document.querySelector("[data-highlights]");
-
-  if (!container || !Array.isArray(highlights) || !highlights.length) {
-    return;
-  }
-
-  const fragment = document.createDocumentFragment();
-
-  highlights.forEach((highlight, index) => {
-    if (typeof highlight !== "string" || !highlight.trim()) {
-      return;
-    }
-
-    const item = document.createElement("div");
-    item.append(makeElement("span", "", String(index + 1).padStart(2, "0")));
-    item.append(makeElement("p", "", highlight));
-    fragment.append(item);
-  });
-
-  if (fragment.childNodes.length) {
-    container.replaceChildren(fragment);
-  }
-};
-
 const renderParagraphs = (paragraphs) => {
   const container = document.querySelector("[data-about-copy]");
 
@@ -260,6 +235,9 @@ const hydrateSiteContent = (site, language) => {
   setContent("statement", site.statement?.text);
   setContent("statement-credit", site.statement?.credit);
   setContent("contact-heading", site.contact?.heading);
+  setContent("practice-kicker", site.practice?.kicker);
+  setContent("practice-statement", site.practice?.statement);
+  setContent("practice-detail", site.practice?.detail);
   Object.entries(site.ui || {}).forEach(([key, value]) => setContent(key, value));
 
   if (site.artist?.name) {
@@ -286,7 +264,6 @@ const hydrateSiteContent = (site, language) => {
     heroImage.alt = site.hero.image_alt || "Artist performance image";
   }
 
-  renderHighlights(site.highlights);
   renderParagraphs(site.about?.paragraphs);
   renderTracks(site.tracks, site.ui?.watch || "Watch");
   renderProjects(site.projects);
