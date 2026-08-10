@@ -938,18 +938,28 @@ html[lang="zh-Hant"] .practice-bridge-statement {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 0;
   padding: clamp(28px, 4vw, 58px) 0;
+  gap: clamp(10px, 1.2vw, 18px);
 }
 
 .media-feature-copy .track-meta {
-  margin-bottom: 16px;
+  margin: 0;
 }
 
 .media-feature-copy h3 {
   font-family: "Instrument Serif", Georgia, serif;
   font-size: clamp(2.5rem, 4.8vw, 4.75rem);
   font-weight: 400;
-  line-height: 0.94;
+  line-height: 1;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.media-feature-copy .media-credit,
+.media-feature-copy .media-description {
+  margin: 0;
+  overflow-wrap: anywhere;
 }
 
 html[lang="zh-Hant"] .media-feature-copy h3 {
