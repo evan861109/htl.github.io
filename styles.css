@@ -419,6 +419,10 @@ html[lang="zh-Hant"] .intro-role {
   animation-delay: 4350ms;
 }
 
+.hero-content > :nth-child(5) {
+  animation-delay: 4460ms;
+}
+
 .eyebrow,
 .section-kicker,
 .track-meta {
@@ -432,6 +436,22 @@ html[lang="zh-Hant"] .intro-role {
 
 .hero .eyebrow {
   color: #a6c7c2;
+}
+
+.hero-local-name {
+  margin: 0 0 10px;
+  color: rgba(251, 252, 247, 0.78);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.hero-local-name:empty {
+  display: none;
+}
+
+html[lang="zh-Hant"] .hero-local-name {
+  letter-spacing: 0.08em;
 }
 
 h1,

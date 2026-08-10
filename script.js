@@ -223,7 +223,8 @@ const hydrateSiteContent = (site, language) => {
     description.content = site.seo.description;
   }
 
-  setContent("artist-name", site.artist?.name);
+  setContent("artist-name", site.artist?.display_name || site.artist?.name);
+  setContent("artist-localized-name", site.artist?.localized_name);
   setContent("artist-role", site.artist?.role);
   setContent("hero-eyebrow", site.hero?.eyebrow);
   setContent("hero-tagline", site.hero?.tagline);
@@ -240,9 +241,10 @@ const hydrateSiteContent = (site, language) => {
   setContent("practice-detail", site.practice?.detail);
   Object.entries(site.ui || {}).forEach(([key, value]) => setContent(key, value));
 
-  if (site.artist?.name) {
+  if (site.artist?.display_name || site.artist?.name) {
+    const artistName = site.artist.display_name || site.artist.name;
     const brand = document.querySelector("[data-brand-home]");
-    const initials = site.artist.mark || site.artist.name
+    const initials = site.artist.mark || artistName
       .split(/\s+/)
       .filter(Boolean)
       .map((part) => part[0])
@@ -251,7 +253,7 @@ const hydrateSiteContent = (site, language) => {
       .toUpperCase();
 
     if (brand) {
-      brand.setAttribute("aria-label", `${site.artist.name} home`);
+      brand.setAttribute("aria-label", `${artistName} home`);
     }
     document.querySelectorAll("[data-artist-initials]").forEach((element) => {
       element.textContent = initials;

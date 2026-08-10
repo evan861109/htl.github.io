@@ -25,7 +25,13 @@ components:
         type: object
         fields:
           - name: name
-            label: Full name
+            label: Fallback name
+            type: string
+          - name: display_name
+            label: Large display name
+            type: string
+          - name: localized_name
+            label: Localized name line
             type: string
           - name: mark
             label: Header mark

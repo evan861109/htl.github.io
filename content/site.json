@@ -6,6 +6,8 @@
     },
     "artist": {
       "name": "Tzu-Ling Hung",
+      "display_name": "Tzu-Ling Hung",
+      "localized_name": "",
       "mark": "TLH",
       "role": "Percussionist"
     },
@@ -110,8 +112,10 @@
     },
     "artist": {
       "name": "洪梓菱",
+      "display_name": "Tzu-Ling Hung",
+      "localized_name": "洪梓菱",
       "mark": "TLH",
-      "role": "打擊樂演奏家"
+      "role": "洪梓菱 / 打擊樂演奏家"
     },
     "hero": {
       "image": "assets/hero-sound-art.png",
