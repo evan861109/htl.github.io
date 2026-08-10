@@ -167,3 +167,69 @@ content:
               - name: url
                 label: URL
                 type: string
+  - name: media_library
+    label: Media library
+    type: file
+    path: content/media.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: seo
+        label: Search appearance
+        type: object
+        fields:
+          - name: title
+            label: Browser title
+            type: string
+          - name: description
+            label: Search description
+            type: text
+      - name: hero
+        label: Media page header
+        type: object
+        fields:
+          - name: image
+            label: Header image
+            type: image
+          - name: image_alt
+            label: Image description
+            type: text
+          - name: eyebrow
+            label: Short introduction
+            type: string
+          - name: title
+            label: Heading
+            type: string
+          - name: description
+            label: Introduction
+            type: text
+      - name: entries
+        label: Media entries
+        type: object
+        list:
+          min: 1
+          max: 30
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: category
+            label: Category and format
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: credit
+            label: Composer or project credit
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: url
+            label: Watch or listen URL
+            type: string
+          - name: thumbnail
+            label: Optional thumbnail path
+            description: Leave blank to use the YouTube video thumbnail.
+            type: string

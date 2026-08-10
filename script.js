@@ -273,7 +273,7 @@ fetch("content/site.json", { cache: "no-store" })
     // The static markup remains available if the editable content file cannot load.
   });
 
-if (!prefersReducedMotion) {
+if (!prefersReducedMotion && document.querySelector(".page-intro")) {
   body.classList.add("is-intro-running");
   window.setTimeout(() => body.classList.remove("is-intro-running"), 4650);
 }

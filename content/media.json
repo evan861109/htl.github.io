@@ -1,0 +1,63 @@
+{
+  "seo": {
+    "title": "Media | Tzu-Ling Hung",
+    "description": "Performance videos and project excerpts by percussionist, chamber musician, and composer Tzu-Ling Hung."
+  },
+  "hero": {
+    "image": "assets/hero-resonance.png",
+    "image_alt": "Close view of wooden percussion bars and strings",
+    "eyebrow": "Media / Performances / Projects",
+    "title": "Media",
+    "description": "A selected archive of solo performance, interdisciplinary work, and new-music collaboration."
+  },
+  "entries": [
+    {
+      "category": "HSS / video excerpt",
+      "title": "Rocks / Spiral",
+      "credit": "HSS collaboration with David Stout and Colin Stokes",
+      "description": "An excerpt from HSS, a project shaped through percussion, material, image, and close acoustic attention.",
+      "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing",
+      "thumbnail": "assets/hero-sound-art.png"
+    },
+    {
+      "category": "HSS / video excerpt",
+      "title": "Water",
+      "credit": "HSS collaboration with David Stout and Colin Stokes",
+      "description": "A second HSS excerpt exploring sound through image, material, and direct interaction.",
+      "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing",
+      "thumbnail": "assets/hero-sound-art.png"
+    },
+    {
+      "category": "Solo percussion / performance video",
+      "title": "Reflections on the Nature of Water",
+      "credit": "Jacob Druckman",
+      "description": "Solo percussion performance.",
+      "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x",
+      "thumbnail": ""
+    },
+    {
+      "category": "Solo percussion / performance video",
+      "title": "Rebonds a",
+      "credit": "Iannis Xenakis",
+      "description": "Solo percussion performance.",
+      "url": "https://youtu.be/RPzZlbgLQOQ?si=uj1XLbi1CiYAQS7X",
+      "thumbnail": ""
+    },
+    {
+      "category": "Solo percussion / performance video",
+      "title": "Rebonds b",
+      "credit": "Iannis Xenakis",
+      "description": "Solo percussion performance.",
+      "url": "https://youtu.be/QqJ3RBtzy7A?si=PBGInEhrCdDd5QNC",
+      "thumbnail": ""
+    },
+    {
+      "category": "Solo percussion / performance video",
+      "title": "Wink",
+      "credit": "Mark Ford",
+      "description": "Solo percussion performance.",
+      "url": "https://youtu.be/pdo6vRqUSKo?si=SO4rMGnIuwq5fnSg",
+      "thumbnail": ""
+    }
+  ]
+}
