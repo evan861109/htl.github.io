@@ -1,4 +1,13 @@
 const mediaGrid = document.querySelector("[data-media-grid]");
+let mediaContent;
+
+const getMediaLanguage = () => {
+  try {
+    return localStorage.getItem("tzuling-language") === "zh_hant" ? "zh_hant" : "en";
+  } catch {
+    return "en";
+  }
+};
 
 const mediaSafeUrl = (value) => {
   if (typeof value !== "string" || !value.trim()) {
@@ -51,7 +60,7 @@ const setMediaContent = (key, value) => {
   });
 };
 
-const renderMedia = (entries) => {
+const renderMedia = (entries, actionLabel = "Watch") => {
   if (!mediaGrid || !Array.isArray(entries)) {
     return;
   }
@@ -70,7 +79,7 @@ const renderMedia = (entries) => {
     link.href = url;
     link.target = "_blank";
     link.rel = "noreferrer";
-    link.setAttribute("aria-label", `Watch ${entry.title}`);
+    link.setAttribute("aria-label", `${actionLabel} ${entry.title}`);
 
     if (thumbnail) {
       const image = document.createElement("img");
@@ -86,11 +95,11 @@ const renderMedia = (entries) => {
     body.append(mediaElement("p", "media-credit", entry.credit || ""));
     body.append(mediaElement("p", "media-description", entry.description || ""));
 
-    const action = mediaElement("a", "media-watch", "Watch");
+    const action = mediaElement("a", "media-watch", actionLabel);
     action.href = url;
     action.target = "_blank";
     action.rel = "noreferrer";
-    action.setAttribute("aria-label", `Watch ${entry.title}`);
+    action.setAttribute("aria-label", `${actionLabel} ${entry.title}`);
     body.append(action);
 
     card.append(link, body);
@@ -100,6 +109,43 @@ const renderMedia = (entries) => {
   mediaGrid.replaceChildren(fragment);
 };
 
+const hydrateMediaContent = (content, language) => {
+  const media = content[language] || content.en;
+
+  if (!media) {
+    return;
+  }
+
+  document.documentElement.lang = language === "zh_hant" ? "zh-Hant" : "en";
+
+  if (media.seo?.title) {
+    document.title = media.seo.title;
+  }
+  const description = document.querySelector("[data-media-seo-description]");
+  if (description && media.seo?.description) {
+    description.content = media.seo.description;
+  }
+
+  setMediaContent("hero-eyebrow", media.hero?.eyebrow);
+  setMediaContent("hero-title", media.hero?.title);
+  setMediaContent("hero-description", media.hero?.description);
+  Object.entries(media.ui || {}).forEach(([key, value]) => setMediaContent(key, value));
+
+  const heroImage = document.querySelector("[data-media-hero-image]");
+  if (heroImage && media.hero?.image) {
+    heroImage.src = media.hero.image;
+    heroImage.alt = media.hero.image_alt || "Percussion detail";
+  }
+
+  renderMedia(media.entries, media.ui?.watch || "Watch");
+};
+
+window.addEventListener("site-language-change", (event) => {
+  if (mediaContent) {
+    hydrateMediaContent(mediaContent, event.detail.language);
+  }
+});
+
 fetch("content/media.json", { cache: "no-store" })
   .then((response) => {
     if (!response.ok) {
@@ -107,26 +153,9 @@ fetch("content/media.json", { cache: "no-store" })
     }
     return response.json();
   })
-  .then((media) => {
-    if (media.seo?.title) {
-      document.title = media.seo.title;
-    }
-    const description = document.querySelector("[data-media-seo-description]");
-    if (description && media.seo?.description) {
-      description.content = media.seo.description;
-    }
-
-    setMediaContent("hero-eyebrow", media.hero?.eyebrow);
-    setMediaContent("hero-title", media.hero?.title);
-    setMediaContent("hero-description", media.hero?.description);
-
-    const heroImage = document.querySelector("[data-media-hero-image]");
-    if (heroImage && media.hero?.image) {
-      heroImage.src = media.hero.image;
-      heroImage.alt = media.hero.image_alt || "Percussion detail";
-    }
-
-    renderMedia(media.entries);
+  .then((content) => {
+    mediaContent = content;
+    hydrateMediaContent(content, window.siteLanguage || getMediaLanguage());
   })
   .catch(() => {
     // The page shell remains available if media content cannot load.

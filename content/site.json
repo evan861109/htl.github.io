@@ -1,84 +1,210 @@
 {
-  "seo": {
-    "title": "Tzu-Ling Hung | Percussionist & Composer",
-    "description": "Tzu-Ling Hung is a percussionist, chamber musician, and composer working across contemporary music, new work, and cross-disciplinary performance."
-  },
-  "artist": {
-    "name": "Tzu-Ling Hung",
-    "role": "Percussionist"
-  },
-  "hero": {
-    "image": "assets/hero-sound-art.png",
-    "image_alt": "Abstract sound-art materials with water, stones, glass bowls, and xylophone wood",
-    "eyebrow": "Percussionist / Composer / New Music",
-    "tagline": "Percussion, sound, and theatrical performance shaped by close listening and new possibility.",
-    "primary_cta": "Watch excerpts",
-    "secondary_cta": "Collaboration inquiry"
-  },
-  "highlights": [
-    "Classical, contemporary, and global percussion traditions",
-    "New music, theatrical performance, and cross-disciplinary exchange",
-    "Daily sounds and close observation translated into music"
-  ],
-  "about": {
-    "heading": "Expanding percussion through new music, collaboration, and performance.",
-    "paragraphs": [
-      "Tzu-Ling Hung is a solo percussionist, chamber musician, and composer based in Denton, Texas and Pingtung, Taiwan. Her practice moves through classical and contemporary music, with a particular pull toward experimentation, theatricality, and underrepresented voices.",
-      "Recent projects include tREeAL, a multimedia performance tracing the space between direct acoustic interaction and electronic effects, and HSS, a collaboration with David Stout and Colin Stokes. As a composer, she draws from the sounds and perceptions of daily life.",
-      "As a soloist, Hung won first prize in the 2024 American Soloist International Music Competition and was a semi-finalist in the International Marimba Competition at Chapman University and the International Percussion Competition at Northwestern University. With the UNT Percussion Ensemble, she won the 2025 PAS International Percussion Ensemble Competition.",
-      "Hung is completing a Doctor of Musical Arts at the University of North Texas, where she is a Teaching Fellow. She holds a Master of Music and Performer Diploma from the Indiana University Jacobs School of Music, and a Bachelor of Fine Arts from the University of Taipei."
-    ]
-  },
-  "tracks": [
-    {
-      "meta": "HSS / video excerpt",
-      "title": "Rocks / Spiral",
-      "note": "An excerpt from HSS, a collaborative project with David Stout and Colin Stokes.",
-      "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing"
+  "en": {
+    "seo": {
+      "title": "Tzu-Ling Hung | Percussionist & Composer",
+      "description": "Tzu-Ling Hung is a percussionist, chamber musician, and composer working across contemporary music, new work, and cross-disciplinary performance."
     },
-    {
-      "meta": "HSS / video excerpt",
-      "title": "Water",
-      "note": "A second HSS excerpt, exploring percussion through image, material, and close acoustic attention.",
-      "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing"
+    "artist": {
+      "name": "Tzu-Ling Hung",
+      "mark": "TLH",
+      "role": "Percussionist"
     },
-    {
-      "meta": "Solo percussion / video",
-      "title": "Reflections on the Nature of Water",
-      "note": "Jacob Druckman's solo percussion work, performed by Tzu-Ling Hung.",
-      "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x"
-    }
-  ],
-  "projects": {
-    "kicker": "Projects & Recognition",
-    "heading": "Recent work",
-    "items": [
+    "hero": {
+      "image": "assets/hero-sound-art.png",
+      "image_alt": "Abstract sound-art materials with water, stones, glass bowls, and xylophone wood",
+      "eyebrow": "Percussionist / Composer / New Music",
+      "tagline": "Percussion, sound, and theatrical performance shaped by close listening and new possibility.",
+      "primary_cta": "Watch excerpts",
+      "secondary_cta": "Collaboration inquiry"
+    },
+    "ui": {
+      "nav-about": "About",
+      "nav-listen": "Listen",
+      "nav-media": "Media",
+      "nav-projects": "Projects",
+      "nav-materials": "Materials",
+      "nav-contact": "Contact",
+      "about-kicker": "About",
+      "listen-kicker": "Listen",
+      "listen-heading": "Selected work",
+      "media-library-link": "View full media library",
+      "artist-biography-link": "Artist biography",
+      "performance-videos-link": "Performance videos",
+      "booking-materials-link": "Booking materials",
+      "contact-kicker": "Contact",
+      "back-to-top": "Back to top",
+      "back-to-home": "Back to home",
+      "watch": "Watch"
+    },
+    "highlights": [
+      "Classical, contemporary, and global percussion traditions",
+      "New music, theatrical performance, and cross-disciplinary exchange",
+      "Daily sounds and close observation translated into music"
+    ],
+    "about": {
+      "heading": "Expanding percussion through new music, collaboration, and performance.",
+      "paragraphs": [
+        "Tzu-Ling Hung is a solo percussionist, chamber musician, and composer based in Denton, Texas and Pingtung, Taiwan. Her practice moves through classical and contemporary music, with a particular pull toward experimentation, theatricality, and underrepresented voices.",
+        "Recent projects include tREeAL, a multimedia performance tracing the space between direct acoustic interaction and electronic effects, and HSS, a collaboration with David Stout and Colin Stokes. As a composer, she draws from the sounds and perceptions of daily life.",
+        "As a soloist, Hung won first prize in the 2024 American Soloist International Music Competition and was a semi-finalist in the International Marimba Competition at Chapman University and the International Percussion Competition at Northwestern University. With the UNT Percussion Ensemble, she won the 2025 PAS International Percussion Ensemble Competition.",
+        "Hung is completing a Doctor of Musical Arts at the University of North Texas, where she is a Teaching Fellow. She holds a Master of Music and Performer Diploma from the Indiana University Jacobs School of Music, and a Bachelor of Fine Arts from the University of Taipei."
+      ]
+    },
+    "tracks": [
       {
-        "year": "2026",
-        "title": "Ring Ring by Sungji Hong",
-        "description": "New vibraphone solo commission"
+        "meta": "HSS / video excerpt",
+        "title": "Rocks / Spiral",
+        "note": "An excerpt from HSS, a collaborative project with David Stout and Colin Stokes.",
+        "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing"
       },
       {
-        "year": "2025",
-        "title": "tREeAL",
-        "description": "Multimedia performance exploring acoustic, electronic, and hybrid sound"
+        "meta": "HSS / video excerpt",
+        "title": "Water",
+        "note": "A second HSS excerpt, exploring percussion through image, material, and close acoustic attention.",
+        "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing"
       },
       {
-        "year": "2025",
-        "title": "PAS International Percussion Ensemble Competition",
-        "description": "Winner with the UNT Percussion Ensemble; showcase concert in Indianapolis"
+        "meta": "Solo percussion / video",
+        "title": "Reflections on the Nature of Water",
+        "note": "Jacob Druckman's solo percussion work, performed by Tzu-Ling Hung.",
+        "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x"
       }
-    ]
+    ],
+    "projects": {
+      "kicker": "Projects & Recognition",
+      "heading": "Recent work",
+      "items": [
+        {
+          "year": "2026",
+          "title": "Ring Ring by Sungji Hong",
+          "description": "New vibraphone solo commission"
+        },
+        {
+          "year": "2025",
+          "title": "tREeAL",
+          "description": "Multimedia performance exploring acoustic, electronic, and hybrid sound"
+        },
+        {
+          "year": "2025",
+          "title": "PAS International Percussion Ensemble Competition",
+          "description": "Winner with the UNT Percussion Ensemble; showcase concert in Indianapolis"
+        }
+      ]
+    },
+    "statement": {
+      "text": "\"Her artistic practice focuses on expanding underrepresented voices, exploring theatrical elements in performance, and using music to translate her personal background into compelling stories.\"",
+      "credit": "Artist biography"
+    },
+    "contact": {
+      "heading": "Bookings, new-music collaborations, and teaching inquiries.",
+      "availability": "Based between Denton, Texas and Pingtung, Taiwan. Available for solo performance, chamber music, new work, and cross-disciplinary projects.",
+      "email": "",
+      "notice": "Direct booking contact and social links will be added with the artist's preferred details.",
+      "links": []
+    }
   },
-  "statement": {
-    "text": "\"Her artistic practice focuses on expanding underrepresented voices, exploring theatrical elements in performance, and using music to translate her personal background into compelling stories.\"",
-    "credit": "Artist biography"
-  },
-  "contact": {
-    "heading": "Bookings, new-music collaborations, and teaching inquiries.",
-    "availability": "Based between Denton, Texas and Pingtung, Taiwan. Available for solo performance, chamber music, new work, and cross-disciplinary projects.",
-    "email": "",
-    "notice": "Direct booking contact and social links will be added with the artist's preferred details.",
-    "links": []
+  "zh_hant": {
+    "seo": {
+      "title": "洪梓菱 | 打擊樂演奏家與作曲家",
+      "description": "洪梓菱是旅美打擊樂演奏家、室內樂演奏家與作曲家，活躍於當代音樂、新作與跨域演出。"
+    },
+    "artist": {
+      "name": "洪梓菱",
+      "mark": "洪",
+      "role": "打擊樂演奏家"
+    },
+    "hero": {
+      "image": "assets/hero-sound-art.png",
+      "image_alt": "水、石、玻璃器皿與木質敲擊素材構成的聲音藝術畫面",
+      "eyebrow": "打擊樂演奏家 / 作曲家 / 當代音樂",
+      "tagline": "從打擊、聲響與劇場性出發，透過細緻聆聽開展新的可能。",
+      "primary_cta": "觀看片段",
+      "secondary_cta": "合作洽詢"
+    },
+    "ui": {
+      "nav-about": "關於",
+      "nav-listen": "聆聽",
+      "nav-media": "媒體",
+      "nav-projects": "計畫",
+      "nav-materials": "資料",
+      "nav-contact": "聯絡",
+      "about-kicker": "關於",
+      "listen-kicker": "聆聽",
+      "listen-heading": "精選演出",
+      "media-library-link": "瀏覽完整媒體庫",
+      "artist-biography-link": "藝術家簡介",
+      "performance-videos-link": "演出影片",
+      "booking-materials-link": "演出洽詢資料",
+      "contact-kicker": "聯絡",
+      "back-to-top": "回到頂端",
+      "back-to-home": "回到首頁",
+      "watch": "觀看"
+    },
+    "highlights": [
+      "古典、當代與世界打擊樂傳統",
+      "新音樂、劇場性表演與跨域合作",
+      "將日常聲響與細緻觀察轉化為音樂"
+    ],
+    "about": {
+      "heading": "以新音樂、跨域合作與舞台實踐拓展打擊樂的可能。",
+      "paragraphs": [
+        "旅美打擊樂演奏家、室內樂演奏家與作曲家洪梓菱，現於美國德州丹頓與台灣屏東兩地工作。她兼具古典與現代音樂的演奏實力，藝術實踐專注於發掘非主流與新興作品、探索劇場元素，並致力將個人的成長背景與生活觀察融入音樂。",
+        "近年跨域作品包括多媒體演出 tREeAL，探討傳統打擊樂器的實體原音、純電子軟體特效，以及兩者之間的混合空間；最新合作計畫 HSS 則與 David Stout 及 Colin Stokes 共同進行。作曲時，她常從日常生活中收集的聲音與感知出發。",
+        "作為獨奏家，洪梓菱獲得 2024 American Soloist International Music Competition 首獎，並入圍 Chapman University 國際馬林巴木琴大賽與 Northwestern University 國際打擊樂大賽準決賽。她亦隨北德州大學打擊樂團贏得 2025 PAS 國際打擊樂團大賽優勝。",
+        "洪梓菱現為北德州大學打擊樂演奏博士候選人，並兼任該校 Teaching Fellow。她於台北市立大學取得打擊樂演奏學士學位，並於印第安那大學積可斯音樂學院取得打擊樂演奏碩士學位與演奏家文憑。"
+      ]
+    },
+    "tracks": [
+      {
+        "meta": "HSS / 影片片段",
+        "title": "Rocks / Spiral",
+        "note": "HSS 計畫片段，與 David Stout 及 Colin Stokes 共同合作。",
+        "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing"
+      },
+      {
+        "meta": "HSS / 影片片段",
+        "title": "Water",
+        "note": "另一段 HSS 片段，透過影像、材質與直接的聲學互動探索聲音。",
+        "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing"
+      },
+      {
+        "meta": "獨奏打擊樂 / 影片",
+        "title": "Reflections on the Nature of Water",
+        "note": "Jacob Druckman 的獨奏打擊樂作品，由洪梓菱演出。",
+        "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x"
+      }
+    ],
+    "projects": {
+      "kicker": "計畫與獲獎",
+      "heading": "近期作品",
+      "items": [
+        {
+          "year": "2026",
+          "title": "Ring Ring by Sungji Hong",
+          "description": "鐵琴獨奏委託創作"
+        },
+        {
+          "year": "2025",
+          "title": "tREeAL",
+          "description": "探索原音、電子效果與混合聲響的多媒體演出"
+        },
+        {
+          "year": "2025",
+          "title": "PAS International Percussion Ensemble Competition",
+          "description": "隨北德州大學打擊樂團獲獎，並於印第安納波利斯舉行專場演出"
+        }
+      ]
+    },
+    "statement": {
+      "text": "「她的藝術實踐專注於發掘與研究非主流及新興作品、探索劇場元素如何深化舞台體驗，並致力將個人的成長背景與生活觀察融入音樂，轉化為深刻動人的舞台演出。」",
+      "credit": "藝術家簡介"
+    },
+    "contact": {
+      "heading": "演出、新音樂合作與教學洽詢。",
+      "availability": "現於美國德州丹頓與台灣屏東兩地工作，接受獨奏演出、室內樂、新作與跨域合作邀約。",
+      "email": "",
+      "notice": "演出聯絡方式與社群連結將於確認後補上。",
+      "links": []
+    }
   }
 }

@@ -1,63 +1,140 @@
 {
-  "seo": {
-    "title": "Media | Tzu-Ling Hung",
-    "description": "Performance videos and project excerpts by percussionist, chamber musician, and composer Tzu-Ling Hung."
+  "en": {
+    "seo": {
+      "title": "Media | Tzu-Ling Hung",
+      "description": "Performance videos and project excerpts by percussionist, chamber musician, and composer Tzu-Ling Hung."
+    },
+    "hero": {
+      "image": "assets/hero-resonance.png",
+      "image_alt": "Close view of wooden percussion bars and strings",
+      "eyebrow": "Media / Performances / Projects",
+      "title": "Media",
+      "description": "A selected archive of solo performance, interdisciplinary work, and new-music collaboration."
+    },
+    "ui": {
+      "archive-kicker": "Selected Archive",
+      "archive-heading": "Performance videos",
+      "booking-inquiry": "Booking inquiry",
+      "watch": "Watch"
+    },
+    "entries": [
+      {
+        "category": "HSS / video excerpt",
+        "title": "Rocks / Spiral",
+        "credit": "HSS collaboration with David Stout and Colin Stokes",
+        "description": "An excerpt from HSS, a project shaped through percussion, material, image, and close acoustic attention.",
+        "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing",
+        "thumbnail": "assets/hero-sound-art.png"
+      },
+      {
+        "category": "HSS / video excerpt",
+        "title": "Water",
+        "credit": "HSS collaboration with David Stout and Colin Stokes",
+        "description": "A second HSS excerpt exploring sound through image, material, and direct interaction.",
+        "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing",
+        "thumbnail": "assets/hero-sound-art.png"
+      },
+      {
+        "category": "Solo percussion / performance video",
+        "title": "Reflections on the Nature of Water",
+        "credit": "Jacob Druckman",
+        "description": "Solo percussion performance.",
+        "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x",
+        "thumbnail": ""
+      },
+      {
+        "category": "Solo percussion / performance video",
+        "title": "Rebonds a",
+        "credit": "Iannis Xenakis",
+        "description": "Solo percussion performance.",
+        "url": "https://youtu.be/RPzZlbgLQOQ?si=uj1XLbi1CiYAQS7X",
+        "thumbnail": ""
+      },
+      {
+        "category": "Solo percussion / performance video",
+        "title": "Rebonds b",
+        "credit": "Iannis Xenakis",
+        "description": "Solo percussion performance.",
+        "url": "https://youtu.be/QqJ3RBtzy7A?si=PBGInEhrCdDd5QNC",
+        "thumbnail": ""
+      },
+      {
+        "category": "Solo percussion / performance video",
+        "title": "Wink",
+        "credit": "Mark Ford",
+        "description": "Solo percussion performance.",
+        "url": "https://youtu.be/pdo6vRqUSKo?si=SO4rMGnIuwq5fnSg",
+        "thumbnail": ""
+      }
+    ]
   },
-  "hero": {
-    "image": "assets/hero-resonance.png",
-    "image_alt": "Close view of wooden percussion bars and strings",
-    "eyebrow": "Media / Performances / Projects",
-    "title": "Media",
-    "description": "A selected archive of solo performance, interdisciplinary work, and new-music collaboration."
-  },
-  "entries": [
-    {
-      "category": "HSS / video excerpt",
-      "title": "Rocks / Spiral",
-      "credit": "HSS collaboration with David Stout and Colin Stokes",
-      "description": "An excerpt from HSS, a project shaped through percussion, material, image, and close acoustic attention.",
-      "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing",
-      "thumbnail": "assets/hero-sound-art.png"
+  "zh_hant": {
+    "seo": {
+      "title": "媒體 | 洪梓菱",
+      "description": "洪梓菱的演出影片與計畫片段，涵蓋獨奏、跨域合作與新音樂。"
     },
-    {
-      "category": "HSS / video excerpt",
-      "title": "Water",
-      "credit": "HSS collaboration with David Stout and Colin Stokes",
-      "description": "A second HSS excerpt exploring sound through image, material, and direct interaction.",
-      "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing",
-      "thumbnail": "assets/hero-sound-art.png"
+    "hero": {
+      "image": "assets/hero-resonance.png",
+      "image_alt": "木質打擊樂器音板與琴弦的近景",
+      "eyebrow": "媒體 / 演出 / 計畫",
+      "title": "媒體",
+      "description": "收錄獨奏演出、跨域作品與新音樂合作的精選影音。"
     },
-    {
-      "category": "Solo percussion / performance video",
-      "title": "Reflections on the Nature of Water",
-      "credit": "Jacob Druckman",
-      "description": "Solo percussion performance.",
-      "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x",
-      "thumbnail": ""
+    "ui": {
+      "archive-kicker": "精選影音",
+      "archive-heading": "演出影片",
+      "booking-inquiry": "演出洽詢",
+      "watch": "觀看"
     },
-    {
-      "category": "Solo percussion / performance video",
-      "title": "Rebonds a",
-      "credit": "Iannis Xenakis",
-      "description": "Solo percussion performance.",
-      "url": "https://youtu.be/RPzZlbgLQOQ?si=uj1XLbi1CiYAQS7X",
-      "thumbnail": ""
-    },
-    {
-      "category": "Solo percussion / performance video",
-      "title": "Rebonds b",
-      "credit": "Iannis Xenakis",
-      "description": "Solo percussion performance.",
-      "url": "https://youtu.be/QqJ3RBtzy7A?si=PBGInEhrCdDd5QNC",
-      "thumbnail": ""
-    },
-    {
-      "category": "Solo percussion / performance video",
-      "title": "Wink",
-      "credit": "Mark Ford",
-      "description": "Solo percussion performance.",
-      "url": "https://youtu.be/pdo6vRqUSKo?si=SO4rMGnIuwq5fnSg",
-      "thumbnail": ""
-    }
-  ]
+    "entries": [
+      {
+        "category": "HSS / 影片片段",
+        "title": "Rocks / Spiral",
+        "credit": "HSS 計畫，與 David Stout 及 Colin Stokes 合作",
+        "description": "HSS 計畫片段，透過打擊、材質、影像與細緻的聲學互動展開。",
+        "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing",
+        "thumbnail": "assets/hero-sound-art.png"
+      },
+      {
+        "category": "HSS / 影片片段",
+        "title": "Water",
+        "credit": "HSS 計畫，與 David Stout 及 Colin Stokes 合作",
+        "description": "另一段 HSS 片段，從影像、材質與直接互動中探索聲音。",
+        "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing",
+        "thumbnail": "assets/hero-sound-art.png"
+      },
+      {
+        "category": "獨奏打擊樂 / 演出影片",
+        "title": "Reflections on the Nature of Water",
+        "credit": "Jacob Druckman",
+        "description": "獨奏打擊樂演出。",
+        "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x",
+        "thumbnail": ""
+      },
+      {
+        "category": "獨奏打擊樂 / 演出影片",
+        "title": "Rebonds a",
+        "credit": "Iannis Xenakis",
+        "description": "獨奏打擊樂演出。",
+        "url": "https://youtu.be/RPzZlbgLQOQ?si=uj1XLbi1CiYAQS7X",
+        "thumbnail": ""
+      },
+      {
+        "category": "獨奏打擊樂 / 演出影片",
+        "title": "Rebonds b",
+        "credit": "Iannis Xenakis",
+        "description": "獨奏打擊樂演出。",
+        "url": "https://youtu.be/QqJ3RBtzy7A?si=PBGInEhrCdDd5QNC",
+        "thumbnail": ""
+      },
+      {
+        "category": "獨奏打擊樂 / 演出影片",
+        "title": "Wink",
+        "credit": "Mark Ford",
+        "description": "獨奏打擊樂演出。",
+        "url": "https://youtu.be/pdo6vRqUSKo?si=SO4rMGnIuwq5fnSg",
+        "thumbnail": ""
+      }
+    ]
+  }
 }

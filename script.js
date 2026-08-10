@@ -6,9 +6,29 @@ const navLinks = Array.from(document.querySelectorAll(".site-nav a"));
 const pointerField = document.querySelector("[data-pointer-field]");
 const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const languageButtons = Array.from(document.querySelectorAll("[data-language]"));
+const languageStorageKey = "tzuling-language";
+const isMediaPage = body.classList.contains("media-page");
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
+let siteContent;
+
+const getPreferredLanguage = () => {
+  try {
+    return localStorage.getItem(languageStorageKey) === "zh_hant" ? "zh_hant" : "en";
+  } catch {
+    return "en";
+  }
+};
+
+const updateLanguageControls = (language) => {
+  languageButtons.forEach((button) => {
+    const isActive = button.dataset.language === language;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+};
 
 const setContent = (key, value) => {
   if (typeof value !== "string") {
@@ -91,7 +111,7 @@ const renderParagraphs = (paragraphs) => {
   }
 };
 
-const renderTracks = (tracks) => {
+const renderTracks = (tracks, actionLabel = "Watch") => {
   const container = document.querySelector("[data-tracks]");
 
   if (!container || !Array.isArray(tracks) || !tracks.length) {
@@ -111,11 +131,11 @@ const renderTracks = (tracks) => {
     copy.append(makeElement("h3", "", track.title));
     copy.append(makeElement("p", "track-note", track.note || ""));
 
-    const link = makeElement("a", "track-action", "Watch");
+    const link = makeElement("a", "track-action", actionLabel);
     link.href = safeUrl(track.url);
     link.target = "_blank";
     link.rel = "noreferrer";
-    link.setAttribute("aria-label", `Watch ${track.title}`);
+    link.setAttribute("aria-label", `${actionLabel} ${track.title}`);
 
     article.append(copy, link);
     fragment.append(article);
@@ -204,16 +224,18 @@ const renderContact = (contact) => {
   }
 };
 
-const hydrateSiteContent = (site) => {
+const hydrateSiteContent = (site, language) => {
   if (!site || typeof site !== "object") {
     return;
   }
 
-  if (site.seo?.title) {
+  document.documentElement.lang = language === "zh_hant" ? "zh-Hant" : "en";
+
+  if (!isMediaPage && site.seo?.title) {
     document.title = site.seo.title;
   }
   const description = document.querySelector("[data-seo-description]");
-  if (description && site.seo?.description) {
+  if (!isMediaPage && description && site.seo?.description) {
     description.content = site.seo.description;
   }
 
@@ -229,10 +251,11 @@ const hydrateSiteContent = (site) => {
   setContent("statement", site.statement?.text);
   setContent("statement-credit", site.statement?.credit);
   setContent("contact-heading", site.contact?.heading);
+  Object.entries(site.ui || {}).forEach(([key, value]) => setContent(key, value));
 
   if (site.artist?.name) {
     const brand = document.querySelector("[data-brand-home]");
-    const initials = site.artist.name
+    const initials = site.artist.mark || site.artist.name
       .split(/\s+/)
       .filter(Boolean)
       .map((part) => part[0])
@@ -256,10 +279,35 @@ const hydrateSiteContent = (site) => {
 
   renderHighlights(site.highlights);
   renderParagraphs(site.about?.paragraphs);
-  renderTracks(site.tracks);
+  renderTracks(site.tracks, site.ui?.watch || "Watch");
   renderProjects(site.projects);
   renderContact(site.contact);
 };
+
+const activateLanguage = (language, shouldPersist = true) => {
+  const selectedLanguage = language === "zh_hant" ? "zh_hant" : "en";
+
+  if (shouldPersist) {
+    try {
+      localStorage.setItem(languageStorageKey, selectedLanguage);
+    } catch {
+      // Language selection still works if storage is unavailable.
+    }
+  }
+
+  updateLanguageControls(selectedLanguage);
+  window.siteLanguage = selectedLanguage;
+
+  if (siteContent) {
+    hydrateSiteContent(siteContent[selectedLanguage] || siteContent.en, selectedLanguage);
+  }
+
+  window.dispatchEvent(new CustomEvent("site-language-change", { detail: { language: selectedLanguage } }));
+};
+
+languageButtons.forEach((button) => {
+  button.addEventListener("click", () => activateLanguage(button.dataset.language));
+});
 
 fetch("content/site.json", { cache: "no-store" })
   .then((response) => {
@@ -268,7 +316,10 @@ fetch("content/site.json", { cache: "no-store" })
     }
     return response.json();
   })
-  .then(hydrateSiteContent)
+  .then((content) => {
+    siteContent = content;
+    activateLanguage(getPreferredLanguage(), false);
+  })
   .catch(() => {
     // The static markup remains available if the editable content file cannot load.
   });

@@ -6,14 +6,9 @@ media:
     extensions: [png, jpg, jpeg, webp]
     rename: safe
 
-content:
-  - name: artist_site
-    label: Artist website
-    type: file
-    path: content/site.json
-    format: json
-    operations:
-      delete: false
+components:
+  site_content:
+    type: object
     fields:
       - name: seo
         label: Search appearance
@@ -31,6 +26,9 @@ content:
         fields:
           - name: name
             label: Full name
+            type: string
+          - name: mark
+            label: Header mark
             type: string
           - name: role
             label: Intro role
@@ -57,6 +55,61 @@ content:
           - name: secondary_cta
             label: Second button label
             type: string
+      - name: ui
+        label: Navigation and interface labels
+        type: object
+        fields:
+          - name: nav-about
+            label: About navigation label
+            type: string
+          - name: nav-listen
+            label: Listen navigation label
+            type: string
+          - name: nav-media
+            label: Media navigation label
+            type: string
+          - name: nav-projects
+            label: Projects navigation label
+            type: string
+          - name: nav-materials
+            label: Materials navigation label
+            type: string
+          - name: nav-contact
+            label: Contact navigation label
+            type: string
+          - name: about-kicker
+            label: About section label
+            type: string
+          - name: listen-kicker
+            label: Listen section label
+            type: string
+          - name: listen-heading
+            label: Listen heading
+            type: string
+          - name: media-library-link
+            label: Media library link
+            type: string
+          - name: artist-biography-link
+            label: Biography link
+            type: string
+          - name: performance-videos-link
+            label: Performance videos link
+            type: string
+          - name: booking-materials-link
+            label: Booking materials link
+            type: string
+          - name: contact-kicker
+            label: Contact section label
+            type: string
+          - name: back-to-top
+            label: Back to top label
+            type: string
+          - name: back-to-home
+            label: Back to home label
+            type: string
+          - name: watch
+            label: Watch button label
+            type: string
       - name: highlights
         label: Highlights
         type: string
@@ -77,7 +130,7 @@ content:
               min: 1
               max: 6
       - name: tracks
-        label: Videos
+        label: Featured videos
         type: object
         list:
           min: 1
@@ -167,13 +220,8 @@ content:
               - name: url
                 label: URL
                 type: string
-  - name: media_library
-    label: Media library
-    type: file
-    path: content/media.json
-    format: json
-    operations:
-      delete: false
+  media_content:
+    type: object
     fields:
       - name: seo
         label: Search appearance
@@ -204,6 +252,22 @@ content:
           - name: description
             label: Introduction
             type: text
+      - name: ui
+        label: Interface labels
+        type: object
+        fields:
+          - name: archive-kicker
+            label: Archive section label
+            type: string
+          - name: archive-heading
+            label: Archive heading
+            type: string
+          - name: booking-inquiry
+            label: Booking inquiry label
+            type: string
+          - name: watch
+            label: Watch button label
+            type: string
       - name: entries
         label: Media entries
         type: object
@@ -233,3 +297,33 @@ content:
             label: Optional thumbnail path
             description: Leave blank to use the YouTube video thumbnail.
             type: string
+
+content:
+  - name: artist_site
+    label: Homepage content
+    type: file
+    path: content/site.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: en
+        label: English
+        component: site_content
+      - name: zh_hant
+        label: Traditional Chinese
+        component: site_content
+  - name: media_library
+    label: Media library
+    type: file
+    path: content/media.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: en
+        label: English
+        component: media_content
+      - name: zh_hant
+        label: Traditional Chinese
+        component: media_content
