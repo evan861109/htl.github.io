@@ -232,20 +232,10 @@ const hydrateSiteContent = (site) => {
 
   if (site.artist?.name) {
     const brand = document.querySelector("[data-brand-home]");
-    const initials = site.artist.name
-      .split(/\s+/)
-      .filter(Boolean)
-      .map((part) => part[0])
-      .join("")
-      .slice(0, 3)
-      .toUpperCase();
 
     if (brand) {
       brand.setAttribute("aria-label", `${site.artist.name} home`);
     }
-    document.querySelectorAll("[data-artist-initials]").forEach((element) => {
-      element.textContent = initials;
-    });
   }
 
   const heroImage = document.querySelector("[data-hero-image]");

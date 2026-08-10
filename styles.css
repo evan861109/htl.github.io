@@ -167,16 +167,6 @@ img {
   font-weight: 700;
 }
 
-.brand-mark {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border: 1px solid currentColor;
-  font-size: 0.72rem;
-  background: rgba(255, 250, 242, 0.08);
-}
-
 .brand-text,
 .site-nav a,
 .button,
