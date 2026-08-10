@@ -234,10 +234,6 @@ html[lang="zh-Hant"] .hero h1 {
   font-weight: 400;
 }
 
-html[lang="zh-Hant"] .score-field {
-  display: none;
-}
-
 html[lang="zh-Hant"] .brand-text,
 html[lang="zh-Hant"] .site-nav a,
 html[lang="zh-Hant"] .button,
@@ -365,7 +361,7 @@ html[lang="zh-Hant"] .intro-role {
   position: absolute;
   z-index: 1;
   inset: auto clamp(18px, 6vw, 88px) 12vh clamp(18px, 7vw, 104px);
-  display: grid;
+  display: none;
   gap: 12px;
   opacity: 0.52;
 }
