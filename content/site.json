@@ -1,0 +1,86 @@
+{
+  "seo": {
+    "title": "Tzu-Ling Hung | Percussionist & Composer",
+    "description": "Tzu-Ling Hung is a percussionist, chamber musician, and composer working across contemporary music, new work, and cross-disciplinary performance."
+  },
+  "artist": {
+    "name": "Tzu-Ling Hung",
+    "role": "Percussionist"
+  },
+  "hero": {
+    "image": "assets/hero-sound-art.png",
+    "image_alt": "Abstract sound-art materials with water, stones, glass bowls, and xylophone wood",
+    "eyebrow": "Percussionist / Composer / New Music",
+    "tagline": "Percussion, sound, and theatrical performance shaped by close listening and new possibility.",
+    "primary_cta": "Watch excerpts",
+    "secondary_cta": "Collaboration inquiry"
+  },
+  "highlights": [
+    "Classical, contemporary, and global percussion traditions",
+    "New music, theatrical performance, and cross-disciplinary exchange",
+    "Daily sounds and close observation translated into music"
+  ],
+  "about": {
+    "heading": "Expanding percussion through new music, collaboration, and performance.",
+    "paragraphs": [
+      "Tzu-Ling Hung is a solo percussionist, chamber musician, and composer based in Denton, Texas and Pingtung, Taiwan. Her practice moves through classical and contemporary music, with a particular pull toward experimentation, theatricality, and underrepresented voices.",
+      "Recent projects include tREeAL, a multimedia performance tracing the space between direct acoustic interaction and electronic effects, and HSS, a collaboration with David Stout and Colin Stokes. As a composer, she draws from the sounds and perceptions of daily life.",
+      "Hung is completing a Doctor of Musical Arts at the University of North Texas, where she is a Teaching Fellow. She holds a Master of Music and Performer Diploma from the Indiana University Jacobs School of Music, and a Bachelor of Fine Arts from the University of Taipei."
+    ]
+  },
+  "tracks": [
+    {
+      "meta": "HSS / video excerpt",
+      "title": "Rocks / Spiral",
+      "note": "An excerpt from HSS, a collaborative project with David Stout and Colin Stokes.",
+      "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing"
+    },
+    {
+      "meta": "HSS / video excerpt",
+      "title": "Water",
+      "note": "A second HSS excerpt, exploring percussion through image, material, and close acoustic attention.",
+      "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing"
+    },
+    {
+      "meta": "Solo percussion / video",
+      "title": "Reflections on the Nature of Water",
+      "note": "Jacob Druckman's solo percussion work, performed by Tzu-Ling Hung.",
+      "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x"
+    }
+  ],
+  "projects": {
+    "kicker": "Projects & Recognition",
+    "heading": "Recent work",
+    "items": [
+      {
+        "year": "2026",
+        "title": "Ring Ring by Sungji Hong",
+        "description": "New vibraphone solo commission"
+      },
+      {
+        "year": "2025",
+        "title": "tREeAL",
+        "description": "Multimedia performance exploring acoustic, electronic, and hybrid sound"
+      },
+      {
+        "year": "2025",
+        "title": "PAS International Percussion Ensemble Competition",
+        "description": "Winner with the UNT Percussion Ensemble; showcase concert in Indianapolis"
+      }
+    ]
+  },
+  "statement": {
+    "text": "\"Her artistic practice focuses on expanding underrepresented voices, exploring theatrical elements in performance, and using music to translate her personal background into compelling stories.\"",
+    "credit": "Artist biography"
+  },
+  "materials": {
+    "biography_url": "https://drive.google.com/file/d/1_Kq6xojd-9G04kgbXjYNGJnS-CB9swcy/view?usp=sharing"
+  },
+  "contact": {
+    "heading": "Bookings, new-music collaborations, and teaching inquiries.",
+    "availability": "Based between Denton, Texas and Pingtung, Taiwan. Available for solo performance, chamber music, new work, and cross-disciplinary projects.",
+    "email": "",
+    "notice": "Direct booking contact and social links will be added with the artist's preferred details.",
+    "links": []
+  }
+}

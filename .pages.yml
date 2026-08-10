@@ -1,0 +1,176 @@
+media:
+  - name: images
+    label: Site images
+    input: assets
+    output: /assets
+    extensions: [png, jpg, jpeg, webp]
+    rename: safe
+
+content:
+  - name: artist_site
+    label: Artist website
+    type: file
+    path: content/site.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: seo
+        label: Search appearance
+        type: object
+        fields:
+          - name: title
+            label: Browser title
+            type: string
+          - name: description
+            label: Search description
+            type: text
+      - name: artist
+        label: Artist
+        type: object
+        fields:
+          - name: name
+            label: Full name
+            type: string
+          - name: role
+            label: Intro role
+            type: string
+      - name: hero
+        label: First screen
+        type: object
+        fields:
+          - name: image
+            label: Hero image
+            type: image
+          - name: image_alt
+            label: Image description
+            type: text
+          - name: eyebrow
+            label: Short introduction
+            type: string
+          - name: tagline
+            label: Main statement
+            type: text
+          - name: primary_cta
+            label: First button label
+            type: string
+          - name: secondary_cta
+            label: Second button label
+            type: string
+      - name: highlights
+        label: Highlights
+        type: string
+        list:
+          min: 3
+          max: 3
+      - name: about
+        label: Biography
+        type: object
+        fields:
+          - name: heading
+            label: Heading
+            type: string
+          - name: paragraphs
+            label: Biography paragraphs
+            type: text
+            list:
+              min: 1
+              max: 4
+      - name: tracks
+        label: Videos
+        type: object
+        list:
+          min: 1
+          max: 8
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: meta
+            label: Category and format
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: note
+            label: Description
+            type: text
+          - name: url
+            label: Video URL
+            type: string
+      - name: projects
+        label: Projects and recognition
+        type: object
+        fields:
+          - name: kicker
+            label: Section label
+            type: string
+          - name: heading
+            label: Heading
+            type: string
+          - name: items
+            label: Entries
+            type: object
+            list:
+              min: 1
+              max: 8
+              collapsible:
+                collapsed: true
+                summary: "{year} - {title}"
+            fields:
+              - name: year
+                label: Year
+                type: string
+              - name: title
+                label: Title
+                type: string
+              - name: description
+                label: Description
+                type: text
+      - name: statement
+        label: Artist statement
+        type: object
+        fields:
+          - name: text
+            label: Statement
+            type: text
+          - name: credit
+            label: Credit line
+            type: string
+      - name: materials
+        label: Artist materials
+        type: object
+        fields:
+          - name: biography_url
+            label: Full biography URL
+            type: string
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - name: heading
+            label: Heading
+            type: string
+          - name: availability
+            label: Availability and location
+            type: text
+          - name: email
+            label: Booking email
+            type: string
+          - name: notice
+            label: Message shown when no email is available
+            type: text
+          - name: links
+            label: Social links
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: url
+                label: URL
+                type: string
