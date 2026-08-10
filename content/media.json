@@ -12,20 +12,22 @@
       "description": "A selected archive of solo performance, interdisciplinary work, and new-music collaboration."
     },
     "ui": {
+      "featured-kicker": "HSS",
+      "featured-heading": "Featured performance",
       "archive-kicker": "Selected Archive",
-      "archive-heading": "Performance videos",
+      "archive-heading": "More performances",
       "booking-inquiry": "Booking inquiry",
       "watch": "Watch"
     },
+    "featured": {
+      "category": "HSS / video excerpt",
+      "title": "Rocks / Spiral",
+      "credit": "HSS collaboration with David Stout and Colin Stokes",
+      "description": "An excerpt from HSS, a project shaped through percussion, material, image, and close acoustic attention.",
+      "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing",
+      "thumbnail": "assets/hero-sound-art.png"
+    },
     "entries": [
-      {
-        "category": "HSS / video excerpt",
-        "title": "Rocks / Spiral",
-        "credit": "HSS collaboration with David Stout and Colin Stokes",
-        "description": "An excerpt from HSS, a project shaped through percussion, material, image, and close acoustic attention.",
-        "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing",
-        "thumbnail": "assets/hero-sound-art.png"
-      },
       {
         "category": "HSS / video excerpt",
         "title": "Water",
@@ -81,20 +83,22 @@
       "description": "收錄獨奏演出、跨域作品與新音樂合作的精選影音。"
     },
     "ui": {
+      "featured-kicker": "HSS",
+      "featured-heading": "精選演出",
       "archive-kicker": "精選影音",
-      "archive-heading": "演出影片",
+      "archive-heading": "更多演出",
       "booking-inquiry": "演出洽詢",
       "watch": "觀看"
     },
+    "featured": {
+      "category": "HSS / 影片片段",
+      "title": "Rocks / Spiral",
+      "credit": "HSS 計畫，與 David Stout 及 Colin Stokes 合作",
+      "description": "HSS 計畫片段，透過打擊、材質、影像與細緻的聲學互動展開。",
+      "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing",
+      "thumbnail": "assets/hero-sound-art.png"
+    },
     "entries": [
-      {
-        "category": "HSS / 影片片段",
-        "title": "Rocks / Spiral",
-        "credit": "HSS 計畫，與 David Stout 及 Colin Stokes 合作",
-        "description": "HSS 計畫片段，透過打擊、材質、影像與細緻的聲學互動展開。",
-        "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing",
-        "thumbnail": "assets/hero-sound-art.png"
-      },
       {
         "category": "HSS / 影片片段",
         "title": "Water",

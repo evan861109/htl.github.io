@@ -269,6 +269,12 @@ components:
         label: Interface labels
         type: object
         fields:
+          - name: featured-kicker
+            label: Featured section label
+            type: string
+          - name: featured-heading
+            label: Featured heading
+            type: string
           - name: archive-kicker
             label: Archive section label
             type: string
@@ -280,6 +286,28 @@ components:
             type: string
           - name: watch
             label: Watch button label
+            type: string
+      - name: featured
+        label: Featured performance
+        type: object
+        fields:
+          - name: category
+            label: Category and format
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: credit
+            label: Composer or project credit
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: url
+            label: Watch or listen URL
+            type: string
+          - name: thumbnail
+            label: Thumbnail path
             type: string
       - name: entries
         label: Media entries

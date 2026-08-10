@@ -1,4 +1,5 @@
 const mediaGrid = document.querySelector("[data-media-grid]");
+const mediaFeature = document.querySelector("[data-media-feature]");
 let mediaContent;
 
 const getMediaLanguage = () => {
@@ -109,6 +110,44 @@ const renderMedia = (entries, actionLabel = "Watch") => {
   mediaGrid.replaceChildren(fragment);
 };
 
+const renderFeaturedMedia = (entry, actionLabel = "Watch") => {
+  if (!mediaFeature || !entry || typeof entry.title !== "string" || !entry.title.trim()) {
+    return;
+  }
+
+  const url = mediaSafeUrl(entry.url);
+  const thumbnail = entry.thumbnail || getYoutubeThumbnail(entry.url);
+  const article = mediaElement("article", "media-feature-card");
+  const link = mediaElement("a", "media-feature-image");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  link.setAttribute("aria-label", `${actionLabel} ${entry.title}`);
+
+  if (thumbnail) {
+    const image = document.createElement("img");
+    image.src = thumbnail;
+    image.alt = `Video still for ${entry.title}`;
+    link.append(image);
+  }
+
+  const copy = mediaElement("div", "media-feature-copy");
+  copy.append(mediaElement("p", "track-meta", entry.category || "Performance video"));
+  copy.append(mediaElement("h3", "", entry.title));
+  copy.append(mediaElement("p", "media-credit", entry.credit || ""));
+  copy.append(mediaElement("p", "media-description", entry.description || ""));
+
+  const action = mediaElement("a", "media-watch", actionLabel);
+  action.href = url;
+  action.target = "_blank";
+  action.rel = "noreferrer";
+  action.setAttribute("aria-label", `${actionLabel} ${entry.title}`);
+  copy.append(action);
+
+  article.append(link, copy);
+  mediaFeature.replaceChildren(article);
+};
+
 const hydrateMediaContent = (content, language) => {
   const media = content[language] || content.en;
 
@@ -137,7 +176,9 @@ const hydrateMediaContent = (content, language) => {
     heroImage.alt = media.hero.image_alt || "Percussion detail";
   }
 
-  renderMedia(media.entries, media.ui?.watch || "Watch");
+  const actionLabel = media.ui?.watch || "Watch";
+  renderFeaturedMedia(media.featured, actionLabel);
+  renderMedia(media.entries, actionLabel);
 };
 
 window.addEventListener("site-language-change", (event) => {
