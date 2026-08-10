@@ -307,9 +307,13 @@ const activateLanguage = (language, shouldPersist = true) => {
   updateLanguageControls(selectedLanguage);
   window.siteLanguage = selectedLanguage;
 
-  const url = new URL(window.location.href);
-  url.searchParams.set("lang", selectedLanguage);
-  window.history.replaceState({}, "", url);
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", selectedLanguage);
+    window.history.replaceState({}, "", url);
+  } catch {
+    // Content can still hydrate when the page is opened outside a web server.
+  }
 
   if (siteContent) {
     hydrateSiteContent(siteContent[selectedLanguage] || siteContent.en, selectedLanguage);
@@ -317,13 +321,6 @@ const activateLanguage = (language, shouldPersist = true) => {
 
   window.dispatchEvent(new CustomEvent("site-language-change", { detail: { language: selectedLanguage } }));
 };
-
-languageButtons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-    activateLanguage(button.dataset.language);
-  });
-});
 
 fetch("content/site.json", { cache: "no-store" })
   .then((response) => {
