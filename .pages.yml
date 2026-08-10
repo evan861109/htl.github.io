@@ -75,7 +75,7 @@ content:
             type: text
             list:
               min: 1
-              max: 4
+              max: 6
       - name: tracks
         label: Videos
         type: object
@@ -136,13 +136,6 @@ content:
             type: text
           - name: credit
             label: Credit line
-            type: string
-      - name: materials
-        label: Artist materials
-        type: object
-        fields:
-          - name: biography_url
-            label: Full biography URL
             type: string
       - name: contact
         label: Contact

@@ -254,11 +254,6 @@ const hydrateSiteContent = (site) => {
     heroImage.alt = site.hero.image_alt || "Artist performance image";
   }
 
-  const fullBiography = document.querySelector("[data-full-biography]");
-  if (fullBiography && site.materials?.biography_url) {
-    fullBiography.href = safeUrl(site.materials.biography_url);
-  }
-
   renderHighlights(site.highlights);
   renderParagraphs(site.about?.paragraphs);
   renderTracks(site.tracks);
