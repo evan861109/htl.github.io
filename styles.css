@@ -25,11 +25,14 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 0;
+  overflow-x: clip;
   background:
     repeating-linear-gradient(90deg, transparent 0, transparent 78px, var(--fine-line) 79px, transparent 80px),
     var(--paper);
@@ -1208,6 +1211,11 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
 }
 
 @media (max-width: 860px) {
+  .site-header {
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-left: max(16px, env(safe-area-inset-left));
+  }
+
   .nav-toggle {
     display: block;
   }
@@ -1223,7 +1231,10 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
     right: 0;
     display: grid;
     gap: 0;
-    padding: 18px;
+    max-height: calc(100dvh - var(--header-height));
+    padding: 8px max(18px, env(safe-area-inset-right)) calc(18px + env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+    overflow-y: auto;
+    overscroll-behavior: contain;
     color: var(--ink);
     background: rgba(247, 243, 236, 0.96);
     border-bottom: 1px solid var(--line);
@@ -1237,7 +1248,10 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
   }
 
   .site-nav a {
-    padding: 18px 0;
+    display: flex;
+    min-height: 56px;
+    align-items: center;
+    padding: 12px 0;
     border-bottom: 1px solid var(--line);
   }
 
@@ -1313,6 +1327,10 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
     margin-left: 16px;
   }
 
+  .hero-copy {
+    font-size: clamp(1rem, 4.8vw, 1.16rem);
+  }
+
   .hero-actions,
   .button {
     width: 100%;
@@ -1332,6 +1350,7 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
 
   .site-footer {
     display: grid;
+    padding-bottom: max(28px, calc(18px + env(safe-area-inset-bottom)));
   }
 
   .media-hero {
@@ -1362,6 +1381,11 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
     font-size: clamp(3.8rem, 19vw, 6.4rem);
   }
 
+  .bio-copy {
+    font-size: clamp(1.05rem, 4.8vw, 1.18rem);
+    line-height: 1.78;
+  }
+
   .media-feature-copy h3 {
     font-size: clamp(2.5rem, 12vw, 4.25rem);
   }
@@ -1372,6 +1396,26 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
 
   .media-watch {
     margin-top: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-actions {
+    gap: 12px;
+  }
+
+  .language-switch {
+    gap: 6px;
+  }
+
+  .hero .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .button {
+    min-height: 50px;
+    padding: 0 16px;
   }
 }
 
