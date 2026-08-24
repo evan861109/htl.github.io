@@ -10,6 +10,8 @@ const languageButtons = Array.from(document.querySelectorAll("[data-language]"))
 const languageStorageKey = "tzuling-language";
 const isMediaPage = body.classList.contains("media-page");
 const isBioPage = body.classList.contains("bio-page");
+const isProjectsPage = body.classList.contains("projects-page");
+const isProjectPage = body.classList.contains("project-page");
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
@@ -45,7 +47,7 @@ const updateLanguageLinks = (language) => {
   document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute('href');
 
-    if (!href || !/^(?:index|media|bio)\.html(?:[?#]|$)/.test(href)) {
+    if (!href || !/^(?:index|media|bio|projects)\.html(?:[?#]|$)/.test(href)) {
       return;
     }
 
@@ -189,6 +191,16 @@ const renderTracks = (tracks, actionLabel = "Watch") => {
   }
 };
 
+const getProjectUrl = (slug) => {
+  if (typeof slug !== "string" || !/^[a-z0-9-]+$/.test(slug)) {
+    return "#";
+  }
+
+  const url = new URL(`projects/${slug}.html`, document.baseURI);
+  url.searchParams.set("lang", window.siteLanguage || getPreferredLanguage());
+  return url.href;
+};
+
 const renderProjects = (projects) => {
   const container = document.querySelector("[data-projects]");
   const items = projects?.items;
@@ -204,20 +216,75 @@ const renderProjects = (projects) => {
       return;
     }
 
-    const article = makeElement("article", "event");
+    const article = makeElement("a", "project-index-card");
+    article.href = getProjectUrl(project.slug);
     const time = makeElement("time", "", project.year || "");
     if (project.year) {
       time.dateTime = project.year;
     }
     const copy = document.createElement("div");
-    copy.append(makeElement("h3", "", project.title));
+    copy.append(makeElement("h2", "", project.title));
     copy.append(makeElement("p", "", project.description || ""));
-    article.append(time, copy);
+    article.append(time, copy, makeElement("span", "project-index-arrow", "↗"));
     fragment.append(article);
   });
 
   if (fragment.childNodes.length) {
     container.replaceChildren(fragment);
+  }
+};
+
+const hydrateProjectContent = (site) => {
+  if (!isProjectPage) {
+    return;
+  }
+
+  const slug = body.dataset.projectSlug;
+  const project = site.projects?.items?.find((item) => item?.slug === slug);
+  if (!project) {
+    return;
+  }
+
+  const artistName = site.artist?.name || site.artist?.display_name || "Tzu-Ling Hung";
+  document.title = `${project.title} | ${artistName}`;
+
+  const description = document.querySelector("[data-project-seo-description]");
+  if (description && project.description) {
+    description.content = project.description;
+  }
+
+  document.querySelectorAll("[data-project-content]").forEach((element) => {
+    const value = project[element.dataset.projectContent];
+    if (typeof value === "string") {
+      element.textContent = value;
+    }
+  });
+
+  const bodyCopy = document.querySelector("[data-project-body]");
+  if (bodyCopy && Array.isArray(project.body) && project.body.length) {
+    const fragment = document.createDocumentFragment();
+    project.body.forEach((paragraph) => {
+      if (typeof paragraph === "string" && paragraph.trim()) {
+        fragment.append(makeElement("p", "", paragraph));
+      }
+    });
+    if (fragment.childNodes.length) {
+      bodyCopy.replaceChildren(fragment);
+    }
+  }
+};
+
+const hydrateProjectsPageContent = (site) => {
+  if (!isProjectsPage || !site.projects) {
+    return;
+  }
+
+  const artistName = site.artist?.name || site.artist?.display_name || "Tzu-Ling Hung";
+  document.title = `${site.projects.heading || "Projects"} | ${artistName}`;
+
+  const description = document.querySelector("[data-projects-seo-description]");
+  if (description && site.projects.intro) {
+    description.content = site.projects.intro;
   }
 };
 
@@ -274,7 +341,7 @@ const hydrateSiteContent = (site, language) => {
 
   document.documentElement.lang = language === "zh_hant" ? "zh-Hant" : "en";
 
-  if (!isMediaPage && !isBioPage && site.seo?.title) {
+  if (!isMediaPage && !isBioPage && !isProjectsPage && !isProjectPage && site.seo?.title) {
     document.title = site.seo.title;
   }
   const description = document.querySelector("[data-seo-description]");
@@ -292,6 +359,8 @@ const hydrateSiteContent = (site, language) => {
   setContent("about-heading", site.about?.heading);
   setContent("projects-kicker", site.projects?.kicker);
   setContent("projects-heading", site.projects?.heading);
+  setContent("projects-intro", site.projects?.intro);
+  setContent("back-to-projects", site.ui?.["back-to-projects"]);
   setContent("statement", site.statement?.text);
   setContent("statement-credit", site.statement?.credit);
   setContent("contact-heading", site.contact?.heading);
@@ -378,6 +447,8 @@ const hydrateSiteContent = (site, language) => {
   hydrateBioContent(site);
   renderTracks(site.tracks, site.ui?.watch || "Watch");
   renderProjects(site.projects);
+  hydrateProjectsPageContent(site);
+  hydrateProjectContent(site);
   renderContact(site.contact);
 };
 

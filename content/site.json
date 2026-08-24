@@ -43,6 +43,7 @@
       "contact-kicker": "Contact",
       "back-to-top": "Back to top",
       "back-to-home": "Back to home",
+      "back-to-projects": "Back to projects",
       "watch": "Watch"
     },
     "practice": {
@@ -93,21 +94,37 @@
     "projects": {
       "kicker": "Projects & Recognition",
       "heading": "Recent work",
+      "intro": "A selection of commissions, collaborative performance, and ensemble work.",
       "items": [
         {
+          "slug": "ring-ring",
           "year": "2026",
           "title": "Ring Ring by Sungji Hong",
-          "description": "New vibraphone solo commission"
+          "description": "New vibraphone solo commission",
+          "body": [
+            "Ring Ring is a new vibraphone solo by composer Sungji Hong, commissioned for Tzu-Ling Hung.",
+            "The work extends Hung's ongoing interest in close listening, physical gesture, and the resonant detail of percussion performance."
+          ]
         },
         {
+          "slug": "treeal",
           "year": "2025",
           "title": "tREeAL",
-          "description": "Multimedia performance exploring acoustic, electronic, and hybrid sound"
+          "description": "Multimedia performance exploring acoustic, electronic, and hybrid sound",
+          "body": [
+            "tREeAL is a multimedia performance exploring the spectrum between direct acoustic interaction, software-based electronic effects, and the hybrid spaces between them.",
+            "The project brings sound, theatrical presence, and visual design into a single performance environment."
+          ]
         },
         {
+          "slug": "pas-ensemble",
           "year": "2025",
           "title": "PAS International Percussion Ensemble Competition",
-          "description": "Winner with the UNT Percussion Ensemble; showcase concert in Indianapolis"
+          "description": "Winner with the UNT Percussion Ensemble; showcase concert in Indianapolis",
+          "body": [
+            "With the UNT Percussion Ensemble, Tzu-Ling Hung won the 2025 PAS International Percussion Ensemble Competition.",
+            "The award led to a showcase concert in Indianapolis and reflects her ongoing chamber and large-ensemble work."
+          ]
         }
       ]
     },
@@ -167,6 +184,7 @@
       "contact-kicker": "聯絡",
       "back-to-top": "回到頂端",
       "back-to-home": "回到首頁",
+      "back-to-projects": "返回計畫列表",
       "watch": "觀看"
     },
     "practice": {
@@ -217,21 +235,37 @@
     "projects": {
       "kicker": "計畫與獲獎",
       "heading": "近期作品",
+      "intro": "收錄委託創作、跨域演出與打擊樂團合作計畫。",
       "items": [
         {
+          "slug": "ring-ring",
           "year": "2026",
           "title": "Ring Ring by Sungji Hong",
-          "description": "鐵琴獨奏委託創作"
+          "description": "鐵琴獨奏委託創作",
+          "body": [
+            "《Ring Ring》是由作曲家 Sungji Hong 為洪梓菱委託創作的鐵琴獨奏作品。",
+            "作品延續她對細緻聆聽、身體動作與打擊樂器共鳴質地的長期關注。"
+          ]
         },
         {
+          "slug": "treeal",
           "year": "2025",
           "title": "tREeAL",
-          "description": "探索原音、電子效果與混合聲響的多媒體演出"
+          "description": "探索原音、電子效果與混合聲響的多媒體演出",
+          "body": [
+            "tREeAL 是一項多媒體演出計畫，探索直接聲學互動、軟體電子效果與兩者之間混合狀態的聲響光譜。",
+            "作品將聲音、劇場性的舞台存在與視覺設計整合為一個完整的演出場域。"
+          ]
         },
         {
+          "slug": "pas-ensemble",
           "year": "2025",
           "title": "PAS International Percussion Ensemble Competition",
-          "description": "隨北德州大學打擊樂團獲獎，並於印第安納波利斯舉行專場演出"
+          "description": "隨北德州大學打擊樂團獲獎，並於印第安納波利斯舉行專場演出",
+          "body": [
+            "洪梓菱隨北德州大學打擊樂團獲得 2025 PAS International Percussion Ensemble Competition 冠軍。",
+            "此獎項促成於印第安納波利斯的專場演出，也呈現她持續投入室內樂與大型打擊樂團演出的經驗。"
+          ]
         }
       ]
     },

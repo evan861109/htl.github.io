@@ -929,6 +929,124 @@ html[lang="zh-Hant"] .practice-bridge-statement {
   border-bottom: 1px solid var(--line);
 }
 
+.projects-main,
+.project-detail-main {
+  min-height: 100vh;
+  padding-top: var(--header-height);
+}
+
+.projects-intro,
+.project-detail-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+  gap: clamp(32px, 8vw, 148px);
+  align-items: end;
+  padding: clamp(88px, 13vw, 184px) clamp(18px, 7vw, 104px) clamp(62px, 9vw, 122px);
+  border-bottom: 1px solid var(--line);
+  background:
+    repeating-linear-gradient(90deg, transparent 0, transparent 118px, rgba(79, 119, 116, 0.1) 119px, transparent 120px),
+    var(--paper-deep);
+}
+
+.projects-intro h1,
+.project-detail-intro h1 {
+  max-width: 10ch;
+  margin-bottom: 0;
+  font-size: clamp(4rem, 10vw, 9rem);
+}
+
+.project-detail-intro h1 {
+  font-size: clamp(3.5rem, 7vw, 7.5rem);
+}
+
+.projects-intro-copy,
+.project-detail-summary {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.1rem, 1.8vw, 1.42rem);
+  line-height: 1.6;
+}
+
+.project-index {
+  padding-top: clamp(48px, 7vw, 88px);
+  padding-bottom: clamp(90px, 13vw, 168px);
+}
+
+.project-index-list {
+  border-top: 1px solid var(--line);
+}
+
+.project-index-card {
+  display: grid;
+  grid-template-columns: minmax(88px, 0.3fr) minmax(0, 1.6fr) auto;
+  gap: clamp(20px, 4vw, 64px);
+  align-items: start;
+  padding: clamp(28px, 4.2vw, 58px) 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 180ms ease, padding-left 180ms ease;
+}
+
+.project-index-card:hover,
+.project-index-card:focus-visible {
+  padding-left: 12px;
+  color: var(--accent-dark);
+}
+
+.project-index-card time {
+  padding-top: 9px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.project-index-card h2 {
+  max-width: 18ch;
+  font-size: clamp(2.5rem, 5.4vw, 5.8rem);
+  line-height: 0.94;
+}
+
+.project-index-card p {
+  max-width: 52ch;
+  margin: 16px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.project-index-arrow {
+  padding-top: 10px;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.project-detail-copy-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(36px, 8vw, 148px);
+  align-items: end;
+  padding: clamp(72px, 10vw, 142px) clamp(18px, 7vw, 104px) clamp(92px, 13vw, 180px);
+  background: var(--paper);
+}
+
+.project-detail-copy {
+  max-width: 760px;
+  margin-left: auto;
+  color: var(--muted);
+  font-size: clamp(1.12rem, 1.7vw, 1.3rem);
+  line-height: 1.82;
+}
+
+.project-detail-copy p {
+  margin: 0;
+  padding: clamp(28px, 4vw, 46px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.project-detail-copy p:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
 html[lang="zh-Hant"] .about-link {
   letter-spacing: 0.04em;
   text-transform: none;
@@ -1303,6 +1421,8 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
   .about-grid,
   .contact,
   .bio-intro,
+  .projects-intro,
+  .project-detail-intro,
   .events,
   .press {
     grid-template-columns: 1fr;
@@ -1331,6 +1451,14 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
   }
 
   .bio-copy {
+    margin-left: 0;
+  }
+
+  .project-detail-copy-section {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-copy {
     margin-left: 0;
   }
 }
@@ -1410,6 +1538,38 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
 
   .bio-intro h1 {
     font-size: clamp(3.8rem, 19vw, 6.4rem);
+  }
+
+  .projects-intro,
+  .project-detail-intro {
+    padding-top: 84px;
+  }
+
+  .projects-intro h1,
+  .project-detail-intro h1 {
+    font-size: clamp(3.8rem, 19vw, 6.4rem);
+  }
+
+  .project-detail-intro h1 {
+    font-size: clamp(3.3rem, 15vw, 5rem);
+  }
+
+  .project-index-card {
+    grid-template-columns: 1fr auto;
+    gap: 18px;
+  }
+
+  .project-index-card time {
+    grid-column: 1 / -1;
+    padding-top: 0;
+  }
+
+  .project-index-card h2 {
+    font-size: clamp(2.65rem, 13vw, 4.6rem);
+  }
+
+  .project-detail-copy-section {
+    gap: 32px;
   }
 
   .bio-copy {

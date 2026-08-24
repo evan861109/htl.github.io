@@ -125,6 +125,9 @@ components:
           - name: back-to-home
             label: Back to home label
             type: string
+          - name: back-to-projects
+            label: Back to projects label
+            type: string
           - name: watch
             label: Watch button label
             type: string
@@ -148,6 +151,9 @@ components:
           - name: heading
             label: Heading
             type: string
+          - name: intro
+            label: Projects page introduction
+            type: text
           - name: paragraphs
             label: Biography paragraphs
             type: text
@@ -200,7 +206,7 @@ components:
             label: Video URL
             type: string
       - name: projects
-        label: Projects and recognition
+        label: Projects
         type: object
         fields:
           - name: kicker
@@ -219,6 +225,9 @@ components:
                 collapsed: true
                 summary: "{year} - {title}"
             fields:
+              - name: slug
+                label: Page URL slug
+                type: string
               - name: year
                 label: Year
                 type: string
@@ -228,6 +237,12 @@ components:
               - name: description
                 label: Description
                 type: text
+              - name: body
+                label: Project page paragraphs
+                type: text
+                list:
+                  min: 1
+                  max: 6
       - name: statement
         label: Artist statement
         type: object
