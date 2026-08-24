@@ -324,6 +324,12 @@ const hydrateSiteContent = (site, language) => {
     heroImage.alt = site.hero.image_alt || "Artist performance image";
   }
 
+  const heroVideo = document.querySelector("[data-hero-video]");
+  if (heroVideo && site.hero?.video && heroVideo.src !== new URL(site.hero.video, window.location.href).href) {
+    heroVideo.src = site.hero.video;
+    heroVideo.load();
+  }
+
   renderParagraphs(site.about?.paragraphs?.slice(0, 2));
   hydrateBioContent(site);
   renderTracks(site.tracks, site.ui?.watch || "Watch");

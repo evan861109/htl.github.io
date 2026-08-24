@@ -49,6 +49,9 @@ components:
           - name: image_alt
             label: Image description
             type: text
+          - name: video
+            label: Background video (optional)
+            type: string
           - name: eyebrow
             label: Short introduction
             type: string

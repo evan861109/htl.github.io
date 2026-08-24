@@ -356,8 +356,13 @@ html[lang="zh-Hant"] .intro-role {
 
 .hero-shade {
   background:
-    linear-gradient(90deg, rgba(9, 13, 13, 0.94) 0%, rgba(9, 13, 13, 0.72) 42%, rgba(9, 13, 13, 0.12) 80%),
-    linear-gradient(0deg, rgba(9, 13, 13, 0.68) 0%, transparent 42%);
+    linear-gradient(90deg, rgba(12, 16, 13, 0.94) 0%, rgba(12, 16, 13, 0.7) 44%, rgba(12, 16, 13, 0.16) 80%),
+    linear-gradient(0deg, rgba(12, 16, 13, 0.72) 0%, transparent 46%);
+}
+
+.hero-video {
+  object-position: 52% center;
+  filter: saturate(0.9) contrast(1.04) brightness(0.96);
 }
 
 .score-field {
@@ -1267,10 +1272,14 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
     object-position: 62% center;
   }
 
+  .hero-video {
+    object-position: 46% center;
+  }
+
   .hero-shade {
     background:
-      linear-gradient(90deg, rgba(9, 13, 13, 0.9) 0%, rgba(9, 13, 13, 0.62) 72%, rgba(9, 13, 13, 0.28) 100%),
-      linear-gradient(0deg, rgba(9, 13, 13, 0.76) 0%, transparent 46%);
+      linear-gradient(90deg, rgba(12, 16, 13, 0.9) 0%, rgba(12, 16, 13, 0.62) 72%, rgba(12, 16, 13, 0.28) 100%),
+      linear-gradient(0deg, rgba(12, 16, 13, 0.78) 0%, transparent 46%);
   }
 
   .score-field {
@@ -1448,6 +1457,10 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
   }
 
   .hero::after {
+    display: none;
+  }
+
+  .hero-video {
     display: none;
   }
 }
