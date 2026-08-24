@@ -49,9 +49,12 @@ components:
           - name: image_alt
             label: Image description
             type: text
-          - name: video
-            label: Background video (optional)
+          - name: video_clips
+            label: Background video clips (optional)
             type: string
+            list:
+              min: 0
+              max: 3
           - name: eyebrow
             label: Short introduction
             type: string

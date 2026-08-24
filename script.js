@@ -324,11 +324,26 @@ const hydrateSiteContent = (site, language) => {
     heroImage.alt = site.hero.image_alt || "Artist performance image";
   }
 
-  const heroVideo = document.querySelector("[data-hero-video]");
-  if (heroVideo && site.hero?.video && heroVideo.src !== new URL(site.hero.video, window.location.href).href) {
-    heroVideo.src = site.hero.video;
-    heroVideo.load();
-  }
+  const heroVideos = Array.from(document.querySelectorAll("[data-hero-video]"));
+  const heroClips = Array.isArray(site.hero?.video_clips) ? site.hero.video_clips : [];
+  heroVideos.forEach((heroVideo, index) => {
+    const clip = heroClips[index];
+
+    if (!clip) {
+      heroVideo.hidden = true;
+      return;
+    }
+
+    const clipUrl = new URL(clip, window.location.href).href;
+    heroVideo.hidden = false;
+    heroVideo.preload = "auto";
+    heroVideo.poster = site.hero?.image || heroVideo.poster;
+    if (heroVideo.src !== clipUrl) {
+      heroVideo.src = clip;
+      heroVideo.load();
+    }
+    heroVideo.play().catch(() => {});
+  });
 
   renderParagraphs(site.about?.paragraphs?.slice(0, 2));
   hydrateBioContent(site);

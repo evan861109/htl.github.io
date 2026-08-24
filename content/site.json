@@ -14,7 +14,11 @@
     "hero": {
       "image": "assets/hero-ring-ring.jpg",
       "image_alt": "Tzu-Ling Hung performing Ring Ring by Sungji Hong on vibraphone",
-      "video": "assets/hero-ring-ring.mp4",
+      "video_clips": [
+        "assets/hero-ring-ring-portrait.mp4",
+        "assets/hero-ring-ring-detail.mp4",
+        "assets/hero-ring-ring-performance.mp4"
+      ],
       "eyebrow": "Percussionist / Composer / New Music",
       "tagline": "Percussion, sound, and theatrical performance shaped by close listening and new possibility.",
       "primary_cta": "Watch excerpts",
@@ -134,7 +138,11 @@
     "hero": {
       "image": "assets/hero-ring-ring.jpg",
       "image_alt": "洪梓菱戶外演奏 Sungji Hong 的鐵琴獨奏作品《Ring Ring》",
-      "video": "assets/hero-ring-ring.mp4",
+      "video_clips": [
+        "assets/hero-ring-ring-portrait.mp4",
+        "assets/hero-ring-ring-detail.mp4",
+        "assets/hero-ring-ring-performance.mp4"
+      ],
       "eyebrow": "打擊樂演奏家 / 作曲家 / 當代音樂",
       "tagline": "從打擊、聲響與劇場性出發，透過細緻聆聽開展新的可能。",
       "primary_cta": "觀看片段",
