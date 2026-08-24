@@ -14,6 +14,7 @@ const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 let siteContent;
+let heroSequenceStarted = false;
 
 const getPreferredLanguage = () => {
   const languageFromUrl = new URLSearchParams(window.location.search).get("lang");
@@ -342,8 +343,36 @@ const hydrateSiteContent = (site, language) => {
       heroVideo.src = clip;
       heroVideo.load();
     }
-    heroVideo.play().catch(() => {});
   });
+
+  if (!heroSequenceStarted && !prefersReducedMotion && heroVideos.length) {
+    heroSequenceStarted = true;
+    const fadeDurationMs = 280;
+    const clipDwellMs = 5800;
+    let activeClipIndex = 0;
+
+    const activateHeroClip = (nextIndex) => {
+      const previousVideo = heroVideos[activeClipIndex];
+      const nextVideo = heroVideos[nextIndex];
+
+      if (previousVideo && previousVideo !== nextVideo) {
+        previousVideo.classList.remove("is-active");
+        window.setTimeout(() => previousVideo.pause(), fadeDurationMs);
+      }
+
+      nextVideo.currentTime = 0;
+      nextVideo.play().catch(() => {});
+      nextVideo.classList.add("is-active");
+      activeClipIndex = nextIndex;
+    };
+
+    window.setTimeout(() => {
+      activateHeroClip(0);
+      window.setInterval(() => {
+        activateHeroClip((activeClipIndex + 1) % heroVideos.length);
+      }, clipDwellMs);
+    }, 4700);
+  }
 
   renderParagraphs(site.about?.paragraphs?.slice(0, 2));
   hydrateBioContent(site);
