@@ -1,13 +1,12 @@
 {
   "en": {
     "seo": {
-      "title": "Tzu-Ling Hung | Percussionist & Composer",
-      "description": "Tzu-Ling Hung is a percussionist, chamber musician, and composer working across contemporary music, new work, and cross-disciplinary performance."
+      "title": "Tzu-Ling Hung | Percussionist",
+      "description": "Tzu-Ling Hung is a percussionist, chamber musician, and composer working across contemporary music, classical percussion ensemble, and cross-disciplinary performance."
     },
     "artist": {
       "name": "Tzu-Ling Hung",
       "display_name": "Tzu-Ling Hung",
-      "localized_name": "",
       "mark": "TLH",
       "role": "Percussionist"
     },
@@ -19,10 +18,10 @@
         "assets/hero-ring-ring-detail.mp4",
         "assets/hero-ring-ring-performance.mp4"
       ],
-      "eyebrow": "Percussionist / Composer / New Music",
-      "tagline": "Percussion, sound, and theatrical performance shaped by close listening and new possibility.",
-      "primary_cta": "Watch excerpts",
-      "secondary_cta": "Collaboration inquiry"
+      "eyebrow": "Percussionist / Educator / Artist",
+      "tagline": "Percussion, sound, and theatrical performance shaped by close listening and new possibilities.",
+      "primary_cta": "Read Full Bio",
+      "secondary_cta": "Listen / Watch Media"
     },
     "ui": {
       "nav-about": "About",
@@ -94,7 +93,6 @@
     "projects": {
       "kicker": "Projects & Recognition",
       "heading": "Recent work",
-      "intro": "A selection of commissions, collaborative performance, and ensemble work.",
       "items": [
         {
           "slug": "ring-ring",
@@ -135,9 +133,7 @@
     "contact": {
       "heading": "Bookings, new-music collaborations, and teaching inquiries.",
       "availability": "Based between Denton, Texas and Pingtung, Taiwan. Available for solo performance, chamber music, new work, and cross-disciplinary projects.",
-      "email": "",
-      "notice": "Direct booking contact and social links will be added with the artist's preferred details.",
-      "links": []
+      "notice": "Direct booking contact and social links will be added with the artist's preferred details."
     }
   },
   "zh_hant": {
@@ -235,7 +231,6 @@
     "projects": {
       "kicker": "計畫與獲獎",
       "heading": "近期作品",
-      "intro": "收錄委託創作、跨域演出與打擊樂團合作計畫。",
       "items": [
         {
           "slug": "ring-ring",
@@ -276,9 +271,7 @@
     "contact": {
       "heading": "演出、新音樂合作與教學洽詢。",
       "availability": "現於美國德州丹頓與台灣屏東兩地工作，接受獨奏演出、室內樂、新作與跨域合作邀約。",
-      "email": "",
-      "notice": "演出聯絡方式與社群連結將於確認後補上。",
-      "links": []
+      "notice": "演出聯絡方式與社群連結將於確認後補上。"
     }
   }
 }
