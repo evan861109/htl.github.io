@@ -234,10 +234,31 @@ const validateTitleTypography = async () => {
   if (!styles.includes(":is(h1, h2, h3).is-latin-title")) {
     fail("Traditional Chinese pages must preserve the Latin display font for Latin titles");
   }
-  for (const token of ["--display-line-height: 1.06", "--heading-line-height: 1.12", "--cjk-heading-line-height: 1.2"]) {
-    if (!styles.includes(token)) {
-      fail(`Display typography spacing token is missing: ${token}`);
+  const spacingTokens = {
+    "--display-line-height": [1.04, 1.35],
+    "--heading-line-height": [1.1, 1.45],
+    "--cjk-heading-line-height": [1.15, 1.5]
+  };
+  for (const [token, [minimum, maximum]] of Object.entries(spacingTokens)) {
+    const match = styles.match(new RegExp(`${token}\\s*:\\s*([0-9.]+)\\s*;`));
+    const value = Number(match?.[1]);
+    if (!Number.isFinite(value) || value < minimum || value > maximum) {
+      fail(`${token} must be a unitless value between ${minimum} and ${maximum}`);
     }
+  }
+  for (const selector of [".intro-name", ".media-hero-content h1", ".media-card h2", ".contact-panel > a"]) {
+    const escapedSelector = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const rules = [...styles.matchAll(new RegExp(`${escapedSelector}\\s*\\{([^}]+)\\}`, "g"))].map((match) => match[1]);
+    if (!rules.some((rule) => rule.includes("line-height: var(--"))) {
+      fail(`${selector} must use a shared display spacing token`);
+    }
+  }
+  if (!styles.includes("text-wrap: balance") || !styles.includes("overflow-wrap: anywhere")) {
+    fail("Display headings must support balanced, break-safe wrapping");
+  }
+  const featureImageRule = styles.match(/\.media-feature-image\s*\{([^}]+)\}/)?.[1] || "";
+  if (!featureImageRule.includes("width: 100%") || !featureImageRule.includes("min-width: 0")) {
+    fail("Featured media must be allowed to shrink with long CMS titles");
   }
 };
 

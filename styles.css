@@ -107,7 +107,7 @@ img {
   display: block;
   font-family: var(--font-display);
   font-size: clamp(3.2rem, 11vw, 9rem);
-  line-height: 0.9;
+  line-height: var(--display-line-height);
   opacity: 0;
   transform: translateY(14px);
   animation: mark-enter 780ms cubic-bezier(0.22, 1, 0.36, 1) 160ms forwards;
@@ -503,6 +503,16 @@ h2 {
   letter-spacing: 0;
 }
 
+h1,
+h2,
+h3,
+.practice-bridge-statement,
+.quote-block p,
+.contact-panel > a {
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
 h1 {
   max-width: 9ch;
   margin-bottom: 28px;
@@ -857,7 +867,7 @@ html[lang="zh-Hant"] .quote-block p {
   color: var(--accent-dark);
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 4.2rem);
-  line-height: 1;
+  line-height: var(--heading-line-height);
 }
 
 .contact-panel p {
@@ -1148,7 +1158,7 @@ html[lang="zh-Hant"] .about-link {
 .media-hero-content h1 {
   margin-bottom: 16px;
   font-size: clamp(4rem, 10vw, 8rem);
-  line-height: 0.88;
+  line-height: var(--display-line-height);
 }
 
 .media-hero-content > p:last-child {
@@ -1177,6 +1187,8 @@ html[lang="zh-Hant"] .about-link {
 
 .media-feature-image {
   display: block;
+  width: 100%;
+  min-width: 0;
   aspect-ratio: 16 / 9;
   overflow: hidden;
   margin-top: 14px;
@@ -1300,7 +1312,7 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
 .media-card h2 {
   margin-bottom: 8px;
   font-size: clamp(1.85rem, 2.7vw, 2.45rem);
-  line-height: 0.98;
+  line-height: var(--heading-line-height);
 }
 
 .media-credit,
