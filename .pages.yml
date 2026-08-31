@@ -13,42 +13,53 @@ components:
       - name: seo
         label: Search appearance
         type: object
+        required: true
         fields:
           - name: title
             label: Browser title
             type: string
+            required: true
           - name: description
             label: Search description
             type: text
+            required: true
       - name: artist
         label: Artist
         type: object
+        required: true
         fields:
           - name: name
             label: Fallback name
             type: string
+            required: true
           - name: display_name
             label: Large display name
             type: string
+            required: true
           - name: localized_name
             label: Localized name line
             type: string
           - name: mark
             label: Header mark
             type: string
+            required: true
           - name: role
             label: Intro role
             type: string
+            required: true
       - name: hero
         label: First screen
         type: object
+        required: true
         fields:
           - name: image
             label: Hero image
             type: image
+            required: true
           - name: image_alt
             label: Image description
             type: text
+            required: true
           - name: video_clips
             label: Background video clips (optional)
             type: string
@@ -58,21 +69,27 @@ components:
           - name: eyebrow
             label: Short introduction
             type: string
+            required: true
           - name: tagline
             label: Main statement
             type: text
+            required: true
           - name: primary_cta
             label: First button label
             type: string
+            required: true
           - name: primary_cta_url
             label: First button destination
             type: string
+            required: true
           - name: secondary_cta
             label: Second button label
             type: string
+            required: true
           - name: secondary_cta_url
             label: Second button destination
             type: string
+            required: true
       - name: ui
         label: Navigation and interface labels
         type: object
@@ -140,55 +157,70 @@ components:
       - name: practice
         label: Practice interlude
         type: object
+        required: true
         fields:
           - name: kicker
             label: Section label
             type: string
+            required: true
           - name: statement
             label: Main statement
             type: text
+            required: true
           - name: detail
             label: Supporting detail
             type: text
+            required: true
       - name: about
         label: Biography
         type: object
+        required: true
         fields:
           - name: heading
             label: Heading
             type: string
+            required: true
           - name: paragraphs
             label: Biography paragraphs
             type: text
+            required: true
             list:
               min: 1
               max: 6
       - name: bio
         label: Biography page
         type: object
+        required: true
         fields:
           - name: seo
             label: Search appearance
             type: object
+            required: true
             fields:
               - name: title
                 label: Browser title
                 type: string
+                required: true
               - name: description
                 label: Search description
                 type: text
+                required: true
           - name: kicker
             label: Section label
             type: string
+            required: true
           - name: title
             label: Page title
             type: string
+            required: true
           - name: intro
             label: Introduction
             type: text
+            required: true
       - name: tracks
         label: Featured videos
         type: object
+        required: true
         list:
           min: 1
           max: 8
@@ -199,28 +231,36 @@ components:
           - name: meta
             label: Category and format
             type: string
+            required: true
           - name: title
             label: Title
             type: string
+            required: true
           - name: note
             label: Description
             type: text
+            required: true
           - name: url
             label: Video URL
             type: string
+            required: true
       - name: projects
         label: Projects
         type: object
+        required: true
         fields:
           - name: kicker
             label: Section label
             type: string
+            required: true
           - name: heading
             label: Heading
             type: string
+            required: true
           - name: intro
             label: Projects page introduction
             type: text
+            required: true
           - name: items
             label: Entries
             type: object
@@ -234,41 +274,55 @@ components:
               - name: slug
                 label: Page URL slug
                 type: string
+                required: true
+                pattern:
+                  regex: "^[a-z0-9-]+$"
+                  message: Use lowercase letters, numbers, and hyphens only.
               - name: year
                 label: Year
                 type: string
+                required: true
               - name: title
                 label: Title
                 type: string
+                required: true
               - name: description
                 label: Description
                 type: text
+                required: true
               - name: body
                 label: Project page paragraphs
                 type: text
+                required: true
                 list:
                   min: 1
-                  max: 6
+                  max: 30
       - name: statement
         label: Artist statement
         type: object
+        required: true
         fields:
           - name: text
             label: Statement
             type: text
+            required: true
           - name: credit
             label: Credit line
             type: string
+            required: true
       - name: contact
         label: Contact
         type: object
+        required: true
         fields:
           - name: heading
             label: Heading
             type: string
+            required: true
           - name: availability
             label: Availability and location
             type: text
+            required: true
           - name: email
             label: Booking email
             type: string
@@ -295,32 +349,41 @@ components:
       - name: seo
         label: Search appearance
         type: object
+        required: true
         fields:
           - name: title
             label: Browser title
             type: string
+            required: true
           - name: description
             label: Search description
             type: text
+            required: true
       - name: hero
         label: Media page header
         type: object
+        required: true
         fields:
           - name: image
             label: Header image
             type: image
+            required: true
           - name: image_alt
             label: Image description
             type: text
+            required: true
           - name: eyebrow
             label: Short introduction
             type: string
+            required: true
           - name: title
             label: Heading
             type: string
+            required: true
           - name: description
             label: Introduction
             type: text
+            required: true
       - name: ui
         label: Interface labels
         type: object
@@ -346,28 +409,35 @@ components:
       - name: featured
         label: Featured performance
         type: object
+        required: true
         fields:
           - name: category
             label: Category and format
             type: string
+            required: true
           - name: title
             label: Title
             type: string
+            required: true
           - name: credit
             label: Composer or project credit
             type: string
+            required: true
           - name: description
             label: Description
             type: text
+            required: true
           - name: url
             label: Watch or listen URL
             type: string
+            required: true
           - name: thumbnail
             label: Thumbnail path
             type: string
       - name: entries
         label: Media entries
         type: object
+        required: true
         list:
           min: 1
           max: 30
@@ -381,6 +451,7 @@ components:
           - name: title
             label: Title
             type: string
+            required: true
           - name: credit
             label: Composer or project credit
             type: string
@@ -390,6 +461,7 @@ components:
           - name: url
             label: Watch or listen URL
             type: string
+            required: true
           - name: thumbnail
             label: Optional thumbnail path
             description: Leave blank to use the YouTube video thumbnail.
@@ -407,9 +479,11 @@ content:
       - name: en
         label: English
         component: site_content
+        required: true
       - name: zh_hant
         label: Traditional Chinese
         component: site_content
+        required: true
   - name: media_library
     label: Media library
     type: file
@@ -421,6 +495,8 @@ content:
       - name: en
         label: English
         component: media_content
+        required: true
       - name: zh_hant
         label: Traditional Chinese
         component: media_content
+        required: true

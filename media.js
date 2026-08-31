@@ -198,6 +198,7 @@ fetch("content/media.json", { cache: "no-store" })
     mediaContent = content;
     hydrateMediaContent(content, window.siteLanguage || getMediaLanguage());
   })
-  .catch(() => {
-    // The page shell remains available if media content cannot load.
+  .catch((error) => {
+    document.body.classList.add("content-load-failed");
+    console.error("Media content failed to load.", error);
   });

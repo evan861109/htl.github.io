@@ -47,12 +47,18 @@ const updateLanguageLinks = (language) => {
   document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute('href');
 
-    if (!href || !/^(?:index|media|bio|projects)\.html(?:[?#]|$)/.test(href)) {
+    if (!href || !/^(?:index|media|bio|projects|project)\.html(?:[?#]|$)/.test(href)) {
       return;
     }
 
     const url = new URL(href, window.location.href);
-    url.searchParams.set('lang', language);
+    if (url.pathname.endsWith("/project.html")) {
+      const slug = new URLSearchParams(window.location.search).get("slug");
+      if (slug) {
+        url.searchParams.set("slug", slug);
+      }
+    }
+    url.searchParams.set('lang', link.dataset.language || language);
     link.href = url.href;
   });
 };
@@ -209,7 +215,8 @@ const getProjectUrl = (slug) => {
     return "#";
   }
 
-  const url = new URL(`projects/${slug}.html`, document.baseURI);
+  const url = new URL("project.html", document.baseURI);
+  url.searchParams.set("slug", slug);
   url.searchParams.set("lang", window.siteLanguage || getPreferredLanguage());
   return url.href;
 };
@@ -252,9 +259,24 @@ const hydrateProjectContent = (site) => {
     return;
   }
 
-  const slug = body.dataset.projectSlug;
+  const slug = body.dataset.projectSlug || new URLSearchParams(window.location.search).get("slug");
   const project = site.projects?.items?.find((item) => item?.slug === slug);
   if (!project) {
+    const artistName = site.artist?.name || site.artist?.display_name || "Tzu-Ling Hung";
+    document.title = `Project not found | ${artistName}`;
+    document.querySelectorAll("[data-project-content=\"year\"]").forEach((element) => {
+      element.textContent = "";
+    });
+    document.querySelectorAll("[data-project-content=\"title\"]").forEach((element) => {
+      element.textContent = "Project not found";
+    });
+    document.querySelectorAll("[data-project-content=\"description\"]").forEach((element) => {
+      element.textContent = "This project is unavailable or its address has changed.";
+    });
+    const bodyCopy = document.querySelector("[data-project-body]");
+    if (bodyCopy) {
+      bodyCopy.replaceChildren(makeElement("p", "", "Return to the projects page to see the current work."));
+    }
     return;
   }
 
@@ -542,8 +564,9 @@ fetch("content/site.json", { cache: "no-store" })
     siteContent = content;
     activateLanguage(getPreferredLanguage(), false);
   })
-  .catch(() => {
-    // The static markup remains available if the editable content file cannot load.
+  .catch((error) => {
+    body.classList.add("content-load-failed");
+    console.error("Site content failed to load.", error);
   });
 
 if (!prefersReducedMotion && document.querySelector(".page-intro")) {
