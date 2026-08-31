@@ -17,6 +17,8 @@ const sections = navLinks
   .filter(Boolean);
 let siteContent;
 let heroSequenceStarted = false;
+let heroSequenceStartTimer;
+let heroSequenceInterval;
 
 const getPreferredLanguage = () => {
   const languageFromUrl = new URLSearchParams(window.location.search).get("lang");
@@ -506,15 +508,22 @@ const hydrateSiteContent = (site, language) => {
     }
   });
 
-  if (!heroSequenceStarted && !prefersReducedMotion && heroVideos.length) {
-    heroSequenceStarted = true;
+  window.clearTimeout(heroSequenceStartTimer);
+  window.clearInterval(heroSequenceInterval);
+  heroVideos.forEach((video) => {
+    video.classList.remove("is-active");
+    video.pause();
+  });
+
+  const activeHeroVideos = heroVideos.filter((_, index) => Boolean(heroClips[index]));
+  if (!prefersReducedMotion && activeHeroVideos.length) {
     const fadeDurationMs = 280;
     const clipDwellMs = 5800;
     let activeClipIndex = 0;
 
     const activateHeroClip = (nextIndex) => {
-      const previousVideo = heroVideos[activeClipIndex];
-      const nextVideo = heroVideos[nextIndex];
+      const previousVideo = activeHeroVideos[activeClipIndex];
+      const nextVideo = activeHeroVideos[nextIndex];
 
       if (previousVideo && previousVideo !== nextVideo) {
         previousVideo.classList.remove("is-active");
@@ -527,12 +536,14 @@ const hydrateSiteContent = (site, language) => {
       activeClipIndex = nextIndex;
     };
 
-    window.setTimeout(() => {
+    const startDelayMs = heroSequenceStarted ? 0 : 4700;
+    heroSequenceStarted = true;
+    heroSequenceStartTimer = window.setTimeout(() => {
       activateHeroClip(0);
-      window.setInterval(() => {
-        activateHeroClip((activeClipIndex + 1) % heroVideos.length);
+      heroSequenceInterval = window.setInterval(() => {
+        activateHeroClip((activeClipIndex + 1) % activeHeroVideos.length);
       }, clipDwellMs);
-    }, 4700);
+    }, startDelayMs);
   }
 
   renderParagraphs(site.about?.paragraphs?.slice(0, 2));

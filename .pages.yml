@@ -5,6 +5,16 @@ media:
     output: assets
     extensions: [png, jpg, jpeg, webp]
     rename: safe
+  - name: videos
+    label: Site videos
+    input: assets
+    output: assets
+    extensions: [mp4, webm, mov, m4v]
+    rename: safe
+
+settings:
+  content:
+    merge: true
 
 components:
   site_content:
@@ -56,16 +66,23 @@ components:
             label: Hero image
             type: image
             required: true
+            options:
+              media: images
+              categories: [image]
           - name: image_alt
             label: Image description
             type: text
             required: true
           - name: video_clips
             label: Background video clips (optional)
-            type: string
+            type: file
             list:
               min: 0
               max: 3
+              collapsible: false
+            options:
+              media: videos
+              extensions: [mp4, webm, mov, m4v]
           - name: eyebrow
             label: Short introduction
             type: string
@@ -187,6 +204,7 @@ components:
             list:
               min: 1
               max: 6
+              collapsible: false
       - name: bio
         label: Biography page
         type: object
@@ -297,6 +315,7 @@ components:
                 list:
                   min: 1
                   max: 30
+                  collapsible: false
       - name: statement
         label: Artist statement
         type: object
@@ -326,6 +345,9 @@ components:
           - name: email
             label: Booking email
             type: string
+            pattern:
+              regex: '^[^\s@]+@[^\s@]+\.[^\s@]+$'
+              message: Enter a complete email address.
           - name: notice
             label: Message shown when no email is available
             type: text
@@ -368,6 +390,9 @@ components:
             label: Header image
             type: image
             required: true
+            options:
+              media: images
+              categories: [image]
           - name: image_alt
             label: Image description
             type: text
@@ -432,8 +457,11 @@ components:
             type: string
             required: true
           - name: thumbnail
-            label: Thumbnail path
-            type: string
+            label: Thumbnail image
+            type: image
+            options:
+              media: images
+              categories: [image]
       - name: entries
         label: Media entries
         type: object
@@ -463,9 +491,12 @@ components:
             type: string
             required: true
           - name: thumbnail
-            label: Optional thumbnail path
+            label: Optional thumbnail image
             description: Leave blank to use the YouTube video thumbnail.
-            type: string
+            type: image
+            options:
+              media: images
+              categories: [image]
 
 content:
   - name: artist_site

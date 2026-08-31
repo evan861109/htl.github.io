@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 22
       - name: Validate Pages CMS configuration
-        run: ruby -e 'require "yaml"; YAML.load_file(".pages.yml")'
+        run: ruby scripts/validate-pages-cms.rb
       - name: Run regression checks
         run: npm test
       - name: Build fingerprinted site artifact

@@ -146,6 +146,22 @@ const validateSite = async (site) => {
       });
       slugSets[language] = slugs.sort();
     }
+
+    const email = content.contact?.email;
+    if (email !== undefined && (typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) {
+      fail(`${prefix}.contact.email must be a valid email address when provided`);
+    }
+    const contactLinks = content.contact?.links;
+    if (contactLinks !== undefined && !Array.isArray(contactLinks)) {
+      fail(`${prefix}.contact.links must be an array when provided`);
+    } else {
+      for (const [index, link] of (contactLinks || []).entries()) {
+        if (typeof link?.label !== "string" || !link.label.trim()) {
+          fail(`${prefix}.contact.links[${index}].label is required`);
+        }
+        requireUrl(link?.url, `${prefix}.contact.links[${index}].url`);
+      }
+    }
   }
 
   if (JSON.stringify(slugSets.en) !== JSON.stringify(slugSets.zh_hant)) {
@@ -158,7 +174,7 @@ const validateMedia = async (media) => {
   for (const language of ["en", "zh_hant"]) {
     const content = media[language] || {};
     const prefix = `media.${language}`;
-    for (const keyPath of ["seo.title", "seo.description", "hero.image", "hero.image_alt", "hero.eyebrow", "hero.title", "hero.description", "featured.title", "featured.url"]) {
+    for (const keyPath of ["seo.title", "seo.description", "hero.image", "hero.image_alt", "hero.eyebrow", "hero.title", "hero.description", "featured.category", "featured.title", "featured.credit", "featured.description", "featured.url"]) {
       if (typeof valueAt(content, keyPath) !== "string" || !valueAt(content, keyPath).trim()) fail(`${prefix}.${keyPath} is required`);
     }
     await requireAsset(content.hero?.image, `${prefix}.hero.image`);
