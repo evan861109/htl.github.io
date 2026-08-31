@@ -234,6 +234,11 @@ const validateTitleTypography = async () => {
   if (!styles.includes(":is(h1, h2, h3).is-latin-title")) {
     fail("Traditional Chinese pages must preserve the Latin display font for Latin titles");
   }
+  for (const token of ["--display-line-height: 1.06", "--heading-line-height: 1.12", "--cjk-heading-line-height: 1.2"]) {
+    if (!styles.includes(token)) {
+      fail(`Display typography spacing token is missing: ${token}`);
+    }
+  }
 };
 
 const site = await readJson("content/site.json");

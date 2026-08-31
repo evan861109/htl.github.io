@@ -15,6 +15,9 @@
   --font-sans: "Manrope", "PingFang TC", "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-display-tc: "Songti TC", "Noto Serif TC", "Noto Sans TC", serif;
+  --display-line-height: 1.06;
+  --heading-line-height: 1.12;
+  --cjk-heading-line-height: 1.2;
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-sans);
@@ -233,6 +236,7 @@ html[lang="zh-Hant"] h2,
 html[lang="zh-Hant"] h3 {
   font-family: var(--font-display-tc);
   font-weight: 500;
+  line-height: var(--cjk-heading-line-height);
 }
 
 html[lang="zh-Hant"] .hero h1 {
@@ -495,7 +499,7 @@ h1,
 h2 {
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 0.96;
+  line-height: var(--display-line-height);
   letter-spacing: 0;
 }
 
@@ -512,6 +516,7 @@ h1 {
 h2 {
   margin-bottom: 0;
   font-size: clamp(2.25rem, 6vw, 5rem);
+  line-height: var(--heading-line-height);
 }
 
 h3 {
@@ -580,7 +585,7 @@ h3 {
   margin: 0;
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.7rem);
-  line-height: 1.04;
+  line-height: var(--heading-line-height);
 }
 
 .practice-bridge-detail {
@@ -599,6 +604,7 @@ html[lang="zh-Hant"] .practice-bridge-label {
 html[lang="zh-Hant"] .practice-bridge-statement {
   font-family: var(--font-display-tc);
   font-weight: 500;
+  line-height: var(--cjk-heading-line-height);
 }
 
 .section {
@@ -710,12 +716,13 @@ html[lang="zh-Hant"] .practice-bridge-statement {
   font-family: var(--font-display);
   font-size: clamp(1.85rem, 2.7vw, 2.45rem);
   font-weight: 400;
-  line-height: 0.98;
+  line-height: 1.08;
 }
 
 html[lang="zh-Hant"] .track h3 {
   font-family: var(--font-display-tc);
   font-weight: 500;
+  line-height: 1.16;
 }
 
 .track-meta {
@@ -799,7 +806,11 @@ html[lang="zh-Hant"] .track h3 {
   font-family: var(--font-display);
   font-style: italic;
   font-size: clamp(2.25rem, 6vw, 5.9rem);
-  line-height: 1.02;
+  line-height: 1.1;
+}
+
+html[lang="zh-Hant"] .quote-block p {
+  line-height: var(--cjk-heading-line-height);
 }
 
 .quote-block cite {
@@ -966,6 +977,7 @@ html[lang="zh-Hant"] .track h3 {
 
 .project-detail-intro h1 {
   font-size: clamp(3.5rem, 7vw, 7.5rem);
+  line-height: 1.08;
 }
 
 .projects-intro-copy,
@@ -1013,7 +1025,7 @@ html[lang="zh-Hant"] .track h3 {
 .project-index-card h2 {
   max-width: 18ch;
   font-size: clamp(2.5rem, 5.4vw, 5.8rem);
-  line-height: 0.94;
+  line-height: 1.08;
 }
 
 .project-index-card p {
@@ -1200,7 +1212,7 @@ html[lang="zh-Hant"] .about-link {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 4.8vw, 4.75rem);
   font-weight: 400;
-  line-height: 1;
+  line-height: 1.08;
   margin: 0;
   overflow-wrap: anywhere;
 }
@@ -1214,6 +1226,7 @@ html[lang="zh-Hant"] .about-link {
 html[lang="zh-Hant"] .media-feature-copy h3 {
   font-family: var(--font-display-tc);
   font-weight: 500;
+  line-height: 1.16;
 }
 
 html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
