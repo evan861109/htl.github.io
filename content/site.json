@@ -138,9 +138,10 @@
       "credit": "Artist biography"
     },
     "contact": {
-      "heading": "Bookings, new-music collaborations, and teaching inquiries.",
-      "availability": "Based between Denton, Texas and Pingtung, Taiwan. Available for solo performance, chamber music, new work, and cross-disciplinary projects.",
-      "notice": "Direct booking contact and social links will be added with the artist's preferred details."
+      "heading": "Available for performance bookings, collaborative projects, and private instruction.",
+      "availability": "Contact Tzu-Ling\nDenton, TX\ntzulinghungperc@gmail.com\nTzuLingHung@my.unt.edu",
+      "notice": "Direct booking contact and social links will be added with the artist's preferred details.",
+      "email": "tzulinghungperc@gmail.com"
     }
   },
   "zh_hant": {
@@ -281,7 +282,8 @@
     "contact": {
       "heading": "演出、新音樂合作與教學洽詢。",
       "availability": "現於美國德州丹頓與台灣屏東兩地工作，接受獨奏演出、室內樂、新作與跨域合作邀約。",
-      "notice": "演出聯絡方式與社群連結將於確認後補上。"
+      "notice": "演出聯絡方式與社群連結將於確認後補上。",
+      "email": "tzulinghungperc@gmail.com"
     }
   }
 }
