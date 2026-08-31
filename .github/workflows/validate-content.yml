@@ -26,6 +26,11 @@ jobs:
         run: ruby -e 'require "yaml"; YAML.load_file(".pages.yml")'
       - name: Run regression checks
         run: npm test
+      - name: Build fingerprinted site artifact
+        if: github.event_name == 'push'
+        run: npm run build
+        env:
+          SITE_VERSION: ${{ github.sha }}
       - name: Configure GitHub Pages
         if: github.event_name == 'push'
         uses: actions/configure-pages@v6
@@ -33,7 +38,7 @@ jobs:
         if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v5
         with:
-          path: .
+          path: _site
 
   deploy:
     if: github.event_name == 'push'

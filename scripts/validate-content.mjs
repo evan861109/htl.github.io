@@ -213,12 +213,24 @@ const validateLanguageControls = async () => {
   }
 };
 
+const validateBuildPipeline = async () => {
+  const workflow = await readFile(path.join(root, ".github/workflows/validate-content.yml"), "utf8");
+  const buildScript = await readFile(path.join(root, "scripts/build-site.mjs"), "utf8");
+  if (!workflow.includes("SITE_VERSION: ${{ github.sha }}") || !workflow.includes("path: _site")) {
+    fail("Pages deployment must upload a commit-fingerprinted _site artifact");
+  }
+  if (!buildScript.includes("?v=${version}")) {
+    fail("The site build must fingerprint CSS and JavaScript references");
+  }
+};
+
 const site = await readJson("content/site.json");
 const media = await readJson("content/media.json");
 await validateSite(site);
 await validateMedia(media);
 await validateHtmlReferences();
 await validateLanguageControls();
+await validateBuildPipeline();
 
 if (errors.length) {
   console.error(`Content validation failed with ${errors.length} error(s):`);
