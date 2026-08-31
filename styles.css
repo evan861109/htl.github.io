@@ -1046,14 +1046,44 @@ html[lang="zh-Hant"] .track h3 {
   line-height: 1.82;
 }
 
-.project-detail-copy p {
+.project-detail-copy p,
+.project-copy-group {
   margin: 0;
   padding: clamp(28px, 4vw, 46px) 0;
   border-top: 1px solid var(--line);
 }
 
-.project-detail-copy p:last-child {
+.project-detail-copy > :last-child {
   border-bottom: 1px solid var(--line);
+}
+
+.project-copy-group h2 {
+  margin: 0 0 20px;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: clamp(0.8rem, 1vw, 0.95rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.project-copy-group ul {
+  display: grid;
+  gap: 0.55em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-copy-group li {
+  padding-left: 1.1em;
+  text-indent: -1.1em;
+}
+
+.project-copy-group li::before {
+  content: "— ";
+  color: var(--accent);
 }
 
 html[lang="zh-Hant"] .about-link {

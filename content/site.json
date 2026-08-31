@@ -21,7 +21,9 @@
       "eyebrow": "Percussionist / Educator / Artist",
       "tagline": "Percussion, sound, and theatrical performance shaped by close listening and new possibilities.",
       "primary_cta": "Read Full Bio",
-      "secondary_cta": "Listen / Watch Media"
+      "primary_cta_url": "bio.html",
+      "secondary_cta": "Listen / Watch Media",
+      "secondary_cta_url": "media.html"
     },
     "ui": {
       "nav-about": "About",
@@ -93,6 +95,7 @@
     "projects": {
       "kicker": "Projects & Recognition",
       "heading": "Recent work",
+      "intro": "A selection of commissions, collaborative performance, and ensemble work.",
       "items": [
         {
           "slug": "ring-ring",
@@ -163,7 +166,9 @@
       "eyebrow": "打擊樂演奏家 / 作曲家 ",
       "tagline": "從打擊、聲響與劇場性出發，透過細緻聆聽開展新的可能。",
       "primary_cta": "觀看片段",
-      "secondary_cta": "合作洽詢"
+      "primary_cta_url": "#listen",
+      "secondary_cta": "合作洽詢",
+      "secondary_cta_url": "#contact"
     },
     "ui": {
       "nav-about": "關於",
@@ -235,6 +240,7 @@
     "projects": {
       "kicker": "計畫與獲獎",
       "heading": "近期作品",
+      "intro": "收錄委託創作、跨域演出與打擊樂團合作計畫。",
       "items": [
         {
           "slug": "ring-ring",

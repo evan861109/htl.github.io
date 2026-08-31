@@ -80,6 +80,19 @@ const safeUrl = (value) => {
   }
 };
 
+const setLinkHref = (selector, value) => {
+  const link = document.querySelector(selector);
+
+  if (!link || typeof value !== "string" || !value.trim()) {
+    return;
+  }
+
+  const href = safeUrl(value);
+  if (href !== "#" || value.trim() === "#") {
+    link.href = href;
+  }
+};
+
 const makeElement = (tagName, className, text) => {
   const element = document.createElement(tagName);
 
@@ -265,7 +278,41 @@ const hydrateProjectContent = (site) => {
     const fragment = document.createDocumentFragment();
     project.body.forEach((paragraph) => {
       if (typeof paragraph === "string" && paragraph.trim()) {
-        fragment.append(makeElement("p", "", paragraph));
+        const blocks = paragraph
+          .trim()
+          .split(/\r?\n\s*\r?\n/)
+          .map((block) => block.trim())
+          .filter(Boolean);
+
+        const lines = blocks.flatMap((block) => block.split(/\r?\n/).map((line) => line.trim()).filter(Boolean));
+
+        if (lines.length === 1) {
+          fragment.append(makeElement("p", "", lines[0]));
+          return;
+        }
+
+        const groups = blocks.length > 1
+          ? blocks.reduce((result, block, index) => {
+              if (index % 2 === 0) {
+                result.push({ heading: block, items: [] });
+              } else {
+                result.at(-1).items = block.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+              }
+              return result;
+            }, [])
+          : [{ heading: lines[0], items: lines.slice(1) }];
+
+        groups.forEach((group) => {
+          const section = makeElement("section", "project-copy-group");
+          section.append(makeElement("h2", "", group.heading));
+          const list = document.createElement("ul");
+          group.items.forEach((line) => list.append(makeElement("li", "", line)));
+          if (list.childNodes.length) {
+            section.append(list);
+          }
+
+          fragment.append(section);
+        });
       }
     });
     if (fragment.childNodes.length) {
@@ -356,6 +403,8 @@ const hydrateSiteContent = (site, language) => {
   setContent("hero-tagline", site.hero?.tagline);
   setContent("hero-primary-cta", site.hero?.primary_cta);
   setContent("hero-secondary-cta", site.hero?.secondary_cta);
+  setLinkHref("[data-content=\"hero-primary-cta\"]", site.hero?.primary_cta_url);
+  setLinkHref("[data-content=\"hero-secondary-cta\"]", site.hero?.secondary_cta_url);
   setContent("about-heading", site.about?.heading);
   setContent("projects-kicker", site.projects?.kicker);
   setContent("projects-heading", site.projects?.heading);

@@ -64,8 +64,14 @@ components:
           - name: primary_cta
             label: First button label
             type: string
+          - name: primary_cta_url
+            label: First button destination
+            type: string
           - name: secondary_cta
             label: Second button label
+            type: string
+          - name: secondary_cta_url
+            label: Second button destination
             type: string
       - name: ui
         label: Navigation and interface labels
@@ -151,9 +157,6 @@ components:
           - name: heading
             label: Heading
             type: string
-          - name: intro
-            label: Projects page introduction
-            type: text
           - name: paragraphs
             label: Biography paragraphs
             type: text
@@ -215,6 +218,9 @@ components:
           - name: heading
             label: Heading
             type: string
+          - name: intro
+            label: Projects page introduction
+            type: text
           - name: items
             label: Entries
             type: object
