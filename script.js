@@ -63,6 +63,23 @@ const updateLanguageLinks = (language) => {
   });
 };
 
+const updateTitleTypography = (element, value) => {
+  if (!element.matches("h1, h2, h3") || typeof value !== "string") {
+    return;
+  }
+
+  const isLatinTitle = document.documentElement.lang === "zh-Hant"
+    && /[A-Za-z]/.test(value)
+    && !/[\u3400-\u9fff\uf900-\ufaff]/u.test(value);
+  element.classList.toggle("is-latin-title", isLatinTitle);
+
+  if (isLatinTitle) {
+    element.lang = "en";
+  } else {
+    element.removeAttribute("lang");
+  }
+};
+
 const setContent = (key, value) => {
   if (typeof value !== "string") {
     return;
@@ -70,6 +87,7 @@ const setContent = (key, value) => {
 
   document.querySelectorAll(`[data-content="${key}"]`).forEach((element) => {
     element.textContent = value;
+    updateTitleTypography(element, value);
   });
 };
 
@@ -108,6 +126,7 @@ const makeElement = (tagName, className, text) => {
 
   if (typeof text === "string") {
     element.textContent = text;
+    updateTitleTypography(element, text);
   }
 
   return element;
@@ -169,6 +188,7 @@ const hydrateBioContent = (site) => {
     const value = site.bio[element.dataset.bioContent];
     if (typeof value === "string") {
       element.textContent = value;
+      updateTitleTypography(element, value);
     }
   });
 
@@ -292,6 +312,7 @@ const hydrateProjectContent = (site) => {
     const value = project[element.dataset.projectContent];
     if (typeof value === "string") {
       element.textContent = value;
+      updateTitleTypography(element, value);
     }
   });
 

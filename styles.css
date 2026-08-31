@@ -1216,6 +1216,11 @@ html[lang="zh-Hant"] .media-feature-copy h3 {
   font-weight: 500;
 }
 
+html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
 .media-library {
   padding-top: clamp(72px, 10vw, 132px);
   padding-bottom: clamp(84px, 11vw, 152px);

@@ -224,6 +224,18 @@ const validateBuildPipeline = async () => {
   }
 };
 
+const validateTitleTypography = async () => {
+  const script = await readFile(path.join(root, "script.js"), "utf8");
+  const mediaScript = await readFile(path.join(root, "media.js"), "utf8");
+  const styles = await readFile(path.join(root, "styles.css"), "utf8");
+  if (!script.includes("updateTitleTypography(element, value)") || !mediaScript.includes("updateMediaTitleTypography(element, value)")) {
+    fail("Dynamic headings must classify Latin titles after CMS hydration");
+  }
+  if (!styles.includes(":is(h1, h2, h3).is-latin-title")) {
+    fail("Traditional Chinese pages must preserve the Latin display font for Latin titles");
+  }
+};
+
 const site = await readJson("content/site.json");
 const media = await readJson("content/media.json");
 await validateSite(site);
@@ -231,6 +243,7 @@ await validateMedia(media);
 await validateHtmlReferences();
 await validateLanguageControls();
 await validateBuildPipeline();
+await validateTitleTypography();
 
 if (errors.length) {
   console.error(`Content validation failed with ${errors.length} error(s):`);

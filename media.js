@@ -40,6 +40,23 @@ const getYoutubeThumbnail = (value) => {
   }
 };
 
+const updateMediaTitleTypography = (element, value) => {
+  if (!element.matches("h1, h2, h3") || typeof value !== "string") {
+    return;
+  }
+
+  const isLatinTitle = document.documentElement.lang === "zh-Hant"
+    && /[A-Za-z]/.test(value)
+    && !/[\u3400-\u9fff\uf900-\ufaff]/u.test(value);
+  element.classList.toggle("is-latin-title", isLatinTitle);
+
+  if (isLatinTitle) {
+    element.lang = "en";
+  } else {
+    element.removeAttribute("lang");
+  }
+};
+
 const mediaElement = (tagName, className, text) => {
   const element = document.createElement(tagName);
   if (className) {
@@ -47,6 +64,7 @@ const mediaElement = (tagName, className, text) => {
   }
   if (typeof text === "string") {
     element.textContent = text;
+    updateMediaTitleTypography(element, text);
   }
   return element;
 };
@@ -58,6 +76,7 @@ const setMediaContent = (key, value) => {
 
   document.querySelectorAll(`[data-media-content="${key}"]`).forEach((element) => {
     element.textContent = value;
+    updateMediaTitleTypography(element, value);
   });
 };
 
