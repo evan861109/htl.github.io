@@ -190,7 +190,8 @@ img {
 .site-nav a,
 .button,
 .text-link,
-.track-action {
+.track-action,
+.contact-submit {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -249,6 +250,7 @@ html[lang="zh-Hant"] .site-nav a,
 html[lang="zh-Hant"] .button,
 html[lang="zh-Hant"] .text-link,
 html[lang="zh-Hant"] .track-action,
+html[lang="zh-Hant"] .contact-submit,
 html[lang="zh-Hant"] .language-switch a {
   letter-spacing: 0.04em;
   text-transform: none;
@@ -876,6 +878,81 @@ html[lang="zh-Hant"] .quote-block p {
   line-height: 1.65;
 }
 
+.contact-availability {
+  max-width: 58ch;
+}
+
+.contact-form {
+  display: grid;
+  gap: 20px;
+  padding-top: 8px;
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contact-field {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.5;
+  background: rgba(255, 250, 242, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.contact-field textarea {
+  min-height: 164px;
+  resize: vertical;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  outline: none;
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 3px rgba(79, 119, 116, 0.16);
+}
+
+.contact-submit {
+  justify-self: start;
+  min-height: 50px;
+  padding: 0 24px;
+  color: var(--white);
+  background: var(--accent-dark);
+  border: 1px solid var(--accent-dark);
+  cursor: pointer;
+}
+
+.contact-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.contact-form .contact-form-note {
+  max-width: 58ch;
+  font-size: 0.84rem;
+}
+
 .socials {
   display: flex;
   flex-wrap: wrap;
@@ -939,6 +1016,29 @@ html[lang="zh-Hant"] .quote-block p {
 .bio-copy-section {
   padding: clamp(72px, 10vw, 142px) clamp(18px, 7vw, 104px) clamp(92px, 13vw, 180px);
   background: var(--paper);
+}
+
+.bio-copy-layout.has-bio-image {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(40px, 7vw, 112px);
+  align-items: start;
+}
+
+.bio-portrait {
+  position: sticky;
+  top: calc(var(--header-height) + 28px);
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper-deep);
+  border: 1px solid var(--line);
+}
+
+.bio-portrait img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
 }
 
 .bio-copy {
@@ -1523,6 +1623,16 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
     margin-left: 0;
   }
 
+  .bio-copy-layout.has-bio-image {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .bio-portrait {
+    position: static;
+    width: min(100%, 560px);
+  }
+
   .project-detail-copy-section {
     grid-template-columns: 1fr;
   }
@@ -1594,6 +1704,10 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
   }
 
   .media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-grid {
     grid-template-columns: 1fr;
   }
 

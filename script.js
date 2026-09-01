@@ -194,6 +194,25 @@ const hydrateBioContent = (site) => {
     }
   });
 
+  const portrait = document.querySelector("[data-bio-portrait]");
+  const portraitImage = document.querySelector("[data-bio-image]");
+  const copyLayout = document.querySelector("[data-bio-copy-layout]");
+  const hasPortrait = typeof site.bio.image === "string" && site.bio.image.trim();
+
+  if (portrait && portraitImage && copyLayout) {
+    portrait.hidden = !hasPortrait;
+    copyLayout.classList.toggle("has-bio-image", Boolean(hasPortrait));
+    if (hasPortrait) {
+      portraitImage.src = site.bio.image;
+      portraitImage.alt = typeof site.bio.image_alt === "string" && site.bio.image_alt.trim()
+        ? site.bio.image_alt
+        : site.bio.title || site.artist?.display_name || "Artist portrait";
+    } else {
+      portraitImage.removeAttribute("src");
+      portraitImage.alt = "";
+    }
+  }
+
   renderBioParagraphs(site.about?.paragraphs);
 };
 
@@ -389,17 +408,70 @@ const renderContact = (contact) => {
 
   const fragment = document.createDocumentFragment();
   if (contact.availability) {
-    fragment.append(makeElement("p", "", contact.availability));
+    fragment.append(makeElement("p", "contact-availability", contact.availability));
   }
 
-  if (typeof contact.email === "string" && contact.email.trim()) {
-    const email = contact.email.trim();
-    const link = makeElement("a", "", email);
-    link.href = `mailto:${email}`;
-    fragment.append(link);
-  } else if (contact.notice) {
-    fragment.append(makeElement("p", "", contact.notice));
+  const labels = {
+    firstName: contact.form_first_name || "First name",
+    lastName: contact.form_last_name || "Last name",
+    email: contact.form_email || "Email",
+    message: contact.form_message || "Message"
+  };
+  const recipient = typeof contact.email === "string" ? contact.email.trim() : "";
+  const form = makeElement("form", "contact-form");
+  const nameFields = makeElement("div", "contact-form-grid");
+
+  const makeContactField = (labelText, name, options = {}) => {
+    const label = makeElement("label", "contact-field", labelText);
+    const field = document.createElement(options.multiline ? "textarea" : "input");
+    field.name = name;
+    field.required = true;
+    if (options.type) field.type = options.type;
+    if (options.autocomplete) field.autocomplete = options.autocomplete;
+    if (options.multiline) field.rows = 7;
+    label.append(field);
+    return label;
+  };
+
+  nameFields.append(
+    makeContactField(labels.firstName, "first_name", { autocomplete: "given-name" }),
+    makeContactField(labels.lastName, "last_name", { autocomplete: "family-name" })
+  );
+  form.append(
+    nameFields,
+    makeContactField(labels.email, "email", { type: "email", autocomplete: "email" }),
+    makeContactField(labels.message, "message", { multiline: true })
+  );
+
+  const submit = makeElement("button", "contact-submit", contact.form_submit || "Send message");
+  submit.type = "submit";
+  submit.disabled = !recipient;
+  form.append(submit);
+
+  const deliveryNote = recipient ? contact.form_note : contact.notice;
+  if (deliveryNote) {
+    form.append(makeElement("p", "contact-form-note", deliveryNote));
   }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!recipient || !form.reportValidity()) {
+      return;
+    }
+
+    const values = new FormData(form);
+    const firstName = String(values.get("first_name") || "").trim();
+    const lastName = String(values.get("last_name") || "").trim();
+    const senderEmail = String(values.get("email") || "").trim();
+    const message = String(values.get("message") || "").trim();
+    const senderName = [firstName, lastName].filter(Boolean).join(" ");
+    const subject = `${contact.form_subject || "Website inquiry"} — ${senderName}`;
+    const body = `${labels.firstName}: ${firstName}\n${labels.lastName}: ${lastName}\n${labels.email}: ${senderEmail}\n\n${labels.message}:\n${message}`;
+
+    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
+  fragment.append(form);
 
   if (Array.isArray(contact.links) && contact.links.length) {
     const links = makeElement("div", "socials");

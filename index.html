@@ -180,7 +180,16 @@
         </div>
         <div class="contact-panel" data-contact-panel>
           <p>Based between Denton, Texas and Pingtung, Taiwan. Available for solo performance, chamber music, new work, and cross-disciplinary projects.</p>
-          <p>Direct booking contact and social links will be added with the artist's preferred details.</p>
+          <form class="contact-form">
+            <div class="contact-form-grid">
+              <label>First name<input name="first_name" autocomplete="given-name" required></label>
+              <label>Last name<input name="last_name" autocomplete="family-name" required></label>
+            </div>
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+            <label>Message<textarea name="message" rows="7" required></textarea></label>
+            <button class="contact-submit" type="submit" disabled>Send message</button>
+            <p class="contact-form-note">Add a booking email in the CMS to enable message delivery.</p>
+          </form>
         </div>
       </section>
     </main>

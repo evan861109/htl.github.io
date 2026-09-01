@@ -235,6 +235,17 @@ components:
             label: Introduction
             type: text
             required: true
+          - name: image
+            label: Biography portrait (optional)
+            description: Upload an image to fill the portrait area beside the full biography.
+            type: image
+            options:
+              media: images
+              categories: [image]
+          - name: image_alt
+            label: Portrait image description
+            description: Describe the portrait for visitors using screen readers.
+            type: text
       - name: tracks
         label: Featured videos
         type: object
@@ -351,6 +362,34 @@ components:
           - name: notice
             label: Message shown when no email is available
             type: text
+          - name: form_first_name
+            label: First name field label
+            type: string
+            required: true
+          - name: form_last_name
+            label: Last name field label
+            type: string
+            required: true
+          - name: form_email
+            label: Email field label
+            type: string
+            required: true
+          - name: form_message
+            label: Message field label
+            type: string
+            required: true
+          - name: form_submit
+            label: Submit button label
+            type: string
+            required: true
+          - name: form_note
+            label: Form delivery note
+            type: text
+            required: true
+          - name: form_subject
+            label: Email subject prefix
+            type: string
+            required: true
           - name: links
             label: Social links
             type: object

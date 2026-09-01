@@ -16,3 +16,5 @@ The included `.pages.yml` file configures Pages CMS as a form-based editor for t
 4. Invite Tzu-Ling as a collaborator from Pages CMS. She can edit content and media without GitHub or coding access.
 
 Every save creates a Git commit, and GitHub Pages publishes the update automatically. Do not edit `.pages.yml`, `index.html`, `styles.css`, or `script.js` from the CMS.
+
+The biography portrait is optional and can be uploaded under **Homepage content → Biography page**. The contact form uses the **Booking email** configured under **Homepage content → Contact**; submitting the form opens the visitor's email app with their name, email address, and message prepared for sending.

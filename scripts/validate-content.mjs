@@ -89,12 +89,17 @@ const validateSite = async (site) => {
       "hero.secondary_cta", "hero.secondary_cta_url", "practice.kicker", "practice.statement", "practice.detail",
       "about.heading", "bio.seo.title", "bio.seo.description", "bio.kicker", "bio.title", "bio.intro",
       "projects.kicker", "projects.heading", "projects.intro", "statement.text", "statement.credit",
-      "contact.heading", "contact.availability"
+      "contact.heading", "contact.availability", "contact.form_first_name", "contact.form_last_name",
+      "contact.form_email", "contact.form_message", "contact.form_submit", "contact.form_note", "contact.form_subject"
     ]) {
       requireString(content, keyPath, `${prefix}.${keyPath}`);
     }
 
     await requireAsset(content.hero?.image, `${prefix}.hero.image`);
+    if (content.bio?.image) {
+      await requireAsset(content.bio.image, `${prefix}.bio.image`);
+      requireString(content, "bio.image_alt", `${prefix}.bio.image_alt`);
+    }
     const clips = content.hero?.video_clips;
     if (clips !== undefined && (!Array.isArray(clips) || clips.length > 3)) {
       fail(`${prefix}.hero.video_clips must contain at most 3 items`);
@@ -229,6 +234,24 @@ const validateLanguageControls = async () => {
   }
 };
 
+const validateCmsManagedPageFeatures = async () => {
+  const script = await readFile(path.join(root, "script.js"), "utf8");
+  const bioPage = await readFile(path.join(root, "bio.html"), "utf8");
+  const homepage = await readFile(path.join(root, "index.html"), "utf8");
+
+  if (!bioPage.includes("data-bio-portrait") || !bioPage.includes("data-bio-image") || !script.includes("site.bio.image")) {
+    fail("Biography portrait must be rendered from the CMS-managed biography image");
+  }
+  for (const fieldName of ["first_name", "last_name", "email", "message"]) {
+    if (!homepage.includes(`name="${fieldName}"`) || !script.includes(`\"${fieldName}\"`)) {
+      fail(`Contact form must include and hydrate the ${fieldName} field`);
+    }
+  }
+  if (!script.includes("mailto:${recipient}") || !script.includes("form.reportValidity()")) {
+    fail("Contact form must validate fields and address the configured booking email");
+  }
+};
+
 const validateBuildPipeline = async () => {
   const workflow = await readFile(path.join(root, ".github/workflows/validate-content.yml"), "utf8");
   const buildScript = await readFile(path.join(root, "scripts/build-site.mjs"), "utf8");
@@ -284,6 +307,7 @@ await validateSite(site);
 await validateMedia(media);
 await validateHtmlReferences();
 await validateLanguageControls();
+await validateCmsManagedPageFeatures();
 await validateBuildPipeline();
 await validateTitleTypography();
 
