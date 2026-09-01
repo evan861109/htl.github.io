@@ -1023,27 +1023,50 @@ html[lang="zh-Hant"] .quote-block p {
   background: var(--paper);
 }
 
+.bio-copy-section.has-bio-image {
+  padding: 0;
+  overflow: clip;
+}
+
 .bio-copy-layout.has-bio-image {
   display: grid;
-  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(40px, 7vw, 112px);
+  grid-template-columns: minmax(340px, 43vw) minmax(0, 1fr);
+  gap: 0;
   align-items: start;
 }
 
 .bio-portrait {
   position: sticky;
-  top: calc(var(--header-height) + 28px);
+  top: var(--header-height);
+  height: calc(100svh - var(--header-height));
   margin: 0;
   overflow: hidden;
   background: var(--paper-deep);
-  border: 1px solid var(--line);
+}
+
+.bio-portrait::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -1px;
+  bottom: 0;
+  width: clamp(110px, 15vw, 240px);
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--paper));
 }
 
 .bio-portrait img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
+}
+
+.bio-copy-section.has-bio-image .bio-copy {
+  width: 100%;
+  max-width: 820px;
+  margin: 0;
+  padding: clamp(72px, 10vw, 142px) clamp(18px, 7vw, 104px) clamp(92px, 13vw, 180px) clamp(42px, 5vw, 84px);
 }
 
 .bio-copy {
@@ -1630,12 +1653,28 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
 
   .bio-copy-layout.has-bio-image {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 0;
   }
 
   .bio-portrait {
-    position: static;
-    width: min(100%, 560px);
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: min(72svh, 680px);
+  }
+
+  .bio-portrait::after {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    width: auto;
+    height: clamp(100px, 24vw, 180px);
+    background: linear-gradient(180deg, transparent, var(--paper));
+  }
+
+  .bio-copy-section.has-bio-image .bio-copy {
+    padding: clamp(52px, 10vw, 88px) clamp(18px, 7vw, 58px) clamp(92px, 13vw, 140px);
   }
 
   .project-detail-copy-section {

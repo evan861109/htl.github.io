@@ -236,9 +236,10 @@ components:
             type: text
             required: true
           - name: image
-            label: Biography portrait (optional)
+            label: Biography portrait
             description: Upload an image to fill the portrait area beside the full biography.
             type: image
+            required: true
             options:
               media: images
               categories: [image]
@@ -246,6 +247,7 @@ components:
             label: Portrait image description
             description: Describe the portrait for visitors using screen readers.
             type: text
+            required: true
           - name: image_position_x
             label: Portrait horizontal focus (%)
             description: 0 keeps the left edge visible, 50 centers the image, and 100 keeps the right edge visible.

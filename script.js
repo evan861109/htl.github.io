@@ -202,11 +202,13 @@ const hydrateBioContent = (site) => {
   const portrait = document.querySelector("[data-bio-portrait]");
   const portraitImage = document.querySelector("[data-bio-image]");
   const copyLayout = document.querySelector("[data-bio-copy-layout]");
+  const copySection = copyLayout?.closest(".bio-copy-section");
   const hasPortrait = typeof site.bio.image === "string" && site.bio.image.trim();
 
   if (portrait && portraitImage && copyLayout) {
     portrait.hidden = !hasPortrait;
     copyLayout.classList.toggle("has-bio-image", Boolean(hasPortrait));
+    copySection?.classList.toggle("has-bio-image", Boolean(hasPortrait));
     if (hasPortrait) {
       portraitImage.src = site.bio.image;
       portraitImage.alt = typeof site.bio.image_alt === "string" && site.bio.image_alt.trim()

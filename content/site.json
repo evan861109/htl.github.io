@@ -71,6 +71,8 @@
       "kicker": "Biography",
       "title": "Tzu-Ling Hung",
       "intro": "Percussionist, chamber musician, and composer exploring contemporary repertoire, new commissions, and cross-disciplinary performance.",
+      "image": "assets/hero-resonance.png",
+      "image_alt": "Tzu-Ling Hung biography image",
       "image_position_x": 50,
       "image_position_y": 50
     },

@@ -96,10 +96,8 @@ const validateSite = async (site) => {
     }
 
     await requireAsset(content.hero?.image, `${prefix}.hero.image`);
-    if (content.bio?.image) {
-      await requireAsset(content.bio.image, `${prefix}.bio.image`);
-      requireString(content, "bio.image_alt", `${prefix}.bio.image_alt`);
-    }
+    await requireAsset(content.bio?.image, `${prefix}.bio.image`);
+    requireString(content, "bio.image_alt", `${prefix}.bio.image_alt`);
     for (const key of ["image_position_x", "image_position_y"]) {
       const value = content.bio?.[key];
       if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 100) {
@@ -248,12 +246,16 @@ const validateCmsManagedPageFeatures = async () => {
   const script = await readFile(path.join(root, "script.js"), "utf8");
   const bioPage = await readFile(path.join(root, "bio.html"), "utf8");
   const homepage = await readFile(path.join(root, "index.html"), "utf8");
+  const styles = await readFile(path.join(root, "styles.css"), "utf8");
 
-  if (!bioPage.includes("data-bio-portrait") || !bioPage.includes("data-bio-image") || !script.includes("site.bio.image")) {
+  if (!bioPage.includes("data-bio-portrait") || !bioPage.includes("data-bio-image") || !script.includes("site.bio.image") || !script.includes('copySection?.classList.toggle("has-bio-image"')) {
     fail("Biography portrait must be rendered from the CMS-managed biography image");
   }
   if (!script.includes("getImageFocus(site.bio.image_position_x)") || !script.includes("getImageFocus(site.bio.image_position_y)")) {
     fail("Biography portrait must apply both CMS-managed focal-point coordinates");
+  }
+  if (!styles.includes(".bio-copy-section.has-bio-image") || !styles.includes("linear-gradient(90deg, transparent, var(--paper))")) {
+    fail("Biography portrait must fill its column and blend into the biography text");
   }
   for (const fieldName of ["first_name", "last_name", "email", "message"]) {
     if (!homepage.includes(`name="${fieldName}"`) || !script.includes(`\"${fieldName}\"`)) {
