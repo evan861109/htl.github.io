@@ -353,15 +353,15 @@ components:
             label: Availability and location
             type: text
             required: true
-          - name: form_endpoint
-            label: Secure form endpoint
-            description: Paste the HTTPS endpoint supplied by a form service. The artist's email address must stay in that service, not in this site.
+          - name: email
+            label: Booking email
+            description: Used by the contact form but not displayed as visible page text.
             type: string
             pattern:
-              regex: '^https://.+'
-              message: Enter a complete HTTPS form endpoint.
+              regex: '^[^\s@]+@[^\s@]+\.[^\s@]+$'
+              message: Enter a complete email address.
           - name: notice
-            label: Message shown when secure delivery is unavailable
+            label: Message shown when no booking email is available
             type: text
           - name: form_first_name
             label: First name field label

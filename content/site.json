@@ -140,13 +140,14 @@
     "contact": {
       "heading": "Available for performance bookings, collaborative projects, and private instruction.",
       "availability": "Based in Denton, Texas. Available for performance bookings, collaborative projects, and private instruction.",
-      "notice": "Secure form delivery is being configured.",
+      "notice": "Add a booking email in the CMS to enable message delivery.",
+      "email": "tzulinghungperc@gmail.com",
       "form_first_name": "First name",
       "form_last_name": "Last name",
       "form_email": "Email",
       "form_message": "Message",
       "form_submit": "Send message",
-      "form_note": "Messages are delivered securely without publishing the artist's email address.",
+      "form_note": "Submitting opens your email app with the message ready to send.",
       "form_subject": "Website inquiry"
     }
   },
@@ -288,13 +289,14 @@
     "contact": {
       "heading": "演出、新音樂合作與教學洽詢。",
       "availability": "現於美國德州丹頓與台灣屏東兩地工作，接受獨奏演出、室內樂、新作與跨域合作邀約。",
-      "notice": "安全訊息傳送功能設定中。",
+      "notice": "請在 CMS 中加入聯絡信箱，以啟用訊息寄送功能。",
+      "email": "tzulinghungperc@gmail.com",
       "form_first_name": "名字",
       "form_last_name": "姓氏",
       "form_email": "電子郵件",
       "form_message": "訊息",
       "form_submit": "傳送訊息",
-      "form_note": "訊息將安全傳送，不會公開藝術家的電子郵件地址。",
+      "form_note": "送出後將開啟您的郵件程式，並自動填入訊息內容。",
       "form_subject": "網站聯絡訊息"
     }
   }

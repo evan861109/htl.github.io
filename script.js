@@ -119,19 +119,6 @@ const setLinkHref = (selector, value) => {
   }
 };
 
-const safeFormEndpoint = (value) => {
-  if (typeof value !== "string" || !value.trim()) {
-    return "";
-  }
-
-  try {
-    const url = new URL(value);
-    return url.protocol === "https:" ? url.href : "";
-  } catch {
-    return "";
-  }
-};
-
 const makeElement = (tagName, className, text) => {
   const element = document.createElement(tagName);
 
@@ -430,12 +417,8 @@ const renderContact = (contact) => {
     email: contact.form_email || "Email",
     message: contact.form_message || "Message"
   };
-  const endpoint = safeFormEndpoint(contact.form_endpoint);
+  const recipient = typeof contact.email === "string" ? contact.email.trim() : "";
   const form = makeElement("form", "contact-form");
-  form.method = "post";
-  if (endpoint) {
-    form.action = endpoint;
-  }
   const nameFields = makeElement("div", "contact-form-grid");
 
   const makeContactField = (labelText, name, options = {}) => {
@@ -462,19 +445,31 @@ const renderContact = (contact) => {
 
   const submit = makeElement("button", "contact-submit", contact.form_submit || "Send message");
   submit.type = "submit";
-  submit.disabled = !endpoint;
+  submit.disabled = !recipient;
   form.append(submit);
 
-  const deliveryNote = endpoint ? contact.form_note : contact.notice;
+  const deliveryNote = recipient ? contact.form_note : contact.notice;
   if (deliveryNote) {
     form.append(makeElement("p", "contact-form-note", deliveryNote));
   }
 
-  const subject = document.createElement("input");
-  subject.type = "hidden";
-  subject.name = "_subject";
-  subject.value = contact.form_subject || "Website inquiry";
-  form.append(subject);
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!recipient || !form.reportValidity()) {
+      return;
+    }
+
+    const values = new FormData(form);
+    const firstName = String(values.get("first_name") || "").trim();
+    const lastName = String(values.get("last_name") || "").trim();
+    const senderEmail = String(values.get("email") || "").trim();
+    const message = String(values.get("message") || "").trim();
+    const senderName = [firstName, lastName].filter(Boolean).join(" ");
+    const subject = `${contact.form_subject || "Website inquiry"} — ${senderName}`;
+    const body = `${labels.firstName}: ${firstName}\n${labels.lastName}: ${lastName}\n${labels.email}: ${senderEmail}\n\n${labels.message}:\n${message}`;
+
+    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
 
   fragment.append(form);
 
