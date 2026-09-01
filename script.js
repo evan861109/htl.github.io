@@ -172,6 +172,11 @@ const renderBioParagraphs = (paragraphs) => {
   }
 };
 
+const getImageFocus = (value) => {
+  const number = Number(value);
+  return Number.isFinite(number) ? Math.min(100, Math.max(0, number)) : 50;
+};
+
 const hydrateBioContent = (site) => {
   if (!isBioPage || !site.bio) {
     return;
@@ -207,9 +212,11 @@ const hydrateBioContent = (site) => {
       portraitImage.alt = typeof site.bio.image_alt === "string" && site.bio.image_alt.trim()
         ? site.bio.image_alt
         : site.bio.title || site.artist?.display_name || "Artist portrait";
+      portraitImage.style.objectPosition = `${getImageFocus(site.bio.image_position_x)}% ${getImageFocus(site.bio.image_position_y)}%`;
     } else {
       portraitImage.removeAttribute("src");
       portraitImage.alt = "";
+      portraitImage.style.removeProperty("object-position");
     }
   }
 

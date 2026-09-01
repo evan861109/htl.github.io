@@ -17,4 +17,4 @@ The included `.pages.yml` file configures Pages CMS as a form-based editor for t
 
 Every save creates a Git commit, and GitHub Pages publishes the update automatically. Do not edit `.pages.yml`, `index.html`, `styles.css`, or `script.js` from the CMS.
 
-The biography portrait is optional and can be uploaded under **Homepage content → Biography page**. The contact form uses the **Booking email** under **Homepage content → Contact** to open a pre-addressed email draft. The address is not rendered as visible page text.
+The biography portrait is optional and can be uploaded under **Homepage content → Biography page**. Use the horizontal and vertical focus percentages there to choose which part remains visible in the portrait frame. The contact form uses the **Booking email** under **Homepage content → Contact** to open a pre-addressed email draft. The address is not rendered as visible page text.

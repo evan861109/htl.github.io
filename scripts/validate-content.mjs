@@ -100,6 +100,12 @@ const validateSite = async (site) => {
       await requireAsset(content.bio.image, `${prefix}.bio.image`);
       requireString(content, "bio.image_alt", `${prefix}.bio.image_alt`);
     }
+    for (const key of ["image_position_x", "image_position_y"]) {
+      const value = content.bio?.[key];
+      if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 100) {
+        fail(`${prefix}.bio.${key} must be a number from 0 to 100`);
+      }
+    }
     const clips = content.hero?.video_clips;
     if (clips !== undefined && (!Array.isArray(clips) || clips.length > 3)) {
       fail(`${prefix}.hero.video_clips must contain at most 3 items`);
@@ -245,6 +251,9 @@ const validateCmsManagedPageFeatures = async () => {
 
   if (!bioPage.includes("data-bio-portrait") || !bioPage.includes("data-bio-image") || !script.includes("site.bio.image")) {
     fail("Biography portrait must be rendered from the CMS-managed biography image");
+  }
+  if (!script.includes("getImageFocus(site.bio.image_position_x)") || !script.includes("getImageFocus(site.bio.image_position_y)")) {
+    fail("Biography portrait must apply both CMS-managed focal-point coordinates");
   }
   for (const fieldName of ["first_name", "last_name", "email", "message"]) {
     if (!homepage.includes(`name="${fieldName}"`) || !script.includes(`\"${fieldName}\"`)) {

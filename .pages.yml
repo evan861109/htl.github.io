@@ -246,6 +246,22 @@ components:
             label: Portrait image description
             description: Describe the portrait for visitors using screen readers.
             type: text
+          - name: image_position_x
+            label: Portrait horizontal focus (%)
+            description: 0 keeps the left edge visible, 50 centers the image, and 100 keeps the right edge visible.
+            type: number
+            required: true
+            options:
+              min: 0
+              max: 100
+          - name: image_position_y
+            label: Portrait vertical focus (%)
+            description: 0 keeps the top visible, 50 centers the image, and 100 keeps the bottom visible.
+            type: number
+            required: true
+            options:
+              min: 0
+              max: 100
       - name: tracks
         label: Featured videos
         type: object
