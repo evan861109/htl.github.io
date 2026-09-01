@@ -12,9 +12,15 @@ const isMediaPage = body.classList.contains("media-page");
 const isBioPage = body.classList.contains("bio-page");
 const isProjectsPage = body.classList.contains("projects-page");
 const isProjectPage = body.classList.contains("project-page");
-const sections = navLinks
-  .map((link) => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
+const sectionNavItems = navLinks.flatMap((link) => {
+  const href = link.getAttribute("href");
+  if (!href?.startsWith("#")) {
+    return [];
+  }
+
+  const section = document.querySelector(href);
+  return section ? [{ link, section }] : [];
+});
 let siteContent;
 let heroSequenceStarted = false;
 let heroSequenceStartTimer;
@@ -691,6 +697,29 @@ const updateHeader = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 18);
 };
 
+const updateActiveNavigation = () => {
+  if (!sectionNavItems.length) {
+    return;
+  }
+
+  const activationLine = Math.min(window.innerHeight * 0.32, 280);
+  let activeLink = null;
+
+  sectionNavItems.forEach(({ link, section }) => {
+    const bounds = section.getBoundingClientRect();
+    if (bounds.top <= activationLine && bounds.bottom > activationLine) {
+      activeLink = link;
+    }
+  });
+
+  const documentBottom = document.documentElement.scrollHeight - 2;
+  if (!activeLink && window.scrollY + window.innerHeight >= documentBottom) {
+    activeLink = sectionNavItems.at(-1)?.link || null;
+  }
+
+  navLinks.forEach((link) => link.classList.toggle("is-active", link === activeLink));
+};
+
 navToggle.addEventListener("click", () => {
   const isOpen = body.classList.toggle("nav-open");
   navToggle.setAttribute("aria-expanded", String(isOpen));
@@ -704,28 +733,6 @@ nav.addEventListener("click", (event) => {
 });
 
 if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-      if (!visible) {
-        return;
-      }
-
-      navLinks.forEach((link) => {
-        link.classList.toggle("is-active", link.getAttribute("href") === `#${visible.target.id}`);
-      });
-    },
-    {
-      rootMargin: "-30% 0px -55% 0px",
-      threshold: [0.08, 0.2, 0.4],
-    }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -762,5 +769,10 @@ if (pointerField && !prefersReducedMotion) {
   });
 }
 
-updateHeader();
-window.addEventListener("scroll", updateHeader, { passive: true });
+const updateScrollState = () => {
+  updateHeader();
+  updateActiveNavigation();
+};
+
+updateScrollState();
+window.addEventListener("scroll", updateScrollState, { passive: true });

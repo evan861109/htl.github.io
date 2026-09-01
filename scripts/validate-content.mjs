@@ -242,6 +242,16 @@ const validateLanguageControls = async () => {
   }
 };
 
+const validateHomepageNavigation = async () => {
+  const script = await readFile(path.join(root, "script.js"), "utf8");
+  if (!script.includes('href?.startsWith("#")') || !script.includes('link.classList.toggle("is-active", link === activeLink)')) {
+    fail("Homepage navigation must derive active states only from local section links");
+  }
+  if (!script.includes("updateActiveNavigation();") || script.includes("if (!visible)")) {
+    fail("Homepage navigation must clear stale active states while scrolling away from tracked sections");
+  }
+};
+
 const validateCmsManagedPageFeatures = async () => {
   const script = await readFile(path.join(root, "script.js"), "utf8");
   const bioPage = await readFile(path.join(root, "bio.html"), "utf8");
@@ -329,6 +339,7 @@ await validateSite(site);
 await validateMedia(media);
 await validateHtmlReferences();
 await validateLanguageControls();
+await validateHomepageNavigation();
 await validateCmsManagedPageFeatures();
 await validateBuildPipeline();
 await validateTitleTypography();
