@@ -12,8 +12,8 @@
       "description": "A selected archive of solo performance, interdisciplinary work, and new-music collaboration."
     },
     "ui": {
-      "featured-kicker": "Solo Marimba",
-      "featured-heading": "Reflections on the Nature of Water",
+      "featured-kicker": "Featured Video",
+      "featured-heading": "Most Recent Performance",
       "archive-kicker": "Selected Archive",
       "archive-heading": "More performances",
       "booking-inquiry": "Booking inquiry",
@@ -31,7 +31,7 @@
         "category": "Solo Marimba / live performance video",
         "title": "Reflections on the Nature of Water",
         "credit": "Jacob Druckman",
-        "description": "Solo marimba",
+        "description": "Solo Marimba",
         "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x"
       },
       {
@@ -59,7 +59,7 @@
         "category": "Solo Marimba / live performance video",
         "title": "Merlin, Movement II Time's Way",
         "credit": "Andrew Thomas",
-        "description": "Solo marimba",
+        "description": "Solo Marimba",
         "url": "https://youtu.be/Al_iDp1EMfM"
       },
       {
