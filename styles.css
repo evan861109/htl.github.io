@@ -186,7 +186,6 @@ img {
   background: rgba(255, 250, 242, 0.08);
 }
 
-.brand-text,
 .site-nav a,
 .button,
 .text-link,
@@ -196,6 +195,13 @@ img {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.brand-text {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: none;
 }
 
 .header-actions {
@@ -245,7 +251,6 @@ html[lang="zh-Hant"] .hero h1 {
   font-weight: 400;
 }
 
-html[lang="zh-Hant"] .brand-text,
 html[lang="zh-Hant"] .site-nav a,
 html[lang="zh-Hant"] .button,
 html[lang="zh-Hant"] .text-link,

@@ -308,6 +308,13 @@ const validateTitleTypography = async () => {
   if (!styles.includes("text-wrap: balance") || !styles.includes("overflow-wrap: anywhere")) {
     fail("Display headings must support balanced, break-safe wrapping");
   }
+  const brandRule = styles.match(/\.brand-text\s*\{([^}]+)\}/)?.[1] || "";
+  if (!brandRule.includes("text-transform: none") || !brandRule.includes("letter-spacing: 0.12em")) {
+    fail("The Latin artist name must preserve identical capitalization and spacing in every language");
+  }
+  if (styles.includes('html[lang="zh-Hant"] .brand-text')) {
+    fail("Traditional Chinese UI overrides must not alter the Latin artist name");
+  }
   const featureImageRule = styles.match(/\.media-feature-image\s*\{([^}]+)\}/)?.[1] || "";
   if (!featureImageRule.includes("width: 100%") || !featureImageRule.includes("min-width: 0")) {
     fail("Featured media must be allowed to shrink with long CMS titles");
