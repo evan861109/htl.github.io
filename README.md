@@ -17,4 +17,4 @@ The included `.pages.yml` file configures Pages CMS as a form-based editor for t
 
 Every save creates a Git commit, and GitHub Pages publishes the update automatically. Do not edit `.pages.yml`, `index.html`, `styles.css`, or `script.js` from the CMS.
 
-The biography portrait is optional and can be uploaded under **Homepage content → Biography page**. The contact form uses the **Booking email** configured under **Homepage content → Contact**; submitting the form opens the visitor's email app with their name, email address, and message prepared for sending.
+The biography portrait is optional and can be uploaded under **Homepage content → Biography page**. Contact delivery requires an HTTPS endpoint from a form service under **Homepage content → Contact**. Keep the artist's email address in the form service only; never put it in the CMS content or endpoint URL.

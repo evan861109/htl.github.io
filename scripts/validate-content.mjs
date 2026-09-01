@@ -152,9 +152,19 @@ const validateSite = async (site) => {
       slugSets[language] = slugs.sort();
     }
 
-    const email = content.contact?.email;
-    if (email !== undefined && (typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) {
-      fail(`${prefix}.contact.email must be a valid email address when provided`);
+    const contactText = JSON.stringify(content.contact || {});
+    if (/[^\s"@]+@[^\s"@]+\.[^\s"@]+/.test(contactText) || Object.hasOwn(content.contact || {}, "email")) {
+      fail(`${prefix}.contact must not publish the artist's email address`);
+    }
+    const formEndpoint = content.contact?.form_endpoint;
+    if (formEndpoint !== undefined) {
+      try {
+        if (new URL(formEndpoint).protocol !== "https:") {
+          fail(`${prefix}.contact.form_endpoint must use HTTPS`);
+        }
+      } catch {
+        fail(`${prefix}.contact.form_endpoint must be a complete HTTPS URL`);
+      }
     }
     const contactLinks = content.contact?.links;
     if (contactLinks !== undefined && !Array.isArray(contactLinks)) {
@@ -247,8 +257,11 @@ const validateCmsManagedPageFeatures = async () => {
       fail(`Contact form must include and hydrate the ${fieldName} field`);
     }
   }
-  if (!script.includes("mailto:${recipient}") || !script.includes("form.reportValidity()")) {
-    fail("Contact form must validate fields and address the configured booking email");
+  if (!script.includes("safeFormEndpoint(contact.form_endpoint)") || !script.includes('form.method = "post"') || !script.includes("form.action = endpoint")) {
+    fail("Contact form must post to the configured secure form endpoint");
+  }
+  if (script.includes("mailto:") || script.includes("contact.email")) {
+    fail("Contact form must not expose the artist's email address in client-side code");
   }
 };
 
