@@ -235,22 +235,22 @@
     },
     "tracks": [
       {
-        "meta": "HSS / 影片片段",
-        "title": "Rocks / Spiral",
-        "note": "HSS 計畫片段，與 David Stout 及 Colin Stokes 共同合作。",
-        "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing"
-      },
-      {
-        "meta": "HSS / 影片片段",
-        "title": "Water",
-        "note": "另一段 HSS 片段，透過影像、材質與直接的聲學互動探索聲音。",
-        "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing"
-      },
-      {
-        "meta": "獨奏打擊樂 / 影片",
+        "meta": "木琴獨奏 / 影片",
         "title": "Reflections on the Nature of Water",
-        "note": "Jacob Druckman 的獨奏打擊樂作品，由洪梓菱演出。",
+        "note": "by Jacob Druckman ",
         "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x"
+      },
+      {
+        "meta": "綜合打擊樂獨奏 / 影片",
+        "title": "Rebonds b",
+        "note": "by Iannis Xenakis",
+        "url": "https://youtu.be/QqJ3RBtzy7A"
+      },
+      {
+        "meta": "薩克斯風與木琴二重奏 / 影片",
+        "title": "Wink",
+        "note": "by Mark Ford, 與薩克斯風演奏家Mike Korson合作",
+        "url": "https://youtu.be/pdo6vRqUSKo?si=SO4rMGnIuwq5fnSg"
       }
     ],
     "projects": {
