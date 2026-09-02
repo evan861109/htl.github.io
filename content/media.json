@@ -74,67 +74,72 @@
   "zh_hant": {
     "seo": {
       "title": "媒體 | 洪梓菱",
-      "description": "洪梓菱的演出影片與計畫片段，涵蓋獨奏、跨域合作與新音樂。"
+      "description": "洪梓菱的演出影片與計畫片段，涵蓋獨奏、跨域合作與現代樂。"
     },
     "hero": {
       "image": "assets/hero-resonance.png",
       "image_alt": "木質打擊樂器音板與琴弦的近景",
       "eyebrow": "媒體 / 演出 / 計畫",
       "title": "媒體",
-      "description": "收錄獨奏演出、跨域作品與新音樂合作的精選影音。"
+      "description": "收錄獨奏演出、重奏演出及跨領域合作的影音。"
     },
     "ui": {
-      "featured-kicker": "HSS",
-      "featured-heading": "精選演出",
+      "featured-kicker": "焦點演出",
+      "featured-heading": "最新作品",
       "archive-kicker": "精選影音",
       "archive-heading": "更多演出",
       "booking-inquiry": "演出洽詢",
       "watch": "觀看"
     },
     "featured": {
-      "category": "HSS / 影片片段",
-      "title": "Rocks / Spiral",
-      "credit": "HSS 計畫，與 David Stout 及 Colin Stokes 合作",
-      "description": "HSS 計畫片段，透過打擊、材質、影像與細緻的聲學互動展開。",
-      "url": "https://drive.google.com/file/d/19blOQeygW54_sG7VumtyvBLFZOA7qCCu/view?usp=sharing",
-      "thumbnail": "assets/hero-sound-art.png"
+      "category": "木琴獨奏",
+      "title": "Reflections on the Nature of Water",
+      "credit": "Jacob Druckman",
+      "description": "於北德州大學的現場演出",
+      "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x"
     },
     "entries": [
       {
-        "category": "HSS / 影片片段",
-        "title": "Water",
-        "credit": "HSS 計畫，與 David Stout 及 Colin Stokes 合作",
-        "description": "另一段 HSS 片段，從影像、材質與直接互動中探索聲音。",
-        "url": "https://drive.google.com/file/d/1vhmkBdCnR-RZ0mGyAopoCGULBvtC3lNS/view?usp=sharing",
-        "thumbnail": "assets/hero-sound-art.png"
-      },
-      {
-        "category": "獨奏打擊樂 / 演出影片",
+        "category": "木琴獨奏 / 現場演出錄音",
         "title": "Reflections on the Nature of Water",
         "credit": "Jacob Druckman",
-        "description": "獨奏打擊樂演出。",
+        "description": "木琴獨奏",
         "url": "https://youtu.be/EyD8WC0Vf08?si=xWF2S8tegJNh7E_x"
       },
       {
-        "category": "獨奏打擊樂 / 演出影片",
+        "category": "綜合打擊樂獨奏 / 現場演出錄音",
         "title": "Rebonds a",
         "credit": "Iannis Xenakis",
-        "description": "獨奏打擊樂演出。",
+        "description": "綜合打擊樂獨奏",
         "url": "https://youtu.be/RPzZlbgLQOQ?si=uj1XLbi1CiYAQS7X"
       },
       {
-        "category": "獨奏打擊樂 / 演出影片",
+        "category": "綜合打擊樂獨奏 / 現場演出錄音",
         "title": "Rebonds b",
         "credit": "Iannis Xenakis",
-        "description": "獨奏打擊樂演出。",
+        "description": "綜合打擊樂獨奏",
         "url": "https://youtu.be/QqJ3RBtzy7A?si=PBGInEhrCdDd5QNC"
       },
       {
-        "category": "獨奏打擊樂 / 演出影片",
+        "category": "薩克斯風與木琴二重奏 / 現場演出錄音",
         "title": "Wink",
         "credit": "Mark Ford",
-        "description": "獨奏打擊樂演出。",
+        "description": "薩克斯風與木琴二重奏",
         "url": "https://youtu.be/pdo6vRqUSKo?si=SO4rMGnIuwq5fnSg"
+      },
+      {
+        "category": "木琴獨奏 / 現場演奏錄音",
+        "title": "Merlin, Movement II Time's Way",
+        "credit": "Andrew Thomas",
+        "description": "木琴獨奏",
+        "url": "https://youtu.be/Al_iDp1EMfM"
+      },
+      {
+        "category": "木琴獨奏 / 現場演奏錄音",
+        "title": "Merlin, Movement I Beyond the Faint Edge of the World",
+        "credit": "Andrew Thomas",
+        "description": "木琴獨奏",
+        "url": "https://youtu.be/HH0da-tgEVA"
       }
     ]
   }
