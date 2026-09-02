@@ -157,7 +157,7 @@
   },
   "zh_hant": {
     "seo": {
-      "title": "洪梓菱 | 打擊樂演奏家與作曲家",
+      "title": "洪梓菱 | 打擊樂演奏家",
       "description": "洪梓菱是旅美打擊樂演奏家、室內樂演奏家與作曲家，活躍於當代音樂、新作與跨域演出。"
     },
     "artist": {
@@ -175,19 +175,19 @@
         "assets/hero-ring-ring-detail.mp4",
         "assets/hero-ring-ring-performance.mp4"
       ],
-      "eyebrow": "打擊樂演奏家 / 作曲家 ",
-      "tagline": "從打擊、聲響與劇場性出發，透過細緻聆聽開展新的可能。",
-      "primary_cta": "觀看片段",
-      "primary_cta_url": "#listen",
-      "secondary_cta": "合作洽詢",
-      "secondary_cta_url": "#contact"
+      "eyebrow": "打擊樂演奏家 / 音樂教育者 / 跨界藝術家",
+      "tagline": "打擊樂、聲音與劇場演出——在細膩聆聽中探索全新可能",
+      "primary_cta": "完整介紹",
+      "primary_cta_url": "bio.html",
+      "secondary_cta": "觀看作品",
+      "secondary_cta_url": "media.html"
     },
     "ui": {
       "nav-about": "關於",
       "nav-bio": "簡介",
       "nav-listen": "聆聽",
       "nav-media": "媒體",
-      "nav-projects": "計畫",
+      "nav-projects": "研究",
       "nav-materials": "資料",
       "nav-contact": "聯絡",
       "about-kicker": "關於",
@@ -201,16 +201,16 @@
       "contact-kicker": "聯絡",
       "back-to-top": "回到頂端",
       "back-to-home": "回到首頁",
-      "back-to-projects": "返回計畫列表",
+      "back-to-projects": "返回研究列表",
       "watch": "觀看"
     },
     "practice": {
       "kicker": "當前實踐",
-      "statement": "從獨奏打擊樂到多媒體舞台作品，洪梓菱將表演視為好奇、精準與交流的場域。",
-      "detail": "近期工作涵蓋 HSS、tREeAL、鐵琴獨奏新作委託，以及於北德州大學持續進行的博士研究。"
+      "statement": "從打擊樂獨奏到劇場多媒體創作，洪梓菱將舞台視為好奇與文化交流的場域。",
+      "detail": "近期作品涵蓋多媒體合作 HSS、tREeAL、鐵琴獨奏作品委託，以及於北德州大學持續進行的博士研究。"
     },
     "about": {
-      "heading": "以新音樂、跨域合作與舞台實踐拓展打擊樂的可能。",
+      "heading": "以現代樂、跨域合作與舞台實踐拓展打擊樂的可能。",
       "paragraphs": [
         "旅美打擊樂演奏家、室內樂演奏家與作曲家洪梓菱，兼具古典與現代音樂的演奏實力。其深受當代音樂中那份勇於實驗、不斷探索新可能性的特質所吸引，藝術實踐專注於發掘與研究非主流及新興作品、探索劇場元素如何深化舞台體驗，並致力將個人的成長背景與生活觀察融入音樂，轉化為深刻動人的舞台演出。",
         "洪梓菱現為美國北德州大學（University of North Texas）打擊樂演奏博士候選人，並兼任該校助教（Teaching Fellow），師事 Mark Ford、Paul Rennick、Dave Hall、Ed Smith、Stockton Helbing、Jose Aponte、Sriji Poovalur。在此之前，她於台北市立大學取得學士學位，師事鄭雅琪教授；隨後赴美國印第安那大學積可斯音樂學院（Indiana University Jacobs School of Music）深造，師事 Kevin Bobo、Joseph Gramley、John Tafoya、Joseph Galvin，取得打擊樂演奏碩士學位與演奏家文憑。於該校就讀期間，她的碩士畢業音樂會更榮獲全體評委一致推薦，獲頒演奏榮譽證書（Performer's Certificate）。",
@@ -227,7 +227,7 @@
       },
       "kicker": "藝術家簡介 / 洪梓菱",
       "title": "Tzu-Ling Hung",
-      "intro": "打擊樂演奏家、室內樂演奏家與作曲家，活躍於當代音樂、新作與跨域演出。",
+      "intro": "打擊樂演奏家、室內樂演奏家與作曲家，活躍於現代音樂、打擊樂重奏與多媒體跨域演出。",
       "image": "assets/hero-resonance.png",
       "image_alt": "洪梓菱藝術家簡介圖片",
       "image_position_x": 50,
@@ -254,10 +254,24 @@
       }
     ],
     "projects": {
-      "kicker": "計畫與獲獎",
-      "heading": "近期作品",
-      "intro": "收錄委託創作、跨域演出與打擊樂團合作計畫。",
+      "kicker": "創作實踐",
+      "heading": "計畫與研究",
+      "intro": "持續記錄並收錄個人藝術計畫、委創合作、少數群體曲目整理及博士學術研究。",
       "items": [
+        {
+          "slug": "treeal",
+          "year": "2026",
+          "title": "女性作曲家作品",
+          "description": "倡議打擊樂領域中的女性之聲",
+          "body": [
+            "獨奏 / 木琴\n\nKaleidoscope (2019) by Clarice Assad\nToccata (2001) by Anna Ignatowicz\nRuminations (2026) by Laura Kaminsky\nEmpty Shell Girl by Amy Beth Kirsten\nBlue Skin of the Sea (2014) by Tonia Ko\nGreetings from… (2022) by Alexis C. Lamb\nFrom Spring to Spring (1996) by Thea Musgrave\nNightsong (2002) by Paola Prestini\nTwelve Preludes (2024) by Juri Seo",
+            "獨奏 / 鐵琴\n\nThe Grace of Presence by Jennifer Higdon\nRing Ring (2026) by Sungji Hong\nTurning Point (2024) by Alexis C. Lamb\nThe Yellow Wallpaper (2015) by Alexis C. Lamb\nLa bicicleta de cristal (2003) by Angélica Negrón\nLast Hymn (2007) by Paola Prestini\nThe Transfiguration of Durga by Kamala Sankaram\nv (2015) by Juri Seo",
+            "獨奏 / 小鼓\n\nGhost in the Machine by Amy Beth Kirsten\nNegative Magic (2019) by Tonia Ko\nHum (2023) by Alexis C. Lamb\nStart (2018) by Hannah Lash\nHeart.throb (2019) by Nina C. Young",
+            "獨奏 / 綜合打擊樂\n\nMomentum III – Crysalides for Solo Percussion, Text, and Electronics (2024) by Anahita Abbasi\nSituation XIII – New Work for Solo Percussion and Video (2026) by Anahita Abbasi\nFOMO (Fear of Missing Out) (2023) by Kati Agócs\nWhisper for Cymbals (2015) by Sally Beamish\nThe Great Plasto-Dio Dada Drama for Solo Percussion (1997) by Lisa Bielawa\nAllegro ma non troppo (1994/98) by Unsuk Chin\nSecret Garden for Drum set and tape (2013) by Anna Clyne\nDark Ground for Solo Percussion (2005) by Tansy Davies\nHow Many Bodies Have We to Pass Through (2017) by Zosha Di Castri and Diego Espinosa Cruz Gonzalez\nCounterpoint for Solo Percussion and Fixed electronics (2014) by Melody Eötvös\nSparkle (2023) by Vivian Fung\nShimmer (2023) by Vivian Fung\nThe Ice Is Talking for Solo Percussion and Electronics (2018) by Vivian Fung\nShiver Lung 2 for Solo Percussion and Electronics (2017) by Ashley Fure\nScarlet Song for multi-percussion and electronics (2015) by Mirela Ivičević\nBreath, Contained I for bubble wrap and live electronics (2013) by Tonia Ko\nTrigon for Solo Drum set with fixed electronics (2023) by Alexis C. Lamb\nMöbius Strip (2020) by Alexis C. Lamb\nInternal Dialogue for Solo Multiple Steel Pans (2020) by Alexis C. Lamb\nAn Open Letter to Sam Beam (2019) by Alexis C. Lamb\nFamiliar for Multiple Percussion with speaking percussionist (2019) by Alexis C. Lamb\nPost-Lightened for Solo Drum set with fixed electronics (2018) by Alexis C. Lamb\nTihai for Multiple Percussion with electronics (2016) by Alexis C. Lamb\nAn Elemental Thing for Solo Woodblock (2017) by Liza Lim\nLove Letter for Solo Hand Drum (2011) by Liza Lim\ncoronAtion I: io son ferito ahimè (2020) by Olga Neuwirth\nTzolkin (2001) by Hilda Paredes\nWalk Forward (2020) by Paola Prestini\nSix Japanese Gardens (1993-1995) by Kaija Saariaho\nTrois Rivières: Delta (2001) by Kaija Saariaho\nDust (2017-2018) by Rebecca Saunders\nEnchanted Invocation (2021) by Augusta Read Thomas\nSubway (2001) by Errollyn Wallen\nMono-Drum for Solo Bass Drum (2020) by Agata Zubel\nMaximum Load for percussion and computer (2006) by Agata Zubel\nTrivellazione a percussione (2000) by Agata Zubel\nLumière pour percussion solo (1997) by Agata Zubel\nThe Well-Seasoned Iron Pan (2015) by Juri Seo\nTLC for Hybrid Drum set (2022) by Juri Seo",
+            "二重奏\n\nAnima Mundi for two percussionists and live electronics (2016) by Helga Arias\nWork & Day (2012) by Zosha Di Castri\nLike Blind Men Tapping in the Dark (2010) by Libby Larsen\nRicochet (2008) by Libby Larsen\nVolume (2006) by Missy Mazzoli\nVoid II (2014/2020) by Rebecca Saunders\nDust II (2018/2020) by Rebecca Saunders\nSonata (2022) by Juri Seo\nSpoons (2019) by Juri Seo\nEmber (2018) by Alyssa Weinberg\nTable Talk (2016) by Alyssa Weinberg\n\n三重奏\n\nSituation III – Je, Tu, Nous (2016) by Anahita Abbasi\nThe Voices Inside My Head (2014) by Vivian Fung\nShui (2017) by Juri Seo\nTriangle Trio (2013, rev. 2016) by Juri Seo\nIn the Reign of Harad IV (2013, rev. 2018) by Kate Soper\n- aura - / - ára – (2011) by Anna Thorvaldsdottir\nSuite (2011) by Agata Zubel",
+            "四重奏\n\nSituation XI – Sphere (2023) by Anahita Abbasi\nAula de Música (2022) by Clarice Assad\nManif (2013) by Zosha Di Castri\nHellscape (2023) by Melody Eötvös\nThe Diamond in the Square (2025) by Suzanne Farrin\nA vida é tão rara (life is so strange) (2000) for four vibraphones by Suzanne Farrin\n(Un)Wandering Souls (2021) by Vivian Fung\nZONES (1991) by Jennifer Higdon\nMay The Devil Take Me (2022) by Amy Beth Kirsten\nReal Voices and Imagined Clatter (2014-15) by Tonia Ko\nBreath, Contained II for bubble wrap quintet and live electronics (2015) by Tonia Ko\nRISE (2022) by Alexis C. Lamb\nMatters/Mind (2021) by Alexis C. Lamb\nDDT (2014) by Libby Larsen\nMillennium Canticles (2022) by Missy Mazzoli\nStudy No. 1 (2023) by Jessie Montgomery\nInward Pieces (2024) by Angélica Negrón\nGone (2019) by Angélica Negrón\nCount to Five (2009) by Angélica Negrón\nMallet Quartet (2013) by Gity Razaz\nFear | Release (2016) by Ellen Reid\nTrois Rivières (1994) by Kaija Saariaho\nvv (2015, rev. 2018) by Juri Seo\nFour forFlexatones (2009) by Juri Seo\nTaxidermy (2012) by Caroline Shaw\nSing On (2024) by Caroline Shaw\nAstral Kaleidoscopes – Homage to Claude Debussy, Bill Evans, and Miles Davis (2026) by Augusta Read Thomas\nCon Moto (2018) by Augusta Read Thomas\nEquinox Ritual – Homage to Igor Stravinsky (2025) by Augusta Read Thomas\nqì (2016) by Augusta Read Thomas\nResounding Earth (2012) by Augusta Read Thomas\nStar Box (2020) by Augusta Read Thomas\n- AURA – (2015) by Anna Thorvaldsdottir\nEmber II (2018/19) by Alyssa Weinberg\nForbidden Love (2019) by Julia Wolfe\nDark Full Ride (2002) by Julia Wolfe\nNelumbo (2003) by Agata Zubel\n\n五重奏以上\n\nSplendid Wood (2006) by Jennifer Higdon\nLike Clockwork by Jennifer Higdon\nAnactoria (1998) by Liza Lim\ncoronAtion IV: whoever brought me here (2020) by Olga Neuwirth\nWah (2014) by Juri Seo\nEtched in Sand (2013) by Nina C. Young\nSpray (2023) by Agata Zubel\nRe-cycle (2001) by Agata Zubel\n12:29 MST (2012) by Alexis C. Lamb\nLyric Dusk (2023) by Alexis C. Lamb\nLux Semitae (“Light the Paths”) (2020) by Alexis C. Lamb\nEnveloped (2019) by Alexis C. Lamb\nSpectrum (2015) by Alexis C. Lamb"
+          ]
+        },
         {
           "slug": "ring-ring",
           "year": "2026",
@@ -265,27 +279,17 @@
           "description": "鐵琴獨奏委託創作",
           "body": [
             "《Ring Ring》是由作曲家 Sungji Hong 為洪梓菱委託創作的鐵琴獨奏作品。",
-            "作品延續她對細緻聆聽、身體動作與打擊樂器共鳴質地的長期關注。"
-          ]
-        },
-        {
-          "slug": "treeal",
-          "year": "2025",
-          "title": "tREeAL",
-          "description": "探索原音、電子效果與混合聲響的多媒體演出",
-          "body": [
-            "tREeAL 是一項多媒體演出計畫，探索直接聲學互動、軟體電子效果與兩者之間混合狀態的聲響光譜。",
-            "作品將聲音、劇場性的舞台存在與視覺設計整合為一個完整的演出場域。"
+            "作品延續她對生活靈感與打擊樂結合的延伸。"
           ]
         },
         {
           "slug": "pas-ensemble",
-          "year": "2025",
-          "title": "PAS International Percussion Ensemble Competition",
-          "description": "隨北德州大學打擊樂團獲獎，並於印第安納波利斯舉行專場演出",
+          "year": "2026",
+          "title": "HSS",
+          "description": "與多媒體作曲家David Stout和作曲家及大提琴家Colin Stokes的跨領域多媒體合作。",
           "body": [
-            "洪梓菱隨北德州大學打擊樂團獲得 2025 PAS International Percussion Ensemble Competition 冠軍。",
-            "此獎項促成於印第安納波利斯的專場演出，也呈現她持續投入室內樂與大型打擊樂團演出的經驗。"
+            "沉浸式多媒體作品，透過結合石頭、樹葉與水等自然元素，並融入打擊樂器、大提琴與電子音樂，探索聲音結合的各種可能，以此建立自然世界與現代表演藝術之間的橋樑。",
+            "本計畫以開放的好奇心為驅動，將演出視為一種主動的尋索——探索自然元素如何與古典樂器、打擊樂器及電子音樂結合。"
           ]
         }
       ]
@@ -295,8 +299,8 @@
       "credit": "藝術家簡介"
     },
     "contact": {
-      "heading": "演出、新音樂合作與教學洽詢。",
-      "availability": "現於美國德州丹頓與台灣屏東兩地工作，接受獨奏演出、室內樂、新作與跨域合作邀約。",
+      "heading": "演出、跨領域合作與教學洽詢。",
+      "availability": "現於美國北德州與台灣屏東兩地工作，接受獨奏演出、室內樂與跨域合作邀約。",
       "notice": "請在 CMS 中加入聯絡信箱，以啟用訊息寄送功能。",
       "email": "tzulinghungperc@gmail.com",
       "form_first_name": "名字",
