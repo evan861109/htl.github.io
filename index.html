@@ -16,6 +16,7 @@
       rel="stylesheet"
     >
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <noscript>
       <style>
         .page-intro { display: none; }
@@ -30,8 +31,10 @@
         }
       </style>
     </noscript>
+  <noscript><style>.nav-toggle { display: none; } .site-nav { position: static; visibility: visible; transform: none; display: flex; flex-wrap: wrap; padding: 8px 0; } .site-header { position: relative; height: auto; flex-wrap: wrap; gap: 12px; padding-top: 12px; } .site-nav a { min-height: 44px; padding: 10px; } </style></noscript>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="page-intro" aria-hidden="true">
       <div class="intro-panel intro-panel-left"></div>
       <div class="intro-panel intro-panel-right"></div>
@@ -52,13 +55,13 @@
           <a class="is-active" href="?lang=en" data-language="en" aria-current="true">EN</a>
           <a href="?lang=zh_hant" data-language="zh_hant">繁中</a>
         </div>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
           <span></span>
           <span></span>
         </button>
       </div>
 
-      <nav class="site-nav" id="site-nav" data-nav>
+      <nav aria-label="Main navigation" class="site-nav" id="site-nav" data-nav>
         <a href="bio.html" data-content="nav-bio">Bio</a>
         <a href="media.html" data-content="nav-media">Media</a>
         <a href="projects.html" data-content="nav-projects">Projects</a>
@@ -67,12 +70,13 @@
       </nav>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="hero" id="home" aria-labelledby="hero-title" data-pointer-field>
         <img class="hero-image" src="assets/hero-ring-ring.jpg" alt="Tzu-Ling Hung performing Ring Ring by Sungji Hong on vibraphone" data-hero-image>
-        <video class="hero-image hero-video hero-video--portrait" src="assets/hero-ring-ring-portrait.mp4" poster="assets/hero-ring-ring.jpg" muted loop playsinline preload="metadata" aria-hidden="true" data-hero-video></video>
-        <video class="hero-image hero-video hero-video--detail" src="assets/hero-ring-ring-detail.mp4" poster="assets/hero-ring-ring.jpg" muted loop playsinline preload="metadata" aria-hidden="true" data-hero-video></video>
-        <video class="hero-image hero-video hero-video--performance" src="assets/hero-ring-ring-performance.mp4" poster="assets/hero-ring-ring.jpg" muted loop playsinline preload="metadata" aria-hidden="true" data-hero-video></video>
+        <video class="hero-image hero-video hero-video--portrait" src="assets/hero-ring-ring-portrait.mp4" poster="assets/hero-ring-ring.jpg" muted loop playsinline preload="none" aria-hidden="true" data-hero-video></video>
+        <video class="hero-image hero-video hero-video--detail" src="assets/hero-ring-ring-detail.mp4" poster="assets/hero-ring-ring.jpg" muted loop playsinline preload="none" aria-hidden="true" data-hero-video></video>
+        <video class="hero-image hero-video hero-video--performance" src="assets/hero-ring-ring-performance.mp4" poster="assets/hero-ring-ring.jpg" muted loop playsinline preload="none" aria-hidden="true" data-hero-video></video>
+        <button class="motion-toggle" type="button" data-motion-toggle hidden>Pause background video</button>
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="score-field" aria-hidden="true">
           <span></span>

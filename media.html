@@ -9,8 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <noscript><style>.nav-toggle { display: none; } .site-nav { position: static; visibility: visible; transform: none; display: flex; flex-wrap: wrap; padding: 8px 0; } .site-header { position: relative; height: auto; flex-wrap: wrap; gap: 12px; padding-top: 12px; } .site-nav a { min-height: 44px; padding: 10px; } </style></noscript>
   </head>
   <body class="subpage media-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header" data-header>
       <a class="brand" href="index.html#home" aria-label="Tzu-Ling Hung home" data-brand-home>
         <span class="brand-mark" data-artist-initials>TLH</span>
@@ -22,13 +25,13 @@
           <a class="is-active" href="?lang=en" data-language="en" aria-current="true">EN</a>
           <a href="?lang=zh_hant" data-language="zh_hant">繁中</a>
         </div>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
           <span></span>
           <span></span>
         </button>
       </div>
 
-      <nav class="site-nav" id="site-nav" data-nav>
+      <nav aria-label="Main navigation" class="site-nav" id="site-nav" data-nav>
         <a href="bio.html" data-content="nav-bio">Bio</a>
         <a class="is-active" href="media.html" data-content="nav-media">Media</a>
         <a href="projects.html" data-content="nav-projects">Projects</a>
@@ -37,7 +40,8 @@
       </nav>
     </header>
 
-    <main class="media-main">
+    <main id="main-content" tabindex="-1" class="media-main">
+      <noscript><p class="content-notice">Please enable JavaScript to load the latest content. You can still use the navigation to explore the site.</p></noscript>
       <section class="media-hero" aria-labelledby="media-title">
         <img src="assets/hero-resonance.png" alt="Close view of wooden percussion bars and strings" data-media-hero-image>
         <div class="media-hero-shade" aria-hidden="true"></div>

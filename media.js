@@ -3,6 +3,8 @@ const mediaFeature = document.querySelector("[data-media-feature]");
 let mediaContent;
 
 const getMediaLanguage = () => {
+  const requested = new URLSearchParams(window.location.search).get("lang");
+  if (requested === "en" || requested === "zh_hant") return requested;
   try {
     return localStorage.getItem("tzuling-language") === "zh_hant" ? "zh_hant" : "en";
   } catch {
@@ -16,7 +18,7 @@ const mediaSafeUrl = (value) => {
   }
 
   try {
-    const url = new URL(value, window.location.href);
+    const url = new URL(value, document.baseURI);
     return ["http:", "https:"].includes(url.protocol) ? url.href : "#";
   } catch {
     return "#";
@@ -30,11 +32,11 @@ const getYoutubeThumbnail = (value) => {
 
     if (url.hostname === "youtu.be") {
       id = url.pathname.slice(1);
-    } else if (url.hostname.endsWith("youtube.com")) {
-      id = url.searchParams.get("v") || "";
+    } else if (url.hostname === "youtube.com" || url.hostname.endsWith(".youtube.com")) {
+      id = url.searchParams.get("v") || (/^\/(?:shorts|embed|live)\//.test(url.pathname) ? url.pathname.split("/")[2] : "");
     }
 
-    return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : "";
+    return /^[A-Za-z0-9_-]{11}$/.test(id) ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : "";
   } catch {
     return "";
   }
@@ -219,5 +221,6 @@ fetch("content/media.json", { cache: "no-store" })
   })
   .catch((error) => {
     document.body.classList.add("content-load-failed");
+    window.dispatchEvent(new Event("site-content-error"));
     console.error("Media content failed to load.", error);
   });

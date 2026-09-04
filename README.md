@@ -17,4 +17,12 @@ The included `.pages.yml` file configures Pages CMS as a form-based editor for t
 
 Every save creates a Git commit, and GitHub Pages publishes the update automatically. Do not edit `.pages.yml`, `index.html`, `styles.css`, or `script.js` from the CMS.
 
-The biography portrait is optional and can be uploaded under **Homepage content → Biography page**. Use the horizontal and vertical focus percentages there to choose which part remains visible in the portrait frame. The contact form uses the **Booking email** under **Homepage content → Contact** to open a pre-addressed email draft. The address is not rendered as visible page text.
+The biography portrait can be replaced under **Homepage content → Biography page**. Use the horizontal and vertical focus percentages there to choose which part remains visible in the portrait frame. The contact form uses the **Booking email** under **Homepage content → Contact** to open a pre-addressed email draft. The address is not rendered as visible page text.
+
+For image uploads, use JPG, PNG, or WebP and aim for 1–2 MB (keep below 3 MB). The hosted Pages CMS can silently reject larger uploads; a 5.3 MB JPG failed during verification. Resize or compress the image before uploading, then select it in the relevant content field and save. Each language has its own image selection. Uploading a file to **Site images** alone does not change a page.
+
+### Checking changes
+
+Run `npm test` (Node.js and Ruby required), then `npm run build`. The tests cover the CMS content contract, local asset and route references, JavaScript syntax, and usability behavior. To run the behavior checks alone, use `node --test scripts/usability.test.mjs`.
+
+Before publishing visual changes, preview both languages at desktop and mobile widths. Check the menu with a keyboard, project and language links, background-video pause/resume, contact validation, and the biography image focal point. The contact form opens an email draft; it does not send mail from the website.

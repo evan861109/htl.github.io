@@ -9,8 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <noscript><style>.nav-toggle { display: none; } .site-nav { position: static; visibility: visible; transform: none; display: flex; flex-wrap: wrap; padding: 8px 0; } .site-header { position: relative; height: auto; flex-wrap: wrap; gap: 12px; padding-top: 12px; } .site-nav a { min-height: 44px; padding: 10px; } </style></noscript>
   </head>
   <body class="subpage projects-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header" data-header>
       <a class="brand" href="index.html#home" aria-label="Tzu-Ling Hung home" data-brand-home>
         <span class="brand-mark" data-artist-initials>TLH</span>
@@ -21,9 +24,9 @@
           <a class="is-active" href="?lang=en" data-language="en" aria-current="true">EN</a>
           <a href="?lang=zh_hant" data-language="zh_hant">繁中</a>
         </div>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><span></span><span></span></button>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav" data-nav-toggle><span></span><span></span></button>
       </div>
-      <nav class="site-nav" id="site-nav" data-nav>
+      <nav aria-label="Main navigation" class="site-nav" id="site-nav" data-nav>
         <a href="bio.html" data-content="nav-bio">Bio</a>
         <a href="media.html" data-content="nav-media">Media</a>
         <a class="is-active" href="projects.html" data-content="nav-projects">Projects</a>
@@ -31,7 +34,7 @@
         <a href="index.html#contact" data-content="nav-contact">Contact</a>
       </nav>
     </header>
-    <main class="projects-main">
+    <main id="main-content" tabindex="-1" class="projects-main">
       <section class="projects-intro" aria-labelledby="projects-title">
         <div>
           <p class="eyebrow" data-content="projects-kicker">Projects & Recognition</p>

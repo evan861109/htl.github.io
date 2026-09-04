@@ -1,4 +1,5 @@
 const body = document.body;
+body.classList.add("js-enabled");
 const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
@@ -6,6 +7,14 @@ const navLinks = Array.from(document.querySelectorAll(".site-nav a"));
 const pointerField = document.querySelector("[data-pointer-field]");
 const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let skipIntro = Boolean(window.location.hash) || prefersReducedMotion;
+try {
+  skipIntro ||= sessionStorage.getItem("tzuling-intro-seen") === "true";
+  if (document.querySelector(".page-intro")) sessionStorage.setItem("tzuling-intro-seen", "true");
+} catch {
+  // Direct links still skip the intro when storage is unavailable.
+}
+body.classList.toggle("intro-skipped", skipIntro);
 const languageButtons = Array.from(document.querySelectorAll("[data-language]"));
 const languageStorageKey = "tzuling-language";
 const isMediaPage = body.classList.contains("media-page");
@@ -54,13 +63,14 @@ const updateLanguageControls = (language) => {
 const updateLanguageLinks = (language) => {
   document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute('href');
-
-    if (!href || !/^(?:index|media|bio|projects|project)\.html(?:[?#]|$)/.test(href)) {
+    if (!href || href.startsWith('#')) {
       return;
     }
-
-    const url = new URL(href, window.location.href);
-    if (url.pathname.endsWith("/project.html")) {
+    const url = new URL(href, document.baseURI);
+    const siteRoot = new URL('.', document.baseURI);
+    if (url.origin !== siteRoot.origin || !url.pathname.startsWith(siteRoot.pathname)) return;
+    if (!url.pathname.endsWith('.html') && url.pathname !== siteRoot.pathname) return;
+    if (link.dataset.language && url.pathname.endsWith("/project.html")) {
       const slug = new URLSearchParams(window.location.search).get("slug");
       if (slug) {
         url.searchParams.set("slug", slug);
@@ -105,7 +115,7 @@ const safeUrl = (value) => {
   }
 
   try {
-    const url = new URL(value, window.location.href);
+    const url = new URL(value, document.baseURI);
     return ["http:", "https:"].includes(url.protocol) ? url.href : "#";
   } catch {
     return "#";
@@ -301,7 +311,9 @@ const renderProjects = (projects) => {
     const copy = document.createElement("div");
     copy.append(makeElement("h2", "", project.title));
     copy.append(makeElement("p", "", project.description || ""));
-    article.append(time, copy, makeElement("span", "project-index-arrow", "↗"));
+    const arrow = makeElement("span", "project-index-arrow", "→");
+    arrow.setAttribute("aria-hidden", "true");
+    article.append(time, copy, arrow);
     fragment.append(article);
   });
 
@@ -310,28 +322,32 @@ const renderProjects = (projects) => {
   }
 };
 
+const getCanonicalProjectSlug = (slug) => ({ hss: "pas-ensemble", treaal: "treeal" })[slug] || slug;
+
 const hydrateProjectContent = (site) => {
   if (!isProjectPage) {
     return;
   }
 
   const slug = body.dataset.projectSlug || new URLSearchParams(window.location.search).get("slug");
-  const project = site.projects?.items?.find((item) => item?.slug === slug);
+  const project = site.projects?.items?.find((item) => item?.slug === getCanonicalProjectSlug(slug));
   if (!project) {
     const artistName = site.artist?.name || site.artist?.display_name || "Tzu-Ling Hung";
-    document.title = `Project not found | ${artistName}`;
+    const chinese = document.documentElement.lang === "zh-Hant";
+    const missingTitle = chinese ? "找不到此計畫" : "Project not found";
+    document.title = `${missingTitle} | ${artistName}`;
     document.querySelectorAll("[data-project-content=\"year\"]").forEach((element) => {
       element.textContent = "";
     });
     document.querySelectorAll("[data-project-content=\"title\"]").forEach((element) => {
-      element.textContent = "Project not found";
+      element.textContent = missingTitle;
     });
     document.querySelectorAll("[data-project-content=\"description\"]").forEach((element) => {
-      element.textContent = "This project is unavailable or its address has changed.";
+      element.textContent = chinese ? "此計畫目前無法顯示，或網址已變更。" : "This project is unavailable or its address has changed.";
     });
     const bodyCopy = document.querySelector("[data-project-body]");
     if (bodyCopy) {
-      bodyCopy.replaceChildren(makeElement("p", "", "Return to the projects page to see the current work."));
+      bodyCopy.replaceChildren(makeElement("p", "", chinese ? "請返回計畫列表瀏覽目前的作品。" : "Return to the projects page to see the current work."));
     }
     return;
   }
@@ -434,6 +450,7 @@ const renderContact = (contact) => {
   };
   const recipient = typeof contact.email === "string" ? contact.email.trim() : "";
   const form = makeElement("form", "contact-form");
+  form.setAttribute("aria-label", document.documentElement.lang === "zh-Hant" ? "聯絡表單" : "Contact form");
   const nameFields = makeElement("div", "contact-form-grid");
 
   const makeContactField = (labelText, name, options = {}) => {
@@ -465,8 +482,13 @@ const renderContact = (contact) => {
 
   const deliveryNote = recipient ? contact.form_note : contact.notice;
   if (deliveryNote) {
-    form.append(makeElement("p", "contact-form-note", deliveryNote));
+    const note = makeElement("p", "contact-form-note", recipient ? deliveryNote :
+      (document.documentElement.lang === "zh-Hant" ? "目前暫時無法透過此表單聯絡，請稍後再試。" : "This contact form is temporarily unavailable. Please check back soon."));
+    note.id = "contact-delivery-note";
+    form.prepend(note);
+    form.setAttribute("aria-describedby", note.id);
   }
+  if (!recipient) form.querySelectorAll("input, textarea").forEach((field) => { field.disabled = true; });
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -580,14 +602,14 @@ const hydrateSiteContent = (site, language) => {
   heroVideos.forEach((heroVideo, index) => {
     const clip = heroClips[index];
 
-    if (!clip) {
+    if (!clip || prefersReducedMotion) {
       heroVideo.hidden = true;
       return;
     }
 
-    const clipUrl = new URL(clip, window.location.href).href;
+    const clipUrl = new URL(clip, document.baseURI).href;
     heroVideo.hidden = false;
-    heroVideo.preload = "auto";
+    heroVideo.preload = prefersReducedMotion ? "none" : "metadata";
     heroVideo.poster = site.hero?.image || heroVideo.poster;
     if (heroVideo.src !== clipUrl) {
       heroVideo.src = clip;
@@ -603,34 +625,60 @@ const hydrateSiteContent = (site, language) => {
   });
 
   const activeHeroVideos = heroVideos.filter((_, index) => Boolean(heroClips[index]));
+  const motionToggle = document.querySelector("[data-motion-toggle]");
+  if (motionToggle) motionToggle.hidden = prefersReducedMotion || !activeHeroVideos.length;
   if (!prefersReducedMotion && activeHeroVideos.length) {
     const fadeDurationMs = 280;
     const clipDwellMs = 5800;
     let activeClipIndex = 0;
+    let paused = false;
+    const updateMotionLabel = () => {
+      if (!motionToggle) return;
+      motionToggle.textContent = language === "zh_hant"
+        ? (paused ? "播放背景影片" : "暫停背景影片")
+        : (paused ? "Play background video" : "Pause background video");
+      motionToggle.setAttribute("aria-pressed", String(paused));
+    };
 
     const activateHeroClip = (nextIndex) => {
+      if (paused || document.hidden) return;
       const previousVideo = activeHeroVideos[activeClipIndex];
       const nextVideo = activeHeroVideos[nextIndex];
 
       if (previousVideo && previousVideo !== nextVideo) {
         previousVideo.classList.remove("is-active");
-        window.setTimeout(() => previousVideo.pause(), fadeDurationMs);
+        window.setTimeout(() => {
+          if (previousVideo !== activeHeroVideos[activeClipIndex]) previousVideo.pause();
+        }, fadeDurationMs);
       }
 
       nextVideo.currentTime = 0;
-      nextVideo.play().catch(() => {});
-      nextVideo.classList.add("is-active");
+      nextVideo.play().then(() => {
+        if (!paused && !document.hidden) nextVideo.classList.add("is-active");
+        else nextVideo.pause();
+      }).catch(() => nextVideo.classList.remove("is-active"));
       activeClipIndex = nextIndex;
     };
 
-    const startDelayMs = heroSequenceStarted ? 0 : 4700;
+    const startDelayMs = heroSequenceStarted || skipIntro ? 0 : 1200;
     heroSequenceStarted = true;
     heroSequenceStartTimer = window.setTimeout(() => {
       activateHeroClip(0);
       heroSequenceInterval = window.setInterval(() => {
-        activateHeroClip((activeClipIndex + 1) % activeHeroVideos.length);
+        if (!paused && !document.hidden) activateHeroClip((activeClipIndex + 1) % activeHeroVideos.length);
       }, clipDwellMs);
     }, startDelayMs);
+    if (motionToggle) motionToggle.onclick = () => {
+      paused = !paused;
+      if (paused) activeHeroVideos.forEach((video) => video.pause());
+      else activateHeroClip(activeClipIndex);
+      updateMotionLabel();
+    };
+    document.onvisibilitychange = () => {
+      if (document.hidden) activeHeroVideos.forEach((video) => video.pause());
+      else if (!paused) activateHeroClip(activeClipIndex);
+    };
+    updateMotionLabel();
   }
 
   renderParagraphs(site.about?.paragraphs?.slice(0, 2));
@@ -640,7 +688,38 @@ const hydrateSiteContent = (site, language) => {
   hydrateProjectsPageContent(site);
   hydrateProjectContent(site);
   renderContact(site.contact);
+  updateLanguageLinks(language);
+  updateAccessibleLabels(language);
 };
+
+const updateAccessibleLabels = (language) => {
+  const chinese = language === "zh_hant";
+  navToggle.setAttribute("aria-label", chinese ? "切換導覽選單" : "Toggle navigation");
+  nav.setAttribute("aria-label", chinese ? "主要導覽" : "Main navigation");
+  const skip = document.querySelector(".skip-link");
+  if (skip) {
+    skip.textContent = chinese ? "跳至主要內容" : "Skip to content";
+    skip.href = `${window.location.pathname}${window.location.search}#main-content`;
+  }
+  navLinks.forEach((link) => {
+    if (link.classList.contains("is-active")) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
+};
+
+const showContentError = () => {
+  if (document.querySelector(".content-notice")) return;
+  const chinese = getPreferredLanguage() === "zh_hant";
+  const notice = makeElement("div", "content-notice");
+  notice.setAttribute("role", "status");
+  notice.append(makeElement("p", "", chinese ? "部分內容無法載入，請重新整理頁面再試一次。" : "Some content could not load. Please reload the page to try again."));
+  const retry = makeElement("button", "button", chinese ? "重新載入" : "Reload page");
+  retry.type = "button";
+  retry.addEventListener("click", () => window.location.reload());
+  notice.append(retry);
+  document.querySelector("main").prepend(notice);
+};
+window.addEventListener("site-content-error", showContentError);
 
 const activateLanguage = (language, shouldPersist = true) => {
   const selectedLanguage = language === "zh_hant" ? "zh_hant" : "en";
@@ -685,12 +764,13 @@ fetch("content/site.json", { cache: "no-store" })
   })
   .catch((error) => {
     body.classList.add("content-load-failed");
+    showContentError();
     console.error("Site content failed to load.", error);
   });
 
-if (!prefersReducedMotion && document.querySelector(".page-intro")) {
+if (!skipIntro && document.querySelector(".page-intro")) {
   body.classList.add("is-intro-running");
-  window.setTimeout(() => body.classList.remove("is-intro-running"), 4650);
+  window.setTimeout(() => body.classList.remove("is-intro-running"), 1100);
 }
 
 const updateHeader = () => {
@@ -717,20 +797,36 @@ const updateActiveNavigation = () => {
     activeLink = sectionNavItems.at(-1)?.link || null;
   }
 
-  navLinks.forEach((link) => link.classList.toggle("is-active", link === activeLink));
+  navLinks.forEach((link) => {
+    link.classList.toggle("is-active", link === activeLink);
+    if (link === activeLink) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
 };
 
-navToggle.addEventListener("click", () => {
-  const isOpen = body.classList.toggle("nav-open");
+const setMenuOpen = (isOpen) => {
+  body.classList.toggle("nav-open", isOpen);
   navToggle.setAttribute("aria-expanded", String(isOpen));
-});
+};
+navToggle.addEventListener("click", () => setMenuOpen(!body.classList.contains("nav-open")));
 
 nav.addEventListener("click", (event) => {
-  if (event.target.matches("a")) {
-    body.classList.remove("nav-open");
-    navToggle.setAttribute("aria-expanded", "false");
+  if (event.target.closest("a")) setMenuOpen(false);
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && body.classList.contains("nav-open")) {
+    setMenuOpen(false);
+    navToggle.focus();
   }
 });
+document.addEventListener("click", (event) => {
+  if (!header.contains(event.target)) setMenuOpen(false);
+});
+document.addEventListener("focusin", (event) => {
+  if (!header.contains(event.target)) setMenuOpen(false);
+});
+window.matchMedia("(min-width: 861px)").addEventListener("change", () => setMenuOpen(false));
+updateAccessibleLabels(getPreferredLanguage());
 
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(

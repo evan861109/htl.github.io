@@ -3,6 +3,6 @@
   "private": true,
   "scripts": {
     "build": "node scripts/build-site.mjs",
-    "test": "ruby scripts/validate-pages-cms.rb && node --check script.js && node --check media.js && node scripts/validate-content.mjs"
+    "test": "ruby scripts/validate-pages-cms.rb && node --check script.js && node --check media.js && node scripts/validate-content.mjs && node --test scripts/usability.test.mjs"
   }
 }
