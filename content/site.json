@@ -270,7 +270,7 @@
       "intro": "持續記錄並收錄個人藝術計畫、委創合作、少數群體曲目整理及博士學術研究。",
       "items": [
         {
-          "slug": "treeal",
+          "slug": "works-by-female-composers",
           "year": "2026",
           "title": "女性作曲家作品",
           "description": "倡議打擊樂領域中的女性之聲",
@@ -294,13 +294,24 @@
           ]
         },
         {
-          "slug": "pas-ensemble",
+          "slug": "hss",
           "year": "2026",
           "title": "HSS",
           "description": "與多媒體作曲家David Stout和作曲家及大提琴家Colin Stokes的跨領域多媒體合作。",
           "body": [
             "沉浸式多媒體作品，透過結合石頭、樹葉與水等自然元素，並融入打擊樂器、大提琴與電子音樂，探索聲音結合的各種可能，以此建立自然世界與現代表演藝術之間的橋樑。",
             "本計畫以開放的好奇心為驅動，將演出視為一種主動的尋索——探索自然元素如何與古典樂器、打擊樂器及電子音樂結合。"
+          ]
+        },
+        {
+          "slug": "treaal",
+          "year": "2025",
+          "title": "tREaAL",
+          "description": "與作曲家Augustin Alonso和作曲家及視覺藝術創作家Cynthia Clyde的跨領域多媒體合作。",
+          "body": [
+            "《tREeAL》是一場對於『何謂真實音樂創作』的探尋——其光譜涵蓋了作曲家預先設定的結構、演奏者當下的即興發揮，以及隨機生成的演算法音樂事件。",
+            "我們同時反思自己在舞台上與聲學及電子樂器的關係——這些樂器呈現出與『自然』不同程度的距離：從直接觸碰打擊樂器的互動、單純電子音樂的音效，到介於兩者之間的混合連結。",
+            "更多資訊：https://identitypendingareyouhere.wordpress.com/treeal/"
           ]
         }
       ]
