@@ -102,7 +102,7 @@
       "intro": "An ongoing archive of artistic initiatives, commissioning projects, underrepresented repertoire curation, and doctoral research.",
       "items": [
         {
-          "slug": "treeal",
+          "slug": "works-by-female-composers",
           "year": "2026",
           "title": "Works by Female Composers",
           "description": "Championing female voices in percussion—bringing essential works, new commissions, and contemporary masterworks to the stage.",
@@ -133,6 +133,17 @@
           "body": [
             "An immersive multimedia project exploring organic soundscapes by blending natural elements—stone, leaves, and water—with acoustic percussion, cello, and electronics to bridge the natural world and modern performance art.",
             "Driven by open curiosity, this project approaches performance as an active search—exploring how natural elements can expand acoustic percussion into a shared space of discovery."
+          ]
+        },
+        {
+          "slug": "treeal",
+          "year": "2025",
+          "title": "tREeAL",
+          "description": "Multimedia collaborations with Augustin Alonso and Cynthia Clyde.",
+          "body": [
+            "“tREeAL” is an exploration of what authentic musical creation means to us, encompassing the spectrum from a composer’s pre-defined structures and a performer’s spontaneous improvisation, to randomly generated, algorithmic musical events.",
+            "We also reflect on our relationship to acoustic and electronic instruments on stage, which exhibit varying degrees of proximity to nature—from direct interaction with percussion instruments, to purely electronic software-based effects, and hybrid connections in between.",
+            "See more here: https://identitypendingareyouhere.wordpress.com/treeal/"
           ]
         }
       ]
