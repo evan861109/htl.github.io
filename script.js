@@ -660,7 +660,7 @@ const hydrateSiteContent = (site, language) => {
       activeClipIndex = nextIndex;
     };
 
-    const startDelayMs = heroSequenceStarted || skipIntro ? 0 : 1200;
+    const startDelayMs = heroSequenceStarted || skipIntro ? 0 : 4000;
     heroSequenceStarted = true;
     heroSequenceStartTimer = window.setTimeout(() => {
       activateHeroClip(0);
@@ -770,7 +770,7 @@ fetch("content/site.json", { cache: "no-store" })
 
 if (!skipIntro && document.querySelector(".page-intro")) {
   body.classList.add("is-intro-running");
-  window.setTimeout(() => body.classList.remove("is-intro-running"), 1100);
+  window.setTimeout(() => body.classList.remove("is-intro-running"), 4000);
 }
 
 const updateHeader = () => {

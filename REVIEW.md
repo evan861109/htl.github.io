@@ -4,7 +4,7 @@ Reviewed September 4, 2026. This records the review and verification performed b
 
 ## Adjustments
 
-- Shortened the homepage intro to roughly one second, with no intro for direct section links or subsequent homepage visits in the same session.
+- Adjusted the homepage intro to roughly four seconds, with the name and role fully readable for about 2.4 seconds, with no intro for direct section links or subsequent homepage visits in the same session.
 - Added background-video pause/resume, paused playback in hidden tabs, and avoided loading clips for reduced-motion visitors.
 - Fixed the mobile stylesheet displaying a different video from the one actually playing.
 - Added named navigation controls, Escape-to-close, focus restoration, automatic menu closure when focus leaves the header, and menu reset at the desktop breakpoint. Closed mobile navigation is hidden from keyboard navigation.
