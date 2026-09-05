@@ -7,14 +7,6 @@ const navLinks = Array.from(document.querySelectorAll(".site-nav a"));
 const pointerField = document.querySelector("[data-pointer-field]");
 const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-let skipIntro = Boolean(window.location.hash) || prefersReducedMotion;
-try {
-  skipIntro ||= sessionStorage.getItem("tzuling-intro-seen") === "true";
-  if (document.querySelector(".page-intro")) sessionStorage.setItem("tzuling-intro-seen", "true");
-} catch {
-  // Direct links still skip the intro when storage is unavailable.
-}
-body.classList.toggle("intro-skipped", skipIntro);
 const languageButtons = Array.from(document.querySelectorAll("[data-language]"));
 const languageStorageKey = "tzuling-language";
 const isMediaPage = body.classList.contains("media-page");
@@ -660,7 +652,7 @@ const hydrateSiteContent = (site, language) => {
       activeClipIndex = nextIndex;
     };
 
-    const startDelayMs = heroSequenceStarted || skipIntro ? 0 : 4000;
+    const startDelayMs = heroSequenceStarted ? 0 : 4700;
     heroSequenceStarted = true;
     heroSequenceStartTimer = window.setTimeout(() => {
       activateHeroClip(0);
@@ -768,9 +760,9 @@ fetch("content/site.json", { cache: "no-store" })
     console.error("Site content failed to load.", error);
   });
 
-if (!skipIntro && document.querySelector(".page-intro")) {
+if (!prefersReducedMotion && document.querySelector(".page-intro")) {
   body.classList.add("is-intro-running");
-  window.setTimeout(() => body.classList.remove("is-intro-running"), 4000);
+  window.setTimeout(() => body.classList.remove("is-intro-running"), 4650);
 }
 
 const updateHeader = () => {

@@ -117,18 +117,9 @@ img {
   display: grid;
   place-items: center;
   pointer-events: none;
-  animation: intro-hide 180ms ease 3900ms forwards;
+  animation: intro-hide 180ms ease 4420ms forwards;
 }
 
-.intro-skipped .page-intro { display: none; }
-.intro-skipped .site-header,
-.intro-skipped .hero-content > *,
-.intro-skipped .hero-image {
-  animation: none;
-  transform: none;
-}
-.intro-skipped .site-header,
-.intro-skipped .hero-content > * { opacity: 1; }
 
 .intro-panel {
   position: absolute;
@@ -142,12 +133,12 @@ img {
 
 .intro-panel-left {
   left: 0;
-  animation: panel-left-open 900ms cubic-bezier(0.77, 0, 0.18, 1) 3000ms forwards;
+  animation: panel-left-open 1450ms cubic-bezier(0.77, 0, 0.18, 1) 2840ms forwards;
 }
 
 .intro-panel-right {
   right: 0;
-  animation: panel-right-open 900ms cubic-bezier(0.77, 0, 0.18, 1) 3000ms forwards;
+  animation: panel-right-open 1450ms cubic-bezier(0.77, 0, 0.18, 1) 2840ms forwards;
 }
 
 .intro-mark {
@@ -158,7 +149,7 @@ img {
   justify-items: center;
   color: var(--white);
   text-align: center;
-  animation: mark-exit 450ms ease 2800ms forwards;
+  animation: mark-exit 520ms ease 2520ms forwards;
 }
 
 .intro-name {
@@ -168,7 +159,7 @@ img {
   line-height: var(--display-line-height);
   opacity: 0;
   transform: translateY(14px);
-  animation: mark-enter 300ms cubic-bezier(0.22, 1, 0.36, 1) 40ms forwards;
+  animation: mark-enter 780ms cubic-bezier(0.22, 1, 0.36, 1) 160ms forwards;
 }
 
 .intro-role {
@@ -184,7 +175,7 @@ img {
   text-transform: uppercase;
   opacity: 0;
   transform: translateY(10px);
-  animation: mark-enter 250ms cubic-bezier(0.22, 1, 0.36, 1) 100ms forwards;
+  animation: mark-enter 680ms cubic-bezier(0.22, 1, 0.36, 1) 1000ms forwards;
 }
 
 .intro-role::before,
@@ -193,7 +184,7 @@ img {
   content: "";
   background: linear-gradient(90deg, transparent, currentColor);
   transform: scaleX(0);
-  animation: line-draw 250ms cubic-bezier(0.77, 0, 0.18, 1) 150ms forwards;
+  animation: line-draw 760ms cubic-bezier(0.77, 0, 0.18, 1) 1180ms forwards;
 }
 
 .intro-role::after {
@@ -218,7 +209,7 @@ img {
   transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
   opacity: 0;
   transform: translateY(-14px);
-  animation: header-enter 700ms ease 3400ms forwards;
+  animation: header-enter 820ms ease 4120ms forwards;
 }
 
 .site-header.is-scrolled {
@@ -428,7 +419,7 @@ html[lang="zh-Hant"] .intro-role {
   object-position: 68% center;
   filter: saturate(0.82) contrast(1.06) brightness(0.94);
   transform: scale(1.08);
-  animation: image-settle 2100ms cubic-bezier(0.22, 1, 0.36, 1) 350ms forwards;
+  animation: image-settle 2100ms cubic-bezier(0.22, 1, 0.36, 1) 3140ms forwards;
 }
 
 .hero-shade {
@@ -482,7 +473,7 @@ html[lang="zh-Hant"] .intro-role {
 
 .score-field span:nth-child(4) {
   width: 42%;
-  animation-delay: 650ms;
+  animation-delay: 4350ms;
 }
 
 .hero-content {
@@ -501,23 +492,23 @@ html[lang="zh-Hant"] .intro-role {
 }
 
 .hero-content > :nth-child(1) {
-  animation-delay: 3250ms;
+  animation-delay: 4020ms;
 }
 
 .hero-content > :nth-child(2) {
-  animation-delay: 3350ms;
+  animation-delay: 4130ms;
 }
 
 .hero-content > :nth-child(3) {
-  animation-delay: 3450ms;
+  animation-delay: 4240ms;
 }
 
 .hero-content > :nth-child(4) {
-  animation-delay: 3550ms;
+  animation-delay: 4350ms;
 }
 
 .hero-content > :nth-child(5) {
-  animation-delay: 3650ms;
+  animation-delay: 4460ms;
 }
 
 .eyebrow,
