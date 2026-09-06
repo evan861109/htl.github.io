@@ -1094,7 +1094,7 @@ html[lang="zh-Hant"] .quote-block p {
 
 .bio-copy-layout.has-bio-image {
   display: grid;
-  grid-template-columns: minmax(340px, 43vw) minmax(0, 1fr);
+  grid-template-columns: minmax(340px, 48vw) minmax(0, 1fr);
   gap: 0;
   align-items: start;
 }
