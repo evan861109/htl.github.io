@@ -264,6 +264,28 @@ components:
             options:
               min: 0
               max: 100
+          - name: image_second
+            label: Biography second image
+            description: Appears in the second half of the biography. Leave blank to keep one image.
+            type: image
+            options:
+              media: images
+              categories: [image]
+          - name: image_second_alt
+            label: Second image description
+            type: text
+          - name: image_second_position_x
+            label: Second image horizontal focus (%)
+            type: number
+            options:
+              min: 0
+              max: 100
+          - name: image_second_position_y
+            label: Second image vertical focus (%)
+            type: number
+            options:
+              min: 0
+              max: 100
       - name: tracks
         label: Featured videos
         type: object

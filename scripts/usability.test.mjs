@@ -178,3 +178,27 @@ test('pause before delayed autoplay prevents playback; resume restores it', asyn
   f.document.hidden=true; f.document.onvisibilitychange();
   assert.equal(video.paused,true);
 });
+
+test('biography switches at its midpoint and restores the portrait on scroll back, mobile, or image failure', () => {
+  const f=setup();
+  const portrait=new Element(), first=new Element('img'), second=new Element('img');
+  let top=600, desktop=true;
+  second.complete=true; second.naturalWidth=1200;
+  f.window.matchMedia=()=>({matches:desktop});
+  f.nodes['[data-header]'].getBoundingClientRect=()=>({height:100});
+  f.context.fixture={portrait,first,second,midpoint:{getBoundingClientRect:()=>({top})}};
+  f.run('bioImageState=fixture; updateBioImage()');
+  assert.equal(portrait.classList.contains('is-second-image'),false);
+  top=450; f.run('updateBioImage()');
+  assert.equal(portrait.classList.contains('is-second-image'),true);
+  assert.equal(first.getAttribute('aria-hidden'),'true');
+  assert.equal(second.getAttribute('aria-hidden'),'false');
+  top=451; f.run('updateBioImage()');
+  assert.equal(portrait.classList.contains('is-second-image'),false);
+  top=0; second.naturalWidth=0; f.run('updateBioImage()');
+  assert.equal(portrait.classList.contains('is-second-image'),false);
+  second.naturalWidth=1200; desktop=false; f.run('updateBioImage()');
+  assert.equal(portrait.classList.contains('is-second-image'),false);
+  assert.equal(first.getAttribute('aria-hidden'),'false');
+  f.run('bioImageState=null; updateBioImage()');
+});

@@ -185,6 +185,21 @@ const getImageFocus = (value) => {
   return Number.isFinite(number) ? Math.min(100, Math.max(0, number)) : 50;
 };
 
+let bioImageState;
+const shouldShowSecondBioImage = (midpointTop, viewportHeight, headerHeight) =>
+  midpointTop <= headerHeight + (viewportHeight - headerHeight) / 2;
+
+const updateBioImage = () => {
+  if (!bioImageState) return;
+  const { portrait, first, second, midpoint } = bioImageState;
+  const showSecond = window.matchMedia("(min-width: 861px)").matches
+    && second.complete && second.naturalWidth > 0
+    && shouldShowSecondBioImage(midpoint.getBoundingClientRect().top, window.innerHeight, header.getBoundingClientRect().height);
+  portrait.classList.toggle("is-second-image", showSecond);
+  first.setAttribute("aria-hidden", String(showSecond));
+  second.setAttribute("aria-hidden", String(!showSecond));
+};
+
 const hydrateBioContent = (site) => {
   if (!isBioPage || !site.bio) {
     return;
@@ -231,6 +246,38 @@ const hydrateBioContent = (site) => {
   }
 
   renderBioParagraphs(site.about?.paragraphs);
+  bioImageState = null;
+  const second = document.querySelector("[data-bio-image-second]");
+  const copy = document.querySelector("[data-bio-copy]");
+  if (!second || !copy || !portrait || !portraitImage) return;
+  portrait.classList.remove("is-second-image");
+  portraitImage.setAttribute("aria-hidden", "false");
+  second.setAttribute("aria-hidden", "true");
+  const secondPath = typeof site.bio.image_second === "string" ? site.bio.image_second.trim() : "";
+  const paragraphs = Array.from(copy.querySelectorAll("p"));
+  second.hidden = !hasPortrait || !secondPath || paragraphs.length < 2;
+  if (second.hidden) {
+    second.removeAttribute("src");
+    return;
+  }
+  second.alt = site.bio.image_second_alt || site.bio.image_alt || "Artist portrait";
+  second.style.objectPosition = `${getImageFocus(site.bio.image_second_position_x ?? 50)}% ${getImageFocus(site.bio.image_second_position_y ?? 50)}%`;
+  second.onload = updateBioImage;
+  second.onerror = updateBioImage;
+  second.src = secondPath;
+  const midpoint = paragraphs[Math.ceil(paragraphs.length / 2)];
+  const mobileFigure = makeElement("figure", "bio-portrait-inline");
+  const mobileImage = document.createElement("img");
+  mobileImage.src = secondPath;
+  mobileImage.alt = second.alt;
+  mobileImage.loading = "lazy";
+  mobileImage.decoding = "async";
+  mobileImage.style.objectPosition = second.style.objectPosition;
+  mobileImage.onerror = () => { mobileFigure.hidden = true; };
+  mobileFigure.append(mobileImage);
+  copy.insertBefore(mobileFigure, midpoint);
+  bioImageState = { portrait, first: portraitImage, second, midpoint };
+  updateBioImage();
 };
 
 const renderTracks = (tracks, actionLabel = "Watch") => {
@@ -860,7 +907,9 @@ if (pointerField && !prefersReducedMotion) {
 const updateScrollState = () => {
   updateHeader();
   updateActiveNavigation();
+  updateBioImage();
 };
 
 updateScrollState();
 window.addEventListener("scroll", updateScrollState, { passive: true });
+window.addEventListener("resize", updateBioImage);

@@ -98,6 +98,16 @@ const validateSite = async (site) => {
     await requireAsset(content.hero?.image, `${prefix}.hero.image`);
     await requireAsset(content.bio?.image, `${prefix}.bio.image`);
     requireString(content, "bio.image_alt", `${prefix}.bio.image_alt`);
+    if (content.bio?.image_second) {
+      await requireAsset(content.bio.image_second, `${prefix}.bio.image_second`);
+      requireString(content, "bio.image_second_alt", `${prefix}.bio.image_second_alt`);
+    }
+    for (const key of ["image_second_position_x", "image_second_position_y"]) {
+      const value = content.bio?.[key];
+      if (value != null && (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 100)) {
+        fail(`${prefix}.bio.${key} must be a number from 0 to 100`);
+      }
+    }
     for (const key of ["image_position_x", "image_position_y"]) {
       const value = content.bio?.[key];
       if (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 100) {
