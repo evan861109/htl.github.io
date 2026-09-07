@@ -202,3 +202,12 @@ test('biography switches at its midpoint and restores the portrait on scroll bac
   assert.equal(first.getAttribute('aria-hidden'),'false');
   f.run('bioImageState=null; updateBioImage()');
 });
+
+test('homepage About uses independent CMS text and falls back to biography excerpts', () => {
+  const f=setup(), copy=new Element();
+  f.nodes['[data-about-copy]']=copy;
+  f.run('hydrateSiteContent({about:{home_paragraphs:["Home introduction", "Home details", "Third paragraph"],paragraphs:["Full bio", "More bio"]}},"en")');
+  assert.deepEqual(copy.children.map(p=>p.textContent),['Home introduction','Home details','Third paragraph']);
+  f.run('hydrateSiteContent({about:{home_paragraphs:[],paragraphs:["Full bio", "More bio", "Last bio"]}},"en")');
+  assert.deepEqual(copy.children.map(p=>p.textContent),['Full bio','More bio']);
+});

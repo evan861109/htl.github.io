@@ -189,16 +189,24 @@ components:
             type: text
             required: true
       - name: about
-        label: Biography
+        label: Homepage About and biography text
         type: object
         required: true
         fields:
           - name: heading
-            label: Heading
+            label: Homepage About heading
             type: string
             required: true
+          - name: home_paragraphs
+            label: Homepage About paragraphs
+            description: Only shown on the homepage. Edit the full biography separately below.
+            type: text
+            list:
+              min: 1
+              max: 6
+              collapsible: false
           - name: paragraphs
-            label: Biography paragraphs
+            label: Full biography paragraphs
             type: text
             required: true
             list:

@@ -129,6 +129,11 @@ const validateSite = async (site) => {
     if (!Array.isArray(content.about?.paragraphs) || !content.about.paragraphs.length) {
       fail(`${prefix}.about.paragraphs must contain at least one paragraph`);
     }
+    const homeParagraphs = content.about?.home_paragraphs;
+    if (homeParagraphs != null && (!Array.isArray(homeParagraphs) || homeParagraphs.length > 6
+      || homeParagraphs.some(p => typeof p !== "string" || !p.trim()))) {
+      fail(`${prefix}.about.home_paragraphs must contain up to six nonempty text paragraphs`);
+    }
 
     if (!Array.isArray(content.tracks) || !content.tracks.length) {
       fail(`${prefix}.tracks must contain at least one entry`);

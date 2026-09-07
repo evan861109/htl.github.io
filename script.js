@@ -720,7 +720,9 @@ const hydrateSiteContent = (site, language) => {
     updateMotionLabel();
   }
 
-  renderParagraphs(site.about?.paragraphs?.slice(0, 2));
+  const homeParagraphs = site.about?.home_paragraphs;
+  renderParagraphs(Array.isArray(homeParagraphs) && homeParagraphs.some(p => typeof p === "string" && p.trim())
+    ? homeParagraphs : site.about?.paragraphs?.slice(0, 2));
   hydrateBioContent(site);
   renderTracks(site.tracks, site.ui?.watch || "Watch");
   renderProjects(site.projects);
