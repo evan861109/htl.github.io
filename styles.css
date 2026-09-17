@@ -429,10 +429,10 @@ html[lang="zh-Hant"] .intro-role {
 }
 
 .hero-video {
-  /* Crop the thin dark edges in the clips, including after the intro settles. */
-  inset: -16px;
-  width: calc(100% + 32px);
-  height: calc(100% + 32px);
+  /* Keep the clips' letterbox bars outside the hero at every viewport height. */
+  inset: -8%;
+  width: 116%;
+  height: 116%;
   object-position: 52% center;
   filter: saturate(0.9) contrast(1.04) brightness(0.96);
   opacity: 0;
