@@ -429,6 +429,10 @@ html[lang="zh-Hant"] .intro-role {
 }
 
 .hero-video {
+  /* Crop the thin dark edges in the clips, including after the intro settles. */
+  inset: -16px;
+  width: calc(100% + 32px);
+  height: calc(100% + 32px);
   object-position: 52% center;
   filter: saturate(0.9) contrast(1.04) brightness(0.96);
   opacity: 0;
@@ -481,8 +485,8 @@ html[lang="zh-Hant"] .intro-role {
   z-index: 2;
   width: min(690px, calc(100% - 36px));
   margin-left: clamp(18px, 7vw, 104px);
-  padding-top: var(--header-height);
-  padding-bottom: 88px;
+  padding-top: calc(var(--header-height) + clamp(32px, 5svh, 56px));
+  padding-bottom: clamp(48px, 8svh, 88px);
 }
 
 .hero-content > * {
@@ -546,9 +550,6 @@ html[lang="zh-Hant"] .hero-actions {
   margin-bottom: clamp(24px, 4svh, 42px);
 }
 
-html[lang="zh-Hant"] .hero-content {
-  padding-top: calc(var(--header-height) + clamp(16px, 2.5svh, 28px));
-}
 
 h1,
 h2,
@@ -582,7 +583,7 @@ h1 {
 }
 
 .hero h1 {
-  font-size: clamp(4rem, 12vw, 10.5rem);
+  font-size: clamp(4rem, min(12vw, 18svh), 10.5rem);
 }
 
 h2 {
