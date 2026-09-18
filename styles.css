@@ -218,6 +218,14 @@ img {
   border-color: var(--line);
 }
 
+/* Give the homepage header its own space above the performance footage. */
+body:not(.subpage) .site-header {
+  position: relative;
+  color: var(--ink);
+  background: #eef2ef;
+  border-color: var(--line);
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -378,7 +386,7 @@ html[lang="zh-Hant"] .intro-role {
 
 .hero {
   position: relative;
-  min-height: 92svh;
+  min-height: calc(92svh - var(--header-height));
   display: grid;
   align-items: center;
   overflow: hidden;
@@ -485,7 +493,7 @@ html[lang="zh-Hant"] .intro-role {
   z-index: 2;
   width: min(690px, calc(100% - 36px));
   margin-left: clamp(18px, 7vw, 104px);
-  padding-top: calc(var(--header-height) + clamp(32px, 5svh, 56px));
+  padding-top: clamp(32px, 5svh, 56px);
   padding-bottom: clamp(48px, 8svh, 88px);
 }
 
@@ -1699,7 +1707,7 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
   }
 
   .hero {
-    min-height: 88svh;
+    min-height: calc(88svh - var(--header-height));
   }
 
   .hero-content {
@@ -1818,7 +1826,7 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
   }
 
   .hero-content {
-    padding-top: calc(var(--header-height) + 40px);
+    padding-top: 40px;
   }
 
   html[lang="zh-Hant"] .hero-actions {
