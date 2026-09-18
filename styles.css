@@ -1807,6 +1807,27 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
 }
 
 @media (max-width: 540px) {
+  /* Browser toolbar movement must not resize the phone's video section. */
+  .hero {
+    min-height: 0;
+  }
+
+  .hero h1 {
+    font-size: clamp(4rem, 12vw, 10.5rem);
+  }
+
+  .hero-content {
+    padding-top: calc(var(--header-height) + 40px);
+  }
+
+  html[lang="zh-Hant"] .hero-actions {
+    margin-bottom: 28px;
+  }
+
+  .score-field {
+    bottom: 48px;
+  }
+
   .brand-text {
     display: none;
   }
