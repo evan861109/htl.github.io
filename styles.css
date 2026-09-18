@@ -437,11 +437,14 @@ html[lang="zh-Hant"] .intro-role {
 }
 
 .hero-video {
-  /* Keep the clips' letterbox bars outside the hero at every viewport height. */
-  inset: -8%;
-  width: 116%;
-  height: 116%;
-  object-position: 52% center;
+  /* Each 1280 x 720 clip has 40px bars above and below its 640px picture.
+     Fit that picture to the hero and anchor its top instead of center-cropping. */
+  inset: min(-6.25%, -3.125vw) 0 auto;
+  width: 100%;
+  height: max(112.5%, 56.25vw);
+  object-position: 52% top;
+  transform: none;
+  animation: none;
   filter: saturate(0.9) contrast(1.04) brightness(0.96);
   opacity: 0;
   transition: opacity 280ms ease-out;
@@ -1726,7 +1729,7 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
   }
 
   .hero-video {
-    object-position: 46% center;
+    object-position: 46% top;
   }
 
   .hero-shade {
