@@ -2017,3 +2017,36 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
     display: none;
   }
 }
+
+/* Keep navigation in sync with the device appearance on every page. */
+.site-header,
+.site-header.is-scrolled,
+.subpage .site-header,
+body:not(.subpage) .site-header {
+  --header-background: #ffffff;
+  --header-foreground: #141817;
+  color-scheme: light;
+  color: var(--header-foreground);
+  background: var(--header-background);
+  border-color: var(--line);
+}
+
+@media (max-width: 860px) {
+  .site-header .site-nav {
+    color: var(--header-foreground);
+    background: var(--header-background);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .site-header,
+  .site-header.is-scrolled,
+  .subpage .site-header,
+  body:not(.subpage) .site-header {
+    --header-background: #171b1a;
+    --header-foreground: #fbfcf7;
+    --line: rgba(251, 252, 247, 0.22);
+    --accent-dark: #a9d4ce;
+    color-scheme: dark;
+  }
+}
