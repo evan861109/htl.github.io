@@ -1702,6 +1702,16 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
     min-height: 88svh;
   }
 
+  .hero-content {
+    /* Reserve a separate bottom area for the 44px video control. */
+    padding-bottom: calc(112px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .motion-toggle {
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    max-width: calc(100% - 36px);
+  }
+
   .hero-image {
     object-position: 62% center;
   }
