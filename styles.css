@@ -1703,12 +1703,13 @@ html[lang="zh-Hant"] :is(h1, h2, h3).is-latin-title {
   }
 
   .hero-content {
-    /* Reserve a separate bottom area for the 44px video control. */
-    padding-bottom: calc(112px + env(safe-area-inset-bottom, 0px));
+    /* This section scrolls with the document. A changing Safari safe-area
+       inset here would stretch it when the browser toolbar collapses. */
+    padding-bottom: 112px;
   }
 
   .motion-toggle {
-    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    bottom: 18px;
     max-width: calc(100% - 36px);
   }
 
