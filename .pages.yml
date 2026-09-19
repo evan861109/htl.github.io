@@ -485,6 +485,31 @@ components:
             label: Image description
             type: text
             required: true
+          - name: image_show_full
+            label: Show full image
+            description: Enable to keep the entire photo visible. Disable to fill the banner with a cropped photo.
+            type: boolean
+          - name: image_width
+            label: Image area width (%)
+            description: 100 uses the full banner width. A smaller value leaves more room for text on the left. On phones the image uses the full width.
+            type: number
+            options:
+              min: 30
+              max: 100
+          - name: image_position_x
+            label: Image horizontal position (%)
+            description: 0 aligns left, 50 centers, and 100 aligns right within the image area.
+            type: number
+            options:
+              min: 0
+              max: 100
+          - name: image_position_y
+            label: Image vertical position (%)
+            description: 0 aligns the top, 50 centers, and 100 aligns the bottom within the image area.
+            type: number
+            options:
+              min: 0
+              max: 100
           - name: eyebrow
             label: Short introduction
             type: string

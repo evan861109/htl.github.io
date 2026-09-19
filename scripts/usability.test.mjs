@@ -211,3 +211,21 @@ test('homepage About uses independent CMS text and falls back to biography excer
   f.run('hydrateSiteContent({about:{home_paragraphs:[],paragraphs:["Full bio", "More bio", "Last bio"]}},"en")');
   assert.deepEqual(copy.children.map(p=>p.textContent),['Full bio','More bio']);
 });
+
+test('Media banner settings reset across languages and handle missing or invalid numbers', () => {
+  const f = setup();
+  const image = new Element('img');
+  const properties = {};
+  image.style.setProperty = (key, value) => { properties[key] = value; };
+  f.nodes['[data-media-hero-image]'] = image;
+  f.run('hydrateMediaContent({en:{hero:{image:"photo.jpg",image_show_full:true,image_width:65,image_position_x:100,image_position_y:0}}},"en")');
+  assert.equal(image.style.objectFit, 'contain');
+  assert.equal(image.style.objectPosition, '100% 0%');
+  assert.equal(properties['--media-image-width'], '65%');
+  f.run('hydrateMediaContent({zh_hant:{hero:{image:"photo.jpg",image_width:null,image_position_x:999,image_position_y:-3}}},"zh_hant")');
+  assert.equal(image.style.objectFit, 'cover');
+  assert.equal(image.style.objectPosition, '100% 0%');
+  assert.equal(properties['--media-image-width'], '100%');
+  f.run('hydrateMediaContent({en:{hero:{image:"photo.jpg"}}},"en")');
+  assert.equal(image.style.objectPosition, '50% 50%');
+});

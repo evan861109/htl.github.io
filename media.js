@@ -193,6 +193,14 @@ const hydrateMediaContent = (content, language) => {
 
   const heroImage = document.querySelector("[data-media-hero-image]");
   if (heroImage && media.hero?.image) {
+    const bounded = (value, fallback, min = 0) => {
+      const number = typeof value === "number" ? value : NaN;
+      return Number.isFinite(number) ? Math.max(min, Math.min(100, number)) : fallback;
+    };
+    heroImage.style.objectFit = media.hero.image_show_full === true ? "contain" : "cover";
+    heroImage.style.objectPosition =
+      bounded(media.hero.image_position_x, 50) + "% " + bounded(media.hero.image_position_y, 50) + "%";
+    heroImage.style.setProperty("--media-image-width", bounded(media.hero.image_width, 100, 30) + "%");
     heroImage.src = media.hero.image;
     heroImage.alt = media.hero.image_alt || "Percussion detail";
   }

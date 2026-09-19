@@ -1344,7 +1344,7 @@ html[lang="zh-Hant"] .about-link {
   align-items: end;
   overflow: hidden;
   color: var(--white);
-  background: var(--graphite);
+  background: #090d0d;
 }
 
 .media-hero > img,
@@ -1356,6 +1356,8 @@ html[lang="zh-Hant"] .about-link {
 }
 
 .media-hero > img {
+  left: auto;
+  width: var(--media-image-width, 100%);
   object-fit: cover;
   object-position: center;
   filter: saturate(0.7) contrast(1.08) brightness(0.72);
@@ -2052,4 +2054,8 @@ body:not(.subpage) .site-header {
     --accent-dark: #a9d4ce;
     color-scheme: dark;
   }
+}
+
+@media (max-width: 860px) {
+  .media-hero > img { width: 100%; }
 }

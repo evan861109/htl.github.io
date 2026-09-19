@@ -7,6 +7,10 @@
     "hero": {
       "image": "assets/img0411-1.jpg",
       "image_alt": "Close view of wooden percussion bars and strings",
+      "image_show_full": true,
+      "image_width": 100,
+      "image_position_x": 100,
+      "image_position_y": 50,
       "eyebrow": "Media / Performances",
       "title": "Media",
       "description": "A selected archive of solo performance, interdisciplinary work, and new-music collaboration."
@@ -80,6 +84,10 @@
     "hero": {
       "image": "assets/img0411.jpg",
       "image_alt": "木質打擊樂器音板與琴弦的近景",
+      "image_show_full": true,
+      "image_width": 100,
+      "image_position_x": 100,
+      "image_position_y": 50,
       "eyebrow": "影音作品 / 演出紀錄 ",
       "title": "影音作品",
       "description": "收錄獨奏演出、重奏演出及跨領域合作的影音。"
